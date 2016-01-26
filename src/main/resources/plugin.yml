@@ -1,0 +1,5 @@
+name: Hub
+main: me.vorps.hub.Hub
+version: 1.0
+description: Hub
+author: Vorps
