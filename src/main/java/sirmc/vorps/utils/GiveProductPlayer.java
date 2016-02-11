@@ -1,7 +1,10 @@
 package sirmc.vorps.utils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import sirmc.vorps.Grades;
 import sirmc.vorps.Hub;
 import sirmc.vorps.Object.Products;
@@ -11,6 +14,8 @@ import sirmc.vorps.menu.MenuPetsCustom;
 import sirmc.vorps.menu.Navigator;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Vorps on 03/02/2016.
@@ -31,24 +36,40 @@ public class GiveProductPlayer {
         }
         switch (products.getType()) {
             case 1:
-                Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setHelmet(playerHub.getProductTarget());
-                Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici votre chapeau !!!");
-                Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                if(playerHub.getProductTarget().getItemMeta().getLore().contains("§aRetirer ce chapeau")){
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setHelmet(new ItemStack(Material.AIR));
+                } else {
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setHelmet(new Item(playerHub.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer ce chapeau"}).get());
+                    Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici votre chapeau !!!");
+                    Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                }
                 break;
             case 2:
-                Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setChestplate(playerHub.getProductTarget());
-                Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici votre plastron !!!");
-                Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                if(playerHub.getProductTarget().getItemMeta().getLore().contains("§aRetirer ce plastron")){
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setChestplate(new ItemStack(Material.AIR));
+                } else {
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setChestplate(new Item(playerHub.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer ce plastron"}).get());
+                    Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici votre plastron !!!");
+                    Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                }
                 break;
             case 3:
-                Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setLeggings(playerHub.getProductTarget());
-                Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici votre leggings !!!");
-                Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                if(playerHub.getProductTarget().getItemMeta().getLore().contains("§aRetirer ce leggings")){
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setLeggings(new ItemStack(Material.AIR));
+                } else {
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setLeggings(new Item(playerHub.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer ce leggings"}).get());
+                    Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici votre leggings !!!");
+                    Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                }
                 break;
             case 4:
-                Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setBoots(playerHub.getProductTarget());
-                Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici vos bottes !!!");
-                Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                if(playerHub.getProductTarget().getItemMeta().getLore().contains("§aRetirer vos bottes")){
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setBoots(new ItemStack(Material.AIR));
+                } else {
+                    Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setBoots(new Item(playerHub.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer vos bottes"}).get());
+                    Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eVoici vos bottes !!!");
+                    Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                }
                 break;
             case 5:
                 Hub.instance.database.SendDatabase("UPDATE PlayersSettings SET bonus = '"+nameProduct+"' WHERE namePlayer = '"+Bukkit.getPlayer(playerHub.getPlayerName()).getName()+"'");

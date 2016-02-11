@@ -10,8 +10,8 @@ public class JumpsSettings {
 	private @Getter	int checkPoint;
 	private @Getter float Yaw;
 	
-	public JumpsSettings(ResultSet resultats) throws SQLException{
-		checkPoint = resultats.getInt(2);
-		Yaw = resultats.getFloat(3);
+	public JumpsSettings(ResultSet results) throws SQLException{
+		checkPoint = results.getInt(2);
+		Yaw = results.getFloat(3);
 	}
 }

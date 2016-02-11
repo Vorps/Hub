@@ -66,7 +66,7 @@ public class InteractListener implements Listener{
                         playerHub.setNumberTrying(0);
                         playerHub.setJump(null);
                         playerHub.setLocCheckPoint(null);
-                        playerHub.TeleportSpawn();
+                        playerHub.teleportSpawn();
                         Title title = new Title("§aFélicitation !!! ", "§6Vous avez gagné un §ccookie.");
                         title.setStayTime(10);
                         title.send(player);
@@ -106,7 +106,7 @@ public class InteractListener implements Listener{
             if(!e.getAction().equals(Action.PHYSICAL)){
                 ItemStack is = e.getItem();
                 Action action = e.getAction();
-                if(is.getType().equals(Material.BOOK_AND_QUILL)){
+                if(is.getType().equals(Material.WRITTEN_BOOK)){
                     if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
                         e.setCancelled(false);
                     } else if(e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)){

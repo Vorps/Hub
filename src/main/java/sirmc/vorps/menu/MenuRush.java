@@ -10,7 +10,7 @@ import sirmc.vorps.utils.Item;
 
 public class MenuRush {
 	public static void HubmenuRush(PlayerHub playerHub){
-		Inventory menuRush = Bukkit.createInventory(null, 36, "�6Menu Principal > Rush");
+		Inventory menuRush = Bukkit.createInventory(null, 36, "§6Menu Principal > Rush");
 		menuRush.setItem(0, new Item(160).withData((byte) 14).withName(" ").get());
 		menuRush.setItem(1, new Item(160).withData((byte) 0).withName(" ").get());
 		menuRush.setItem(2, new Item(160).withData((byte) 14).withName(" ").get());
@@ -30,10 +30,10 @@ public class MenuRush {
 		menuRush.setItem(18, new Item(160).withData((byte) 14).withName(" ").get());
 		
 		menuRush.setItem(20, new Item(Material.PAPER).withName("§6{Nom} - 2v2").get());
-		menuRush.setItem(21, new Item(Material.PAPER).withName("�6Benza� - 4v4").get());
+		menuRush.setItem(21, new Item(Material.PAPER).withName("§6Benza - 4v4").get());
 		
-		menuRush.setItem(23, new Item(Material.PAPER).withName("�6FairyWorld - 2v2").get());
-		menuRush.setItem(24, new Item(Material.PAPER).withName("�6Orc - 4v4").get());
+		menuRush.setItem(23, new Item(Material.PAPER).withName("§6FairyWorld - 2v2").get());
+		menuRush.setItem(24, new Item(Material.PAPER).withName("§6Orc - 4v4").get());
 		
 		menuRush.setItem(26, new Item(160).withData((byte) 14).withName(" ").get());
 		

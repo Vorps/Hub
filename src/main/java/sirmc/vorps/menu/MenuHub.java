@@ -38,7 +38,11 @@ public class MenuHub {
                 }
             }
             if(nbrPlayerGrade != 0){
-                des.add(listGrades.getColorGrade()+listGrades.getGradeDisplay()+"§f "+nbrPlayerGrade);
+                if(listGrades.getGradeDisplay().equals("")){
+                    des.add(listGrades.getColorGrade()+listGrades.getGrade()+"§f "+nbrPlayerGrade);
+                } else {
+                    des.add(listGrades.getColorGrade()+listGrades.getGradeDisplay()+"§f "+nbrPlayerGrade);
+                }
             }
         }
         if(Hub.instance.getPlayerHub().size() <= 15){

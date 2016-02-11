@@ -14,7 +14,7 @@ public class MenuProfil {
 	private static List<String> des = new ArrayList<String>();
 	
 	public static void HubMenuProfil(PlayerHub playerHub){
-		Inventory menuProfil = Bukkit.createInventory(null, 45, "�6Profil");
+		Inventory menuProfil = Bukkit.createInventory(null, 45, "§6Profil");
 		menuProfil.setItem(0, new Item(160).withData((byte) 2).withName(" ").get());
 		menuProfil.setItem(1, new Item(160).withData((byte) 6).withName(" ").get());
 		menuProfil.setItem(2, new Item(160).withData((byte) 2).withName(" ").get());

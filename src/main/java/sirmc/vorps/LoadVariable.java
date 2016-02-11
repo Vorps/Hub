@@ -3,10 +3,7 @@ package sirmc.vorps;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import sirmc.vorps.Object.Bonus;
-import sirmc.vorps.Object.Jumps;
-import sirmc.vorps.Object.Money;
-import sirmc.vorps.Object.Products;
+import sirmc.vorps.Object.*;
 
 public class LoadVariable {
 	
@@ -22,8 +19,10 @@ public class LoadVariable {
 		getSettings();
 		Grades.InitGrade();
 		Permissions.InitPermissions();
-		Commands.LoadCommand(plugin);
+		Commands.LoadCommand();
 		Settings.initSettings();
+		getMessagePlayer();
+		getBookHelp();
 	}
 	
 	public static void getSettings(){
@@ -40,7 +39,9 @@ public class LoadVariable {
 		try {
 			ResultSet results = Hub.instance.database.getConn().createStatement().executeQuery("SELECT * FROM Commands ");
 	        while(results.next()){
-	        	Hub.instance.getListCommands().add(new Commands(results));
+                if(!results.getString(1).equals("*")){
+                    Hub.instance.getListCommands().put(results.getString(1), new Commands(results));
+                }
 	        }
 		} catch (Exception e) {}
 	}
@@ -147,6 +148,16 @@ public class LoadVariable {
 			ResultSet results = Hub.instance.database.getConn().createStatement().executeQuery("SELECT * FROM MessagePlayer ");
 			while(results.next()){
 				Hub.instance.getMessageGradePlayer().put(results.getString(3), results.getString(2));
+			}
+		} catch (Exception e) {}
+	}
+
+	public static void getBookHelp(){
+		Hub.instance.getBookHelpList().clear();
+		try {
+			ResultSet results = Hub.instance.database.getConn().createStatement().executeQuery("SELECT * FROM BookHelp WHERE page = '"+1+"' ");
+			while(results.next()){
+				Hub.instance.getBookHelpList().put(results.getString(1), new BookHelp(results));
 			}
 		} catch (Exception e) {}
 	}

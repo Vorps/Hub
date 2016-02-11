@@ -14,10 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import sirmc.vorps.Object.Bonus;
-import sirmc.vorps.Object.Jumps;
-import sirmc.vorps.Object.Money;
-import sirmc.vorps.Object.Products;
+import sirmc.vorps.Object.*;
 import sirmc.vorps.commands.*;
 import sirmc.vorps.database.Database;
 import sirmc.vorps.events.*;
@@ -33,7 +30,8 @@ public class Hub extends JavaPlugin{
 	private final @Getter DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
 
 	private @Getter	HashMap<String, String> messageGradePlayer = new HashMap<>();
-	private @Getter ArrayList<Commands> listCommands = new ArrayList<>();
+	private @Getter	HashMap<String, BookHelp> bookHelpList = new HashMap<>();
+	private @Getter HashMap<String, Commands> listCommands = new HashMap<>();
 	private @Getter HashMap<String, Products> listProducts= new HashMap<>();
 	private @Getter HashMap<String, ArrayList<String>> listProductsGrade = new HashMap<>();
 	private @Getter ArrayList<Money> listMoney = new ArrayList<>();

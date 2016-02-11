@@ -68,7 +68,8 @@ public class Purchase {
                     des.add("§9"+nameProduct);
                     des.add("§aClic gauche : §eAcheter -> §e"+ Hub.instance.getListProducts().get(nameProduct).getPrice()+" §a"+Hub.instance.getListProducts().get(nameProduct).getMoney());
                 } else {
-                    des.add("§cVous n'avez pas assez de §a"+Hub.instance.getListProducts().get(nameProduct).getMoney()+"§c pour acheter le produit §a"+nameProduct);
+                    des.add("§cVous n'avez pas assez de §a"+Hub.instance.getListProducts().get(nameProduct).getMoney());
+                    des.add("§c pour acheter le produit §a"+nameProduct);
                 }
             } else {
                 if(Hub.instance.getListProductsGrade().get(nameProduct).contains(playerHub.getGrade())){
@@ -77,7 +78,8 @@ public class Purchase {
                         des.add("§9"+nameProduct);
                         des.add("§aClic gauche : §eAcheter -> §e"+ Hub.instance.getListProducts().get(nameProduct).getPrice()+" §a"+Hub.instance.getListProducts().get(nameProduct).getMoney());
                     } else {
-                        des.add("§cVous n'avez pas assez de §a"+Hub.instance.getListProducts().get(nameProduct).getMoney()+"§c pour acheter le produit §a"+nameProduct);
+                        des.add("§cVous n'avez pas assez de §a"+Hub.instance.getListProducts().get(nameProduct).getMoney());
+                        des.add("§c pour acheter le produit §a"+nameProduct);
                     }
                 }
                 des.add("§cCe produit est reservé au grade :");

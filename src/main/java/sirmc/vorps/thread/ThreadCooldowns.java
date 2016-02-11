@@ -23,21 +23,21 @@ public class ThreadCooldowns extends Thread{
 	
 	public void run(){
 		des.clear();
-		des.add("�aPermet de masquer");
-		des.add("�7 - Les joueurs");
+		des.add("§aPermet de masquer");
+		des.add("§7 - Les joueurs");
 		while(Cooldowns.getSecondsLeftVisible(playerHub) > 0){
 			if(Hub.instance.getPlayerHub().containsKey(playerHub.getPlayerName())){
 				if(playerHub.isVisiblePlayer()){
 					if(Cooldowns.getSecondsLeftVisible(playerHub) >= 2){
-						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("!6Joueurs (§aActivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Secondes)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
+						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§aActivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Secondes)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
 					} else {
-						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("!6Joueurs (§aActivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Seconde)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
+						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§aActivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Seconde)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
 					}
 				} else {
 					if(Cooldowns.getSecondsLeftVisible(playerHub) >= 2){
-						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("!6Joueurs (§4Désactivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Secondes)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
+						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§4Désactivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Secondes)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
 					} else {
-						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("!6Joueurs (§4Désactivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Seconde)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
+						Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§4Désactivé§6) §7("+Cooldowns.getSecondsLeftVisible(playerHub)+" Seconde)§6.").withAmount((int) -Cooldowns.getSecondsLeftVisible(playerHub)).withLore(des.toArray(new String[des.size()])).get());
 					}
 				}
 				try {

@@ -22,7 +22,16 @@ public class ChatListener implements Listener {
         Player player = e.getPlayer();
         LoadVariable.getListMute();
         PlayerHub playerHub = Hub.instance.getPlayerHub().get(player.getName());
-        e.setFormat("%s "+ Grades.GetGrade(playerHub).getColorChat()+": %s");
+        StringBuilder messageBuild = new StringBuilder(e.getMessage());
+        if(player.hasPermission("hub.chatcolor")){
+           for(int i = 0; i < messageBuild.length(); i++) {
+               if(messageBuild.charAt(i) == '&'){
+                   messageBuild.replace(i, i+1, "§");
+               }
+           }
+        }
+        String message = messageBuild.toString().trim();
+        e.setFormat("%s "+ Grades.GetGrade(playerHub).getColorChat()+": "+message);
         if(Hub.instance.getListMute().contains(player.getName())){
             try {
                 ResultSet resultSet = Hub.instance.database.getConn().createStatement().executeQuery("SELECT * FROM Mute WHERE namePlayer = '"+player.getName()+"'");

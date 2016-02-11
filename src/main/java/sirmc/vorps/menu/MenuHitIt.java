@@ -28,7 +28,7 @@ public class MenuHitIt {
 		
 		menuHitIt.setItem(9, new Item(160).withData((byte) 9).withName(" ").get());
 		menuHitIt.setItem(10, new Item(Material.SIGN).withName("§6Panneaux").get());
-		menuHitIt.setItem(13, new Item(Material.ENDER_PEARL).withName("§6Partie al�atoire").get());
+		menuHitIt.setItem(13, new Item(Material.ENDER_PEARL).withName("§6Partie aléatoire").get());
 		menuHitIt.setItem(16, new Item(Material.ENDER_CHEST).withName("§6Boutique du jeu").get());
 		menuHitIt.setItem(17, new Item(160).withData((byte) 9).withName(" ").get());
 		

@@ -176,7 +176,7 @@ public class MenuHelmet {
 		menuHelmetPage3.setItem(50, new Item(160).withData((byte) 6).withName(" ").get());
 		menuHelmetPage3.setItem(51, new Item(160).withData((byte) 2).withName(" ").get());
 		menuHelmetPage3.setItem(52, new Item(160).withData((byte) 10).withName(" ").get());
-		menuHelmetPage3.setItem(53, new Item(Material.EMPTY_MAP).withName("§6Page Précedente -> Têtes").withLore(new String[] {"§7Retour au menu T§tes"}).get());
+		menuHelmetPage3.setItem(53, new Item(Material.EMPTY_MAP).withName("§6Page Précedente -> Têtes").withLore(new String[] {"§7Retour au menu Têtes"}).get());
 		Bukkit.getPlayer(playerHub.getPlayerName()).openInventory(menuHelmetPage3);
 	}
 }

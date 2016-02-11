@@ -26,10 +26,10 @@ public class MenuPrincipal {
 	        menuPrincipal.setItem(9, new Item(Material.BOOK).withName("§6Aide").withLore(new String[] {"§7Besoin d'aide ?"}).get());
 	        menuPrincipal.setItem(17, new Item(Material.NETHER_STAR).withName("§6Hub").withLore(new String[] {"§7Changer de hub"}).get());
 	        menuPrincipal.setItem(18, new Item(160).withData((byte) 4).withName(" ").get());
-	        menuPrincipal.setItem(20, new Item(Material.DIAMOND_SWORD).withName("§6HitIt!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).withLore(new String[] {"HitIt"}).get());
-			menuPrincipal.setItem(21, new Item(Material.BED).withName("§6Rush!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).withLore(new String[] {"Rush"}).get());
-			menuPrincipal.setItem(23, new Item(Material.BOW).withName("§6SkyWars!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).withLore(new String[] {"SkyWars"}).get());
-			menuPrincipal.setItem(24, new Item(Material.EXP_BOTTLE).withName("§6LuckyFight!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).withLore(new String[] {"LuckyFight"}).get());
+	        menuPrincipal.setItem(20, new Item(Material.DIAMOND_SWORD).withName("§6HitIt!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
+			menuPrincipal.setItem(21, new Item(Material.BED).withName("§6Rush!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
+			menuPrincipal.setItem(23, new Item(Material.BOW).withName("§6SkyWars!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
+			menuPrincipal.setItem(24, new Item(Material.EXP_BOTTLE).withName("§6LuckyFight!").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
 	        menuPrincipal.setItem(26, new Item(160).withData((byte) 4).withName(" ").get());
 	        
 	        menuPrincipal.setItem(27, new Item(Material.LEATHER_BOOTS).withName("§6Jump").withColor(Color.PURPLE).withLore(new String[] {"§7Jumps"}).get());

@@ -1,14 +1,15 @@
 package sirmc.vorps.events;
 
 import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import sirmc.vorps.*;
+import sirmc.vorps.Object.BookHelp;
 import sirmc.vorps.Object.Jumps;
 import sirmc.vorps.Object.Products;
 import sirmc.vorps.commands.CommandBuild;
@@ -30,17 +31,35 @@ public class InterractInventoryListener implements Listener {
 
     @EventHandler
     public void onInterractInventory(InventoryClickEvent e){
+        PlayerHub playerHub = Hub.instance.getPlayerHub().get(e.getWhoClicked().getName());
         try {
             if(!Hub.instance.getPlayerHub().get(e.getWhoClicked().getName()).isBuild()){
                 e.setCancelled(true);
             }
-            if(!e.getCurrentItem().equals(null)){
+            if(e.getCurrentItem().getType().equals(Material.AIR)){
+                switch (e.getSlot()){
+                    case 39:
+                        MenuHelmet.HubmenuHelmetPage1(playerHub);
+                        break;
+                    case 38:
+                        MenuChestplate.HubMenuChestplate(playerHub);
+                        break;
+                    case 37:
+                        MenuLeggings.HubMenuLeggings(playerHub);
+                        break;
+                    case 36:
+                        MenuBoots.HubMenuBoots(playerHub);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if(e.getCurrentItem() != null){
                 state = true;
-                PlayerHub playerHub = Hub.instance.getPlayerHub().get(e.getWhoClicked().getName());
                 ItemStack is = e.getCurrentItem();
                 switch(is.getType()){
                     case COMPASS:
-                        if(is.getItemMeta().getLore().get(0).equals("§7Accèder au menu principal")){
+                        if(is.getItemMeta().getLore().contains("§7Accéder au menu principal")){
                             MenuPrincipal.HubMenuPricipal(playerHub);
                         }
                         break;
@@ -51,7 +70,7 @@ public class InterractInventoryListener implements Listener {
                         } else if(is.getItemMeta().getLore().get(0).equals("Remove Membre")){
                             Bukkit.getPlayer(playerHub.getPlayerName()).chat("/party remove "+is.getItemMeta().getDisplayName());
                             MenuParty.HubMenuRemoveParty(playerHub ,1);
-                        } else if(is.getItemMeta().getLore().get(0).equals("§6Résumé du profil")){
+                        } else if(is.getItemMeta().getDisplayName().equals("§6Résumé du profil")){
                             MenuProfil.HubMenuProfil(playerHub);
                         }
                         break;
@@ -61,7 +80,7 @@ public class InterractInventoryListener implements Listener {
                         }
                         break;
                     case ENDER_CHEST:
-                        if(is.getItemMeta().getLore().get(0).equals("§7Accèder au menu Boutique")){
+                        if(is.getItemMeta().getLore().contains("§7Accéder au menu Boutique")){
                             MenuBoutique.HubMenuBoutique(playerHub);
                         }
                         break;
@@ -172,27 +191,33 @@ public class InterractInventoryListener implements Listener {
                     case BOOK:
                         if(is.getItemMeta().getLore().get(0).equals("§7Besoin d'aide ?")){
                             MenuHelp.HubMenuHelp(playerHub);
-                        } else {
-                            Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(4, new Item(Material.BOOK_AND_QUILL).withName(is.getItemMeta().getLore().get(0)).get());
                         }
                         break;
+                    case WRITTEN_BOOK:
+                        Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().clear(4);
+                    case BOOK_AND_QUILL:
+                        System.out.println(is.getItemMeta().getDisplayName());
+                        System.out.println(Hub.instance.getBookHelpList().size());
+                        Bukkit.getPlayer(playerHub.getPlayerName()).getInventory().setItem(4, Hub.instance.getBookHelpList().get(is.getItemMeta().getDisplayName()).get());
+                        Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
+                        break;
                     case DIAMOND_SWORD:
-                        if(is.getItemMeta().getLore().get(0).equals("HitIt")){
+                        if(is.getItemMeta().getDisplayName().equals("§6HitIt!")){
                             MenuHitIt.HubmenuHitIt(playerHub);
                         }
                         break;
                     case BED:
-                        if(is.getItemMeta().getLore().get(0).equals("Rush")){
+                        if(is.getItemMeta().getDisplayName().equals("§6Rush!")){
                             MenuRush.HubmenuRush(playerHub);
                         }
                         break;
                     case BOW:
-                        if(is.getItemMeta().getLore().get(0).equals("SkyWars")){
+                        if(is.getItemMeta().getDisplayName().equals("§6SkyWars!")){
                             MenuSkyWars.HubmenuSkyWars(playerHub);
                         }
                         break;
                     case EXP_BOTTLE:
-                        if(is.getItemMeta().getLore().get(0).equals("LuckyFight")){
+                        if(is.getItemMeta().getDisplayName().equals("§6LuckyFight!")){
                             MenuLuckyFight.HubmenuLuckyFight(playerHub);
                         }
                         break;
@@ -292,7 +317,7 @@ public class InterractInventoryListener implements Listener {
                         MenuFriends.HubMenuFriends(playerHub, 1);
                     }
                 } else if(is.getData().getItemTypeId() == 322){
-                    if(is.getItemMeta().getLore().get(0).equals("§6Obtenir des étoiles")){
+                    if(is.getItemMeta().getLore().get(0).equals("§7Obtenir des étoiles")){
                         Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§eBoutique en ligne : §a§nwww.sirelmc.fr");
                         Bukkit.getPlayer(playerHub.getPlayerName()).closeInventory();
                     }
@@ -313,17 +338,14 @@ public class InterractInventoryListener implements Listener {
 
                 if(Hub.instance.getListProducts().containsKey(is.getItemMeta().getLore().get(0).substring(2))){
                     playerHub.setProductTarget(is);
-                    ResultSet resultats;
-                    boolean encore;
+                    ResultSet results;
                     try {
-                        resultats = Hub.instance.database.getConn().createStatement().executeQuery("SELECT * FROM PlayerProduit WHERE namePlayer = '"+Bukkit.getPlayer(playerHub.getPlayerName()).getName()+"'");
-                        encore = resultats.next();
-                        while(encore){
-                            if(resultats.getString(2).equals(is.getItemMeta().getLore().get(0).substring(2))){
+                        results = Hub.instance.database.getConn().createStatement().executeQuery("SELECT * FROM PlayerProduit WHERE namePlayer = '"+Bukkit.getPlayer(playerHub.getPlayerName()).getName()+"'");
+                        while(results.next()){
+                            if(results.getString(2).equals(is.getItemMeta().getLore().get(0).substring(2))){
                                 is.getItemMeta().getLore().get(0).charAt(0);
                                 state = false;
                             }
-                            encore = resultats.next();
                         }
                     } catch (Exception exception) {}
 

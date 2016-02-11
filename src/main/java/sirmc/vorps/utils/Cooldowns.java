@@ -56,11 +56,11 @@ public class Cooldowns {
 			} else {
 				playerHub.setNbrClickVisiblePlayer(playerHub.getNbrClickVisiblePlayer()+1);
 				if(playerHub.getNbrClickVisiblePlayer()%Settings.getNbrClickMax() == 0){
-					ActionBar.sendActionBar("�6Vous avez abus� des bonnes chose !!!", Bukkit.getPlayer(playerHub.getPlayerName()));
-					Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("�7Vous avez abus� des bonnes chose !!!");
+					ActionBar.sendActionBar("§6Vous avez abusé des bonnes chose !!!", Bukkit.getPlayer(playerHub.getPlayerName()));
+					Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§7Vous avez abusé des bonnes chose !!!");
 					Bukkit.getPlayer(playerHub.getPlayerName()).addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, Settings.getTimeConfusion(), 100));
 				} else {
-						ActionBar.sendActionBar("�6�lEn cour de recharge !!!.", Bukkit.getPlayer(playerHub.getPlayerName()));
+						ActionBar.sendActionBar("§6§lEn cour de recharge !!!.", Bukkit.getPlayer(playerHub.getPlayerName()));
 				}
 			}
 		} else {

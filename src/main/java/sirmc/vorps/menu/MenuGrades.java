@@ -11,7 +11,7 @@ import sirmc.vorps.utils.Purchase;
 public class MenuGrades {
 	public static void HubMenuGrades(PlayerHub playerHub){
 		Purchase purchase = new Purchase(playerHub, "ce grade");
-		Inventory menuGrades = Bukkit.createInventory(null, 45, "�6Boutique > Grades");
+		Inventory menuGrades = Bukkit.createInventory(null, 45, "§6Boutique > Grades");
 		menuGrades.setItem(0, new Item(160).withData((byte) 11).withName(" ").get());
 		menuGrades.setItem(1, new Item(160).withData((byte) 4).withName(" ").get());
 		menuGrades.setItem(2, new Item(160).withData((byte) 5).withName(" ").get());

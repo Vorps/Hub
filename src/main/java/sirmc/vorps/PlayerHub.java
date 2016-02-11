@@ -53,18 +53,18 @@ public class PlayerHub {
 		UpdateParty();
 		UpdateGrades();
 		getBonusFunction();
-		if(!Hub.instance.getPlayerHub().containsKey(playerName)){
-			new Title(Settings.getWelcome_MsgTitle(), Settings.getWelcome_msgSubTitle()).send(player);
-			DisplayMessage();
-		}
 		LoadVariable.ListPLayer();
 	    TabList.setPlayerList(player, Settings.getMessageTabListHeader(), Settings.getMessageTabListFooter());
-	    TeleportSpawn();
+		teleportSpawn();
 	    InitVariablePlayer();
         Hub.instance.getScoreBoard().getTeamDisplayName().get(grade).addPlayer(player);
         player.setScoreboard(Hub.instance.getScoreBoard().getBoard());
         player.setFoodLevel(20);
         Hub.instance.getScoreBoard().updatePlayer();
+		if(!Hub.instance.getPlayerHub().containsKey(playerName)){
+			new Title(Settings.getWelcome_MsgTitle(), Settings.getWelcome_msgSubTitle()).send(player);
+			DisplayMessage();
+		}
 	}
 
 	public void getMoneyFunction(){
@@ -144,7 +144,11 @@ public class PlayerHub {
 		if(build){
 			Bukkit.getPlayer(playerName).getInventory().clear();
          	Bukkit.getPlayer(playerName).setGameMode(GameMode.CREATIVE);
-			if(state) Bukkit.getPlayer(playerName).sendMessage("§6Mode build (§2Activé§6).");
+			if(state){
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+				Bukkit.getPlayer(playerName).sendMessage("§6Mode build (§2Activé§6).");
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			}
 		}
 	}
 
@@ -154,7 +158,11 @@ public class PlayerHub {
 		} catch (SQLException e) {}
 		if(doubleJumps){
 			Bukkit.getPlayer(playerName).setAllowFlight(true);
-			if(state) Bukkit.getPlayer(playerName).sendMessage("§6Mode doubleJump (§2Activé§6).");
+			if(state){
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+				Bukkit.getPlayer(playerName).sendMessage("§6Mode doubleJump (§2Activé§6).");
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			}
 		}
 	}
 	
@@ -164,25 +172,32 @@ public class PlayerHub {
 		} catch (SQLException e) {}
 		if(fly){
 			Bukkit.getPlayer(playerName).setAllowFlight(true);
-			if(state) Bukkit.getPlayer(playerName).sendMessage("§6Mode fly (§2Activé§6).");
+			if(state){
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+				Bukkit.getPlayer(playerName).sendMessage("§6Mode fly (§2Activé§6).");
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			}
 		} else {
-			getDoubleJumpsFunction(true);
+			getDoubleJumpsFunction(false);
 		}
 	}
 	
-	public void getVisiblePlayerFunction(){
+	public void getVisiblePlayerFunction(boolean state){
 		try {
 			visiblePlayer = getPlayerDatabases().getBoolean(4);
 		} catch (SQLException e) {
 		}
-		System.out.println(visiblePlayer);
 		if(!visiblePlayer){
 			Bukkit.getOnlinePlayers().forEach(p -> Bukkit.getPlayer(playerName).hidePlayer(p));
-			Bukkit.getPlayer(playerName).sendMessage("§6Joueur (§4Dsactivé§6).");
+			if(state){
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+				Bukkit.getPlayer(playerName).sendMessage("§6Joueur (§4Désactivé§6).");
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			}
 		}
 	}
 
-	public void TeleportSpawn(){
+	public void teleportSpawn(){
 		 Location spawn = Hub.instance.getSpawnHub();
 		 spawn.setWorld(Bukkit.getPlayer(playerName).getWorld());
 		 Bukkit.getPlayer(playerName).teleport(spawn);
@@ -193,10 +208,9 @@ public class PlayerHub {
         getProductsPlayerFunction();
         Bukkit.getPlayer(playerName).setAllowFlight(false);
         Navigator.HubNavigator(this);
-		getBuildFunction(true);
-		getFlyFunction(true);
-		getVisiblePlayerFunction();
-
+		getBuildFunction(false);
+		getFlyFunction(false);
+		getVisiblePlayerFunction(false);
 		locCheckPoint = null;
 		jump = null;
 		inJumps = false;
@@ -205,8 +219,8 @@ public class PlayerHub {
 		nbrClickVisiblePlayer = 0;
 		nbrDoubleJumps = 0;
 		playerNameMessage = null;
-		
 	}
+
 	public void UpdateFriends(){
 		friends = new Friends(this);
 	}
@@ -291,7 +305,7 @@ public class PlayerHub {
         }
 
         for(String friendsRequest : friends.getFriendsRequestList()){
-            Bukkit.getPlayer(playerName).sendMessage("§6✴ §2"+friendsRequest+"§e vous a demand§ en ami.");
+            Bukkit.getPlayer(playerName).sendMessage("§6✴ §2"+friendsRequest+"§e vous a demandé en ami.");
             ChatInteract.ChatInteractAcceptAmi(this, friendsRequest);
         }
 
@@ -331,21 +345,60 @@ public class PlayerHub {
 		}
 		
 		for(String membersRequest : party.getMembersRequestList()){
-			Bukkit.getPlayer(playerName).sendMessage("§2"+membersRequest+"§e vous a invit§ dans sa party.");
+			Bukkit.getPlayer(playerName).sendMessage("§6✴§2"+membersRequest+"§e vous a invité dans sa party.");
 			ChatInteract.ChatInteractAcceptParty(this, membersRequest);
 		}
-		
+
 		if(Hub.instance.getListMute().contains(playerName)){
 			ResultSet resultSet;
 			try {
 				resultSet = Hub.instance.database.getConn().createStatement().executeQuery("SELECT * FROM Mute WHERE namePlayer = '"+playerName+"'");
 				resultSet.next();
-				Bukkit.getPlayer(playerName).sendMessage("§cVous avez §t§ mut§ pour raison : §e"+resultSet.getString(3)+"§c jusqu'au : §a"+Hub.instance.getDATE_FORMAT().format(resultSet.getTimestamp(2))+"§c.");
+				Bukkit.getPlayer(playerName).sendMessage("§6✴§cVous avez été muté pour raison : §e"+resultSet.getString(3)+"§c jusqu'au : §a"+Hub.instance.getDATE_FORMAT().format(resultSet.getTimestamp(2))+"§c.");
 			} catch (SQLException e) {}
 		}
-
+		boolean state1 = false;
 		if(Hub.instance.getMessageGradePlayer().containsKey(grade)){
+			state1 = true;
+			Bukkit.getPlayer(playerName).sendMessage("§5✴--------------------------------------------------✴");
 			Bukkit.getPlayer(playerName).sendMessage(Hub.instance.getMessageGradePlayer().get(grade));
+		}
+		boolean state = false;
+		if(build){
+			state = true;
+			Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			Bukkit.getPlayer(playerName).sendMessage("§c✴§6Mode build (§2Activé§6).");
+		}
+		if(doubleJumps){
+			if(!state){
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			}
+			state = true;
+			Bukkit.getPlayer(playerName).sendMessage("§c✴§6Mode doubleJump (§2Activé§6).");
+		}
+		if(fly){
+			if(!state){
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			}
+			state = true;
+			Bukkit.getPlayer(playerName).sendMessage("§c✴§6Mode fly (§2Activé§6).");
+		}
+
+		if(!visiblePlayer){
+			if(!state){
+				Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+			}
+			state = true;
+			Bukkit.getPlayer(playerName).sendMessage("§c✴§6Joueur (§4Désactivé§6).");
+		}
+		if(state){
+			Bukkit.getPlayer(playerName).sendMessage("§c✴--------------------------------------------------✴");
+		} else {
+			if (!state1){
+				Bukkit.getPlayer(playerName).sendMessage("§6✴--------------------------------------------------✴");
+			} else {
+				Bukkit.getPlayer(playerName).sendMessage("§5✴--------------------------------------------------✴");
+			}
 		}
 
 		friends.getFriends().forEach((String nameFriend) -> {
@@ -452,13 +505,13 @@ public class PlayerHub {
 		if(playerHub.isVisiblePlayer()){
 			playerHub.setVisiblePlayer(false);
 			Bukkit.getOnlinePlayers().forEach(p -> Bukkit.getPlayer(playerHub.getPlayerName()).hidePlayer(p));
-			Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("�e�lLes joueurs sont d�sormais �cinvisibles�e.");
+			Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§e§lLes joueurs sont désormais §cinvisibles§e.");
 			Bukkit.getPlayer(playerHub.getPlayerName()).playSound(Bukkit.getPlayer(playerHub.getPlayerName()).getLocation(), Sound.CAT_HISS, 100, 10);
 
 		} else {
 			playerHub.setVisiblePlayer(true);
 			Bukkit.getOnlinePlayers().forEach(p -> Bukkit.getPlayer(playerHub.getPlayerName()).showPlayer(p));
-			Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("�e�lLes joueurs sont d�sormais �avisibles�e.");
+			Bukkit.getPlayer(playerHub.getPlayerName()).sendMessage("§e§lLes joueurs sont désormais §avisibles§e.");
 			Bukkit.getPlayer(playerHub.getPlayerName()).playSound(Bukkit.getPlayer(playerHub.getPlayerName()).getLocation(), Sound.CAT_MEOW, 100, 10);
 		}
 		Navigator.PlayerVisible(playerHub);

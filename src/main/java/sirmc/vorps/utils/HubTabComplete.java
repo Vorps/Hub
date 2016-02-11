@@ -3,16 +3,20 @@ package sirmc.vorps.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
+import sirmc.vorps.Commands;
 import sirmc.vorps.Hub;
 
 public class HubTabComplete implements TabCompleter {
 	
-	
+	//type -> 0 | Player
+
+
 //	//0 | void; 1 | player online; 2 | player friend; 3 | player who request 
 //	private Object[][] ListCommandFriends = {{"list", 0}, {"add", 1}, {"remove", 2}, {"accept", 3}};
 //	
@@ -22,21 +26,7 @@ public class HubTabComplete implements TabCompleter {
 //	
 //	//0 |  player online;
 //	private Object[][] ListGrades = {{"Administrateur", 0}, {"D�veloppeur", 0}, {"Architecte", 0}, {"Mod�rateur", 0}, {"Staff", 0}, {"Helper", 0}, {"Joueur", 0}};
-//	
-	public static ArrayList<String> getArgs(int i, String message){
-		ArrayList<String> args = new ArrayList<String>();
-		int y = i;
-		for(; i < message.length(); i++){
-			if(message.charAt(i) == ' '){
-				args.add(message.substring(y, i--));
-				y = i++;
-			}
-		}
-		if(message.charAt(i) != ' '){
-			args.add(message.substring(y, i));
-		}
-		return args;
-	}
+//
 	
 	
 	@Override
@@ -44,44 +34,30 @@ public class HubTabComplete implements TabCompleter {
 		List<String> list = new ArrayList<>();
 		if(sender instanceof Player){
 			Player player = (Player) sender;
-			boolean state;
-			boolean stateCommand = false;
-			for(int i = 0; i < Hub.instance.getListCommands().size(); i++){
-				state = true;
-				stateCommand = false;
-				if(!Hub.instance.getListCommands().get(i).getCommand().equals("*")){
-					if(i != 0){
-						for(int y = 0; y < Hub.instance.getListCommands().get(i).getCommand().length(); y++){
-							if(Hub.instance.getListCommands().get(i).getCommand().charAt(y) == ' '){
-								state = false;
-							}
-						}
-						if(Hub.instance.getListCommands().get(i).getCommand().equals(Hub.instance.getListCommands().get(i).getCommand())){
-							state = false;
-						}
-					}
-					if(state){
-						if(cmd.getName().length() >= (Hub.instance.getListCommands().get(i).getCommand().length())){
-							if(cmd.getName().equals(Hub.instance.getListCommands().get(i).getCommand())){
-								stateCommand = true;
-								if(!player.hasPermission(Hub.instance.getListCommands().get(i).getPermission())){
-									list.clear();
-									return list;
-								}
-								break;
-							}
-						}
-					}
-				}
-			}
-			if(!stateCommand){
-				list.clear();
-				return list;
-			}
+            if(!player.hasPermission(Hub.instance.getListCommands().get(cmd.getName()).getPermission())){
+                return list;
+            }
 		}
-		
-		
-		
+        Hub.instance.getListCommands().values().forEach((Commands commands) -> {
+           if(commands.getCommand().equals(cmd.getName())){
+               if(commands.getArgs().size() >= args.length){
+                   list.add(commands.getArgs().get(args.length-1));
+               }
+           }
+        });
+        if(list.size() < args.length){
+            switch(Hub.instance.getListCommands().get(cmd.getName()).getType()){
+                case 1:
+                    Bukkit.getOnlinePlayers().forEach(p -> {
+                        if(!p.getName().equals(sender.getName())){
+                            list.add(p.getName());
+                        }
+                    });
+                    break;
+                default:
+                    break;
+            }
+        }
 		return list;
 //		PlayerHub playerHub = Hub.playerHub.get(sender.getName());
 //		

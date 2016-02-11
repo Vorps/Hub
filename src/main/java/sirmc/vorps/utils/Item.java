@@ -18,6 +18,7 @@ import java.util.*;
  * Created by Vorps on 02/01/2016.
  */
 public class Item {
+    private ItemStack item;
     private String name;
     private Material material;
     private int amount;
@@ -73,6 +74,14 @@ public class Item {
         if(item.getDurability() != 0) {
             this.data = (byte) item.getDurability();
         }
+        try {
+            LeatherArmorMeta lam = (LeatherArmorMeta) item.getItemMeta();
+            this.color = lam.getColor();
+        } catch (Exception e){}
+        try {
+            SkullMeta sm = (SkullMeta)item.getItemMeta();
+            this.skullOwnerName = sm.getOwner();
+        } catch (Exception e){}
         if(item.getItemMeta() != null) {
             ItemMeta meta = item.getItemMeta();
             this.lore = meta.getLore();
@@ -148,7 +157,6 @@ public class Item {
      * @return ItemStack
      */
     public ItemStack get() {
-        ItemStack item;
         if(color != null){
             item = new ItemStack(this.material, 1);
             LeatherArmorMeta lam = (LeatherArmorMeta) item.getItemMeta();

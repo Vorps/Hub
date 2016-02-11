@@ -1,5 +1,5 @@
 name: Hub
-main: sirmc.vorps.main.Hub
+main: sirmc.vorps.Hub
 version: 1.0
 description: Hub
 author: Vorps

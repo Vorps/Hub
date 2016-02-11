@@ -26,6 +26,7 @@ public class Settings {
 	private static @Getter String welcome_msgSubTitle;
 	private static @Getter String messageTabListHeader;
 	private static @Getter String messageTabListFooter;
+	private static @Getter int[] zone = new int[6];
 
 	public boolean valueBoolean;
 	public int valueInt;
@@ -62,6 +63,11 @@ public class Settings {
 			}
 		}
 		defaultBonus = Hub.instance.getSettings().get("defaultBonus").message;
-
+		zone[0] = Hub.instance.getSettings().get("DistanceX-").valueInt;
+		zone[1] = Hub.instance.getSettings().get("DistanceX+").valueInt;
+		zone[2] = Hub.instance.getSettings().get("DistanceY-").valueInt;
+		zone[3] = Hub.instance.getSettings().get("DistanceY+").valueInt;
+		zone[4] = Hub.instance.getSettings().get("DistanceZ-").valueInt;
+		zone[5] = Hub.instance.getSettings().get("DistanceZ+").valueInt;
 	}
 }

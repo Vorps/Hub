@@ -16,7 +16,7 @@ public class MenuBoutique {
 		 menuBoutique.setItem(0, new Item(160).withData((byte) 11).withName(" ").get());
 		 menuBoutique.setItem(1, new Item(160).withData((byte) 5).withName(" ").get());
 		 menuBoutique.setItem(2, new Item(160).withData((byte) 11).withName(" ").get());
-		 menuBoutique.setItem(3, new Item(322).withData((byte) 1).withName("§6Obtenir des étoiles").withLore(new String[] {"§6Obtenir des étoiles"}).get());
+		 menuBoutique.setItem(3, new Item(322).withData((byte) 1).withName("§6Obtenir des étoiles").withLore(new String[] {"§§Obtenir des étoiles"}).get());
 		 menuBoutique.setItem(4, new Item(160).withData((byte) 11).withName(" ").get());
 		 menuBoutique.setItem(5, new Item(Material.PAPER).withName("§6Transactions éffectuées").withLore(new String[] {"§7Historique des achats"}).get());
 		 menuBoutique.setItem(6, new Item(160).withData((byte) 11).withName(" ").get());
