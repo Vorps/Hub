@@ -1,67 +1,13 @@
 name: Hub
-main: sirmc.vorps.Hub
+main: me.vorps.hub.Hub
 version: 1.0
 description: Hub
 author: Vorps
 commands:
   build:
-    permissions:
-      hub.build.*
-      hub.build.me
-      hub.build.player
-  friends:
-    permissions:
-      hub.friends.*
-      hub.friends.list
-      hub.friends.add
-      hub.friends.remove
-      hub.friende.accept
-  party:
-    permissions:
-      hub.party.*
-      hub.party.invite
-      hub.party.rename
-      hub.party.remove
-      hub.party.accept
-      hub.party.leave
-      hub.party.list
-  grade:
-    permissions: hub.grade
+  doublejump:
   fly:
-    permissions:
-      hub.fly.*
-      hub.fly.me
-      hub.fly.player
-  mute:
-    permissions:
-      hub.mute.*
-      hub.mute.time
-      hub.mute.time.raison
-      hub.mute.def
-      hub.mute.def.raison
-  unmute:
-    permissions: hub.unmute
   hub:
-    permissions:
-      hub.hub
-      hub.hub.all
   jump:
-    permissions:
-      hub.jump.me
-      hub.jump.player
-  whisper:
-    permissions:
-      hub.whisper
-  resend:
-    permissions:
-      hub.resend
-  chat:
-    permissions:
-      hub.chat
-  ban:
-  kick:
-  pardon:
-  tp:
   joueur:
   reloadhub:
-  money:
