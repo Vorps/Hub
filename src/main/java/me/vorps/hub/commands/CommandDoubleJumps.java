@@ -1,9 +1,10 @@
 package me.vorps.hub.commands;
 
-import me.vorps.fortycube.Execeptions.SqlException;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,7 +44,7 @@ public class CommandDoubleJumps extends CommandsAction {
             getPlayerData().setDoubleJumps(false);
             stateAction = true;
         } else {
-            if(!getPlayerData().isInJumps()){
+            if(!getPlayerData().getJump().isInJump()){
                 if(getPlayerData().isFly()){
                     new CommandFly(getSender(), new String[] {});
                 }
@@ -72,18 +73,19 @@ public class CommandDoubleJumps extends CommandsAction {
     @Override
     public void help() {
         ArrayList<String> messages = new ArrayList<>();
-        if(getSender().hasPermission(getPermission()+".me.on")){
-            messages.add("§a/build §e<on> §f> Active le build");
-        }
-
-        if(getSender().hasPermission(getPermission()+".me.off")){
-            messages.add("§a/build §e<off> §f> Désactive le double jump");
+        if(getSender() instanceof Player){
+            if(getSender().hasPermission(getPermission()+".me.on")){
+                messages.add("§a/build §e<on> §f> Active le build");
+            }
+            if(getSender().hasPermission(getPermission()+".me.off")){
+                messages.add("§a/build §e<off> §f> Désactive le double jump");
+            }
         }
         if(getSender().hasPermission(getPermission()+".player.on")){
-            messages.add("§a/build §e<on> <Player> §f> Active le build au joueur");
+            messages.add("§a/build §e<on> <Joueur> §f> Active le build au joueur");
         }
         if(getSender().hasPermission(getPermission()+".player.off")){
-            messages.add("§a/build §e<off> <Player> §f> Désactive le build au joueur");
+            messages.add("§a/build §e<off> <Joueur> §f> Désactive le build au joueur");
         }
         if(messages.size() != 0){
             getSender().sendMessage("§e✴----------------- §aHelp DoubleJump§e ------------------✴");
@@ -93,6 +95,6 @@ public class CommandDoubleJumps extends CommandsAction {
     }
 
     public CommandDoubleJumps(CommandSender sender, String args[]) {
-        super(sender, args, "DoubleJump", "fortycube.double_jump");
+        super(sender, args, "Double jump", Command.DOUBLE_JUMP.getPermissions());
     }
 }

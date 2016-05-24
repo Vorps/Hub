@@ -9,15 +9,15 @@ import org.bukkit.command.CommandSender;
 public class CommandReload extends Commands{
 
     public CommandReload(CommandSender sender, String args[]){
-        super(sender, "fortycube.reload");
+        super(sender, Command.RELOAD_HUB.getPermissions());
         if(args.length == 0 && sender.hasPermission(getPermission()+".plugin")){
-            Data.LoadVariables();
+            Data.loadVariables();
             sender.sendMessage("§aReload effectué");
         }
     }
     @Override
     protected void help(){
-        if(getSender().hasPermission(getPermission()+".plugin")){
+        if(getSender().hasPermission(getPermission())){
             getSender().sendMessage("§e✴------------------- §aHelp reload§e --------------------✴");
             getSender().sendMessage("§e/reload §f> §eReload les variables du plugin hub");
             getSender().sendMessage("§e✴--------------------------------------------------✴");

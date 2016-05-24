@@ -2,10 +2,11 @@ package me.vorps.hub;
 
 import lombok.Getter;
 import me.vorps.hub.Object.Bonus;
+import me.vorps.hub.Object.Grades;
 import me.vorps.hub.Object.Money;
-import me.vorps.fortycube.Execeptions.SqlException;
-import me.vorps.fortycube.databases.Database;;
-import me.vorps.hub.thread.ThreadCoolDowns;
+import me.vorps.fortycube.Exceptions.SqlException;
+import me.vorps.fortycube.databases.Database;
+import me.vorps.hub.thread.ThreadCoolDownsVisiblePlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
@@ -16,17 +17,17 @@ import java.util.HashMap;
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:43.
  */
-public class Settings {
+public class
+Settings {
 
     private static @Getter HashMap<String, Settings> settings = new HashMap<>();
-
-
-
     private static @Getter HashMap<String, Integer> defaultAmountMoney = new HashMap<>();
 
-    private @Getter HashMap<String, ThreadCoolDowns> coolDownsThread = new HashMap<>();
+    private @Getter HashMap<String, ThreadCoolDownsVisiblePlayer> coolDownsThread = new HashMap<>();
 
     private static @Getter Bonus defaultBonus;
+    private static @Getter Grades defaultGrade;
+    private static @Getter String defaultLang;
 	private static @Getter int speedThread;
 	private static @Getter int coolDownVisible;
 	private static @Getter int coolDownDoubleJump;
@@ -90,16 +91,16 @@ public class Settings {
                 defaultAmountMoney.put("default_"+money.getMoney().toLowerCase(), Settings.settings.get(money.getMoney()).valueInt);
 			}
 		});
-        xMore = Settings.settings.get("distance_x-").valueDouble;
-        xLess = Settings.settings.get("distance_x+").valueDouble;
-        yMore = Settings.settings.get("distance_y-").valueDouble;
-        yLess = Settings.settings.get("distance_y+").valueDouble;
-        zMore = Settings.settings.get("distance_z-").valueDouble;
-        zLess = Settings.settings.get("distance_z+").valueDouble;
-        spawnHub = new Location(Bukkit.getWorld("world"), Settings.settings.get("spawn_x").valueDouble, Settings.settings.get("spawn_y").valueDouble, Settings.settings.get("spawn_z").valueDouble);
+        xMore = Settings.settings.get("distance_x+").valueDouble;
+        xLess = Settings.settings.get("distance_x-").valueDouble;
+        yMore = Settings.settings.get("distance_y+").valueDouble;
+        yLess = Settings.settings.get("distance_y-").valueDouble;
+        zMore = Settings.settings.get("distance_z+").valueDouble;
+        zLess = Settings.settings.get("distance_z-").valueDouble;
+        spawnHub = new Location(Bukkit.getWorlds().get(0), Settings.settings.get("spawn_x").valueDouble, Settings.settings.get("spawn_y").valueDouble, Settings.settings.get("spawn_z").valueDouble);
         siteWeb =  Settings.settings.get("site_web").message;
-        System.out.println(Settings.settings.get("default_bonus").message);
         defaultBonus =  Bonus.getBonus(Settings.settings.get("default_bonus").message);
-        System.out.println(defaultBonus.getBonus());
+        defaultGrade = Grades.getGrades(Settings.settings.get("default_grade").message);
+        defaultLang = Settings.settings.get("default_lang").message;
     }
 }

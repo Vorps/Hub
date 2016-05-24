@@ -7,7 +7,7 @@ commands:
   build:
   doublejump:
   fly:
-  hub:
   jump:
-  joueur:
+  visibleplayer:
   reloadhub:
+  friends:

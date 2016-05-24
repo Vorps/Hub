@@ -1,7 +1,8 @@
 package me.vorps.hub.commands;
 
-import me.vorps.fortycube.Execeptions.SqlException;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
+import me.vorps.hub.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -37,7 +38,15 @@ public class CommandVisiblePlayer extends CommandsAction {
     @Override
     public boolean setOnlineFunction(boolean state) {
         if (!state) {
-            Bukkit.getOnlinePlayers().forEach((Player playerServer) -> getPlayer().hidePlayer(playerServer));
+            Bukkit.getOnlinePlayers().forEach((Player playerVisible) -> {
+                PlayerData playerDataGrade = PlayerData.getPlayerData(playerVisible.getName());
+                if(!getPlayerData().getFriends().getFriendsOnline().contains(playerVisible.getName())
+                        || !getPlayerData().getParty().getMembersOnline().contains(playerVisible.getName())
+                        || (!playerDataGrade.getGrade().isVisibleGrade() &&  playerDataGrade.getGrade().getLevelGrade() != 0)
+                        ){
+                    getPlayer().hidePlayer(playerVisible);
+                }
+            });
         } else {
             Bukkit.getOnlinePlayers().forEach((Player playerServer) ->  getPlayer().showPlayer(playerServer));
         }
@@ -59,26 +68,28 @@ public class CommandVisiblePlayer extends CommandsAction {
     @Override
     public void help() {
         ArrayList<String> messages = new ArrayList<>();
-        if (getSender().hasPermission(getPermission()+".me.on")) {
-            messages.add("§a/fly §e<on> §f> Active les joueur");
-        }
-        if (getSender().hasPermission(getPermission()+".me.off")) {
-            messages.add("§a/fly §e<off> §f> Désactive les joueur");
+        if(getSender() instanceof Player){
+            if (getSender().hasPermission(getPermission()+".me.on")) {
+                messages.add("§a/visibleplayer §e<on> §f> Active les joueur");
+            }
+            if (getSender().hasPermission(getPermission()+".me.off")) {
+                messages.add("§a/visibleplayer §e<off> §f> Désactive les joueur");
+            }
         }
         if (getSender().hasPermission(getPermission()+".player.on")) {
-            messages.add("§a/fly §e<Player> <on> §f> Active les joueur au joueur");
+            messages.add("§a/visibleplayer <on> §e<Joueur> §f> Active les joueur au joueur");
         }
         if (getSender().hasPermission(getPermission()+".player.off")) {
-            messages.add("§a/fly §e<Player> <off> §f> Désactive les joueur au joueur");
+            messages.add("§a/visibleplayer <off> §e<Joueur> §f> Désactive les joueur au joueur");
         }
         if (messages.size() != 0) {
-            getSender().sendMessage("§e✴----------------- §aHelp visible joueur§e -----------------✴");
+            getSender().sendMessage("§e✴---------------- §aHelp visible joueur§e -----------------✴");
             messages.forEach((String message) -> getSender().sendMessage(message));
             getSender().sendMessage("§e✴--------------------------------------------------✴");
         }
     }
 
     public CommandVisiblePlayer(CommandSender sender, String args[]) {
-        super(sender, args, "joueur", "fortycube.visible_player");
+        super(sender, args, "Joueur", Command.VISIBLE_PLAYER.getPermissions());
     }
 }

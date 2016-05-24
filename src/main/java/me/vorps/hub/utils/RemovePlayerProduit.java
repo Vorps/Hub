@@ -1,11 +1,10 @@
 package me.vorps.hub.utils;
 
-
-import me.vorps.hub.Object.Grades;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
-import me.vorps.fortycube.Execeptions.SqlException;
 import me.vorps.fortycube.databases.Database;
+import me.vorps.hub.Settings;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -53,29 +52,21 @@ public class RemovePlayerProduit {
 			break;
 		case 5:
             try {
-                Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_bonus = '' WHERE ps_player = '"+ player.getName() +"'");
+                Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_bonus = '"+ Settings.getDefaultBonus().getBonus()+"' WHERE ps_player = '"+ player.getName() +"'");
             } catch (SqlException e){
                 e.printStackTrace();
             }
-			playerData.getBonusFunction();
+			playerData.setBonus(Settings.getDefaultBonus().getBonus(), false);
 			break;
 		case 6:
-			if(playerData.getGrade().equals(nameProduct)){
-                Grades.getGradesList().values().forEach((Grades grade) -> {
-                    if((Grades.getGradesList().get(grade).isDefaultGrade())){
-                        try {
-                            Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_grade = '"+grade.getGrade()+"' WHERE ps_player = '"+ player.getName() +"'");
-                        } catch (SqlException e){
-                            e.printStackTrace();
-                        }
-                        if(grade.getGradeDisplay().equals("")){
-                            player.sendMessage("§eVous êtes maintenant §a"+grade.getColorGrade()+grade.getGrade()+"§e.");
-                        } else {
-                            player.sendMessage("§eVous êtes maintenant §a"+grade.getColorGrade()+grade.getGradeDisplay()+"§e.");
-                        }
-                        playerData.updateGrades();
-                    }
-                });
+			if(playerData.getGrade().getGrade().equals(nameProduct)){
+                try {
+                    Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_grade = '"+Settings.getDefaultGrade().getGrade()+"' WHERE ps_player = '"+ player.getName() +"'");
+                } catch (SqlException e){
+                    e.printStackTrace();
+                }
+                playerData.updateGrades();
+                player.sendMessage("§eVous êtes maintenant §a"+playerData.getGrade()+"§e.");
 			}
 			break;
 		case 7:

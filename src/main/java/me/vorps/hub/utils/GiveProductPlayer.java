@@ -5,15 +5,13 @@ import me.vorps.fortycube.utils.ConvertMillis;
 import me.vorps.hub.Object.Bonus;
 import me.vorps.hub.PlayerData;
 import me.vorps.hub.Object.Products;
-import me.vorps.fortycube.Execeptions.SqlException;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 import me.vorps.hub.menu.MenuPetsCustom;
 import me.vorps.hub.menu.Navigator;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-
-import me.vorps.hub.Object.Grades;
 
 import java.sql.Timestamp;
 
@@ -22,85 +20,65 @@ import java.sql.Timestamp;
  */
 public class GiveProductPlayer {
 
-    public static void giveItemPlayer(Player player, String nameProduct, boolean state){
+    public static void giveItemPlayer(Player player, Products products, boolean state){
+        GiveProductPlayer.giveItemPlayer(player, products, state, products.getItem().get(PlayerData.getPlayerData(player.getName()).getLang()).get());
+    }
+
+    public static void giveItemPlayer(Player player, Products products, boolean state, ItemStack itemStack){
         PlayerData playerData = PlayerData.getPlayerData(player.getName());
-        Products products = Products.getProduct(playerData.getProductTarget().getItemMeta().getLore().get(0).substring(2));
+
         if(state){
             try {
                 Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_money SET pm_value = '"+(playerData.getMoney().get(products.getMoney())-products.getPrice())+"' WHERE pm_player = '"+ player.getName()+"' && pm_money = '"+products.getMoney()+"'");
-                Database.FORTYCUBE.getDatabase().sendDatabase("INSERT INTO player_product VALUES ('"+player.getName()+"', '"+ playerData.getProductTarget().getItemMeta().getLore().get(0).substring(2)+"', '"+new Timestamp(System.currentTimeMillis())+"')");
+                Database.FORTYCUBE.getDatabase().sendDatabase("INSERT INTO player_product VALUES ('"+player.getName()+"', '"+ products.getName()+"', '"+new Timestamp(System.currentTimeMillis())+"')");
             } catch (SqlException e){
                 e.printStackTrace();
             }
             playerData.getMoneyFunction();
             if(products.getTime() > 0){
-               player.sendMessage("§eVous avez acheté le produit : §a"+ playerData.getProductTarget().getItemMeta().getLore().get(0).substring(2)+" §epour une dure de "+ ConvertMillis.convertMillisToDate(products.getTime()));
+               player.sendMessage("§eVous avez acheté le produit : §a"+ products.getName()+" §epour une dure de "+ ConvertMillis.convertMillisToDate(products.getTime()));
             } else {
-               player.sendMessage("§eVous avez acheté le produit : §a"+ playerData.getProductTarget().getItemMeta().getLore().get(0).substring(2));
+               player.sendMessage("§eVous avez acheté le produit : §a"+ products.getName());
             }
+            playerData.getProductsPlayerFunction();
         }
         switch (products.getType()) {
-            case 1:
-                if(playerData.getProductTarget().getItemMeta().getLore().contains("§aRetirer ce chapeau")){
-                   player.getInventory().setHelmet(new ItemStack(Material.AIR));
-                } else {
-                   player.getInventory().setHelmet(new Item(playerData.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer ce chapeau"}).get());
-                   player.sendMessage("§eVoici votre chapeau !!!");
-                   player.closeInventory();
-                }
-                break;
             case 2:
-                if(playerData.getProductTarget().getItemMeta().getLore().contains("§aRetirer ce plastron")){
-                   player.getInventory().setChestplate(new ItemStack(Material.AIR));
-                } else {
-                   player.getInventory().setChestplate(new Item(playerData.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer ce plastron"}).get());
-                   player.sendMessage("§eVoici votre plastron !!!");
-                   player.closeInventory();
-                }
+                player.getInventory().setChestplate(new Item(products.getItem().get(playerData.getLang())).withLore(new String[] {"§aRetirer ce plastron"}).get());
+                player.sendMessage("§eVoici votre plastron !!!");
+                player.closeInventory();
                 break;
             case 3:
-                if(playerData.getProductTarget().getItemMeta().getLore().contains("§aRetirer ce leggings")){
-                   player.getInventory().setLeggings(new ItemStack(Material.AIR));
-                } else {
-                   player.getInventory().setLeggings(new Item(playerData.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer ce leggings"}).get());
-                   player.sendMessage("§eVoici votre leggings !!!");
-                   player.closeInventory();
-                }
+                player.getInventory().setLeggings(new Item(products.getItem().get(playerData.getLang())).withLore(new String[] {"§aRetirer ce leggings"}).get());
+                player.sendMessage("§eVoici votre leggings !!!");
+                player.closeInventory();
                 break;
             case 4:
-                if(playerData.getProductTarget().getItemMeta().getLore().contains("§aRetirer vos bottes")){
-                   player.getInventory().setBoots(new ItemStack(Material.AIR));
-                } else {
-                   player.getInventory().setBoots(new Item(playerData.getProductTarget()).withLore(new String[] {"§9"+nameProduct, "§aRetirer vos bottes"}).get());
-                   player.sendMessage("§eVoici vos bottes !!!");
-                   player.closeInventory();
-                }
+                player.getInventory().setBoots(new Item(products.getItem().get(playerData.getLang())).withLore(new String[] {"§aRetirer vos bottes"}).get());
+                player.sendMessage("§eVoici vos bottes !!!");
+                player.closeInventory();
                 break;
             case 5:
-                if(!playerData.getBonus().equals(nameProduct)){
+                if(!playerData.getBonus().getBonus().equals(products.getName())){
                     try {
-                        Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_bonus = '"+nameProduct+"' WHERE ps_player = '"+player.getName()+"'");
+                        Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_bonus = '"+products.getName()+"' WHERE ps_player = '"+player.getName()+"'");
                     } catch (SqlException e){
                         e.printStackTrace();
                     }
-                   player.closeInventory();
-                    playerData.setBonus(Bonus.getBonus(nameProduct));
+                    player.closeInventory();
+                    playerData.setBonus(products.getName(), true);
                 }
                 break;
             case 6:
-                Grades grade = Grades.getGradesList().get(nameProduct);
-                if(!playerData.getGrade().equals(nameProduct)){
+                if(!playerData.getGrade().getGrade().equals(products.getName())){
                     try {
-                        Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_grade = '"+nameProduct+"' WHERE ps_player = '"+player.getName()+"'");
+                        Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_grade = '"+products.getName()+"' WHERE ps_player = '"+player.getName()+"'");
                     } catch (SqlException e){
                         e.printStackTrace();
                     }
-                    if(grade.getGradeDisplay().equals("")){
-                       player.sendMessage("§eVous êtes maintenant §a"+grade.getColorGrade()+grade.getGrade()+"§e.");
-                    } else {
-                       player.sendMessage("§eVous êtes maintenant §a"+grade.getColorGrade()+grade.getGradeDisplay()+"§e.");
-                    }
                     playerData.updateGrades();
+                    player.sendMessage("§eVous êtes maintenant §a"+playerData.getGrade()+"§e.");
+                    player.closeInventory();
                     break;
                 }
                player.closeInventory();
@@ -110,9 +88,14 @@ public class GiveProductPlayer {
             case 8:
                 break;
             case 9:
-                new MenuPetsCustom(player, playerData.getProductTarget());
+                new MenuPetsCustom(player, itemStack);
                 break;
             default:
+                if(products.getType() == 1 || products.getType() == 10 || products.getType() == 11){
+                    player.getInventory().setHelmet(new Item(products.getItem().get(playerData.getLang())).withLore(new String[] {"§aRetirer votre chapeau"}).get());
+                    player.sendMessage("§eVoici votre chapeau !!!");
+                    player.closeInventory();
+                }
                 break;
         }
         Navigator.profil(playerData, player, null);

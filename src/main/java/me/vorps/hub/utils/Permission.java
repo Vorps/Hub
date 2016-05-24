@@ -8,7 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.plugin.Plugin;
 
-
+/**
+ * Project Hub Created by Vorps on 01/02/2016 at 01:41.
+ */
 public class Permission {
     private Map<String, PermissionAttachment> permissions = new HashMap<>();
     private Plugin registeringPlugin;
@@ -39,21 +41,16 @@ public class Permission {
         permissions.get(p.getName()).setPermission(permission, false);
     }
 
-    public void unsetPermission(Player p, String permission) {
-        if (!permissions.containsKey(p.getName())) {
-            permissions.put(p.getName(), p.addAttachment(registeringPlugin));
-        }
-        permissions.get(p.getName()).unsetPermission(permission);
-    }
-
     public void unsetAllPermissions(String pName) {
         try {
             permissions.remove(pName).remove();
-        } catch (NullPointerException e) {}
+        } catch (NullPointerException e) {
+            //
+        }
     }
 
     public void removeAllPermissions() {
-        String[] names  = permissions.keySet().toArray(new String[0]);
+        String[] names  = permissions.keySet().toArray(new String[permissions.size()]);
         for (String name : names) {
             this.unsetAllPermissions(name);
         }

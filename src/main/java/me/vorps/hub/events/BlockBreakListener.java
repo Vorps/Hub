@@ -5,18 +5,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import me.vorps.hub.Hub;
 
 /**
- * Created by Vorps on 01/02/2016.
+ * Project Hub Created by Vorps on 04/03/2016 at 16:25.
  */
 public class BlockBreakListener implements Listener {
 
     @EventHandler
     public void OnBlockBreak(BlockBreakEvent e){
-        Player player = e.getPlayer();
-        PlayerData playerData = PlayerData.getPlayerData(player.getName());
-        if(!playerData.isBuild() || playerData.isInJumps()){
+        if(!PlayerData.getPlayerData(e.getPlayer().getName()).isBuild()){
             e.setCancelled(true);
         }
     }

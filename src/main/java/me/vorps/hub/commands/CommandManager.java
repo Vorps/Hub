@@ -1,5 +1,6 @@
 package me.vorps.hub.commands;
 
+import me.vorps.hub.Hub;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 
@@ -8,25 +9,31 @@ import org.bukkit.event.EventHandler;
  */
 public class CommandManager {
 
+    public CommandManager(){
+        Hub plugin = Hub.getInstance();
+        plugin.getCommand(Commands.Command.BUILD.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.BUILD));
+        plugin.getCommand(Commands.Command.DOUBLE_JUMP.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.DOUBLE_JUMP));
+        plugin.getCommand(Commands.Command.FLY.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.FLY));
+        plugin.getCommand(Commands.Command.VISIBLE_PLAYER.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.VISIBLE_PLAYER));
+        plugin.getCommand(Commands.Command.JUMP.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.JUMP));
+        plugin.getCommand(Commands.Command.RELOAD_HUB.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.RELOAD_HUB));
+    }
+
     @EventHandler
     public static boolean onCommand(CommandSender sender, String label, String args[]){
-        switch (label){
-            case "build":
-                return new CommandBuild(sender, args).isStateExec();
-            case "fly":
-                return new CommandFly(sender, args).isStateExec();
-            case "hub":
-                return new CommandHub(sender, args).isStateExec();
-            case "soublejump":
-                return new CommandDoubleJumps(sender, args).isStateExec();
-            case "joueur":
-                return new CommandVisiblePlayer(sender, args).isStateExec();
-            case "reloadHub":
-                return new CommandReload(sender, args).isStateExec();
-            case "jump":
-                return new CommandJump(sender, args).isStateExec();
-            default:
-                return false;
+        if(label.equalsIgnoreCase(Commands.Command.BUILD.getCommand())){
+            return new CommandBuild(sender, args).isStateExec();
+        } else if(label.equalsIgnoreCase(Commands.Command.FLY.getCommand())){
+            return new CommandFly(sender, args).isStateExec();
+        } else if(label.equalsIgnoreCase(Commands.Command.DOUBLE_JUMP.getCommand())){
+            return new CommandDoubleJumps(sender, args).isStateExec();
+        } else if(label.equalsIgnoreCase(Commands.Command.VISIBLE_PLAYER.getCommand())){
+            return new CommandVisiblePlayer(sender, args).isStateExec();
+        } else if(label.equalsIgnoreCase(Commands.Command.RELOAD_HUB.getCommand())){
+            return new CommandReload(sender, args).isStateExec();
+        } else if(label.equalsIgnoreCase(Commands.Command.JUMP.getCommand())){
+            return new CommandJump(sender, args).isStateExec();
         }
+        return false;
     }
 }

@@ -3,6 +3,7 @@ package me.vorps.hub.events;
 import me.vorps.hub.Object.Grades;
 import me.vorps.hub.Hub;
 import me.vorps.hub.PlayerData;
+import me.vorps.hub.scoreboard.ScoreBoard;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,6 +25,10 @@ public class QuitListener implements Listener {
             e.setQuitMessage("");
         }
         playerData.removePlayerHub(true);
-        Hub.getInstance().getScoreBoard().updateValue(4, "§aJoueur : "+PlayerData.nbrConnect());
+        for(PlayerData playerDataList : PlayerData.getPlayersData().values()){
+            if(!playerDataList.getJump().isInJump()){
+                playerDataList.getScoreBoard().updateValue("player", "§aJoueur : §6"+PlayerData.nbrConnect());
+            }
+        }
     }
 }

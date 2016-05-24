@@ -15,7 +15,7 @@ import me.vorps.hub.Settings;
  * Project Hub Created by Vorps on 01/02/2016 at 01:41.
  */
 public class ThreadHub extends Thread {
-	private	int i;
+	private	int i = 0;
 	private int index = 0;
 
 	public void run(){
@@ -28,25 +28,26 @@ public class ThreadHub extends Thread {
 					index = 0;
 				}
 				Bukkit.getOnlinePlayers().forEach(p -> ActionBar.sendActionBar(Settings.getMessageServer().get(index), p));
-			}
-				time = System.currentTimeMillis();
-				for(Player player : Bukkit.getOnlinePlayers()){
-					if(PlayerData.isPlayerDataExits(player.getName())){
-						PlayerData playerData = PlayerData.getPlayerData(player.getName());
-						for(ProductsPlayers products : playerData.getProducts()){
-							if(products.getTime() > 0){
-								if(time >= Products.getProduct(products.getProduct()).getTime() + products.getDate()){
-									RemovePlayerProduit.boutiqueRemovePlayerProduit(player, Products.getProduct(products.getProduct()) ,products.getProduct());
-									playerData.getProductsPlayerFunction();
-									break;
-								}
-							}
-						}
-				}
+
+                time = System.currentTimeMillis();
+                for(Player player : Bukkit.getOnlinePlayers()){
+                    if(PlayerData.isPlayerDataExits(player.getName())){
+                        PlayerData playerData = PlayerData.getPlayerData(player.getName());
+                        for(ProductsPlayers products : playerData.getProducts()){
+                            if(products.getTime() > 0){
+                                if(time >= Products.getProduct(products.getProduct()).getTime() + products.getDate()){
+                                    RemovePlayerProduit.boutiqueRemovePlayerProduit(player, Products.getProduct(products.getProduct()) ,products.getProduct());
+                                    playerData.getProductsPlayerFunction();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
 			}
 			i += Settings.getSpeedThread();
 			try {
-				Thread.sleep(Settings.getSpeedThread());
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
                 //
             }

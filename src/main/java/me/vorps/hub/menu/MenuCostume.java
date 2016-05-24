@@ -1,9 +1,12 @@
 package me.vorps.hub.menu;
 
 import me.vorps.fortycube.menu.Item;
+import me.vorps.fortycube.menu.Menu;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:41.
@@ -21,4 +24,51 @@ public class MenuCostume extends Menu{
         menu.setItem(36, new Item(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
 		player.openInventory(menu);
 	}
+
+
+    @Override
+    public void interractInventory(InventoryClickEvent e) {
+        ItemStack itemStack = e.getCurrentItem();
+        Player player = (Player) e.getWhoClicked();
+        switch (itemStack.getType()) {
+            case ARROW:
+                MenuBoutique.createMenu(player);
+                break;
+            case LEATHER_HELMET:
+                MenuHelmetHat.createMenu(player);
+                break;
+            case LEATHER_CHESTPLATE:
+                MenuChestplate.createMenu(player);
+                break;
+            case LEATHER_LEGGINGS:
+                MenuLeggings.createMenu(player);
+                break;
+            case LEATHER_BOOTS:
+                MenuBoots.createMenu(player);
+                break;
+            case BARRIER:
+                if(player.getInventory().getHelmet() != null){
+                    player.getInventory().setHelmet(new ItemStack(Material.AIR));
+                }
+                if(player.getInventory().getChestplate() != null){
+                    player.getInventory().setChestplate(new ItemStack(Material.AIR));
+                }
+                if(player.getInventory().getLeggings() != null){
+                    player.getInventory().setLeggings(new ItemStack(Material.AIR));
+                }
+                if(player.getInventory().getBoots() != null){
+                    player.getInventory().setBoots(new ItemStack(Material.AIR));
+                }
+                if(player.getInventory().getHelmet() != null
+                        ||player.getInventory().getChestplate() != null
+                        ||player.getInventory().getLeggings() != null
+                        ||player.getInventory().getBoots() != null){
+                    player.sendMessage("§eCostume retiré !!!");
+                }
+                player.closeInventory();
+                break;
+            default:
+                break;
+        }
+    }
 }

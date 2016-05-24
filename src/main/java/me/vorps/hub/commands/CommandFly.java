@@ -1,9 +1,10 @@
 package me.vorps.hub.commands;
 
-import me.vorps.fortycube.Execeptions.SqlException;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,7 +45,7 @@ public class CommandFly extends CommandsAction {
             getPlayerData().setFly(false);
             stateAction = true;
         } else {
-            if(!getPlayerData().isInJumps()){
+            if(!getPlayerData().getJump().isInJump()){
                 if(getPlayerData().isDoubleJumps()){
                     new CommandDoubleJumps(getSender(), new String[] {});
                 }
@@ -71,17 +72,19 @@ public class CommandFly extends CommandsAction {
     @Override
     public void help() {
         ArrayList<String> messages = new ArrayList<>();
-        if (getSender().hasPermission(getPermission()+".me.on")) {
-            messages.add("§a/fly §e<on> §f> Active le fly");
-        }
-        if (getSender().hasPermission(getPermission()+".me.off")) {
-            messages.add("§a/fly §e<off> §f> Désactive le fly");
+        if(getSender() instanceof Player){
+            if (getSender().hasPermission(getPermission()+".me.on")) {
+                messages.add("§a/fly §e<on> §f> Active le fly");
+            }
+            if (getSender().hasPermission(getPermission()+".me.off")) {
+                messages.add("§a/fly §e<off> §f> Désactive le fly");
+            }
         }
         if (getSender().hasPermission(getPermission()+".player.on")) {
-            messages.add("§a/fly §e<Player> <on> §f> Active le fly au joueur");
+            messages.add("§a/fly <on> §e<Joueur> §f> Active le fly au joueur");
         }
         if (getSender().hasPermission(getPermission()+".player.off")) {
-            messages.add("§a/fly §e<Player> <off> §f> Désactive le fly au joueur");
+            messages.add("§a/fly <off> §e<Joueur> §f> Désactive le fly au joueur");
         }
         if (messages.size() != 0) {
             getSender().sendMessage("§e✴--------------------- §aHelp fly§e ---------------------✴");
@@ -91,6 +94,6 @@ public class CommandFly extends CommandsAction {
     }
 
     public CommandFly(CommandSender sender, String args[]) {
-        super(sender, args, "Fly", "fortycube.fly");
+        super(sender, args, "Fly", Command.FLY.getPermissions());
     }
 }

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="HubBungee">
-    <output-path>$USER_HOME$/Desktop/BungeeCord/Hub/plugins</output-path>
-    <root id="archive" name="HubBungee.jar">
-      <element id="module-output" name="Hub" />
-    </root>
-  </artifact>
-</component>

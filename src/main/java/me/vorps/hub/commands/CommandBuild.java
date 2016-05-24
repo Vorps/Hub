@@ -1,10 +1,11 @@
 package me.vorps.hub.commands;
 
-import me.vorps.fortycube.Execeptions.SqlException;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import me.vorps.hub.menu.Navigator;
+import org.bukkit.entity.Player;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:41.
  */
-public class CommandBuild extends CommandsAction {
+public class CommandBuild extends CommandsAction{
 
     @Override
     public boolean stateOnlineFunction() {
@@ -41,7 +42,7 @@ public class CommandBuild extends CommandsAction {
             Navigator.navigator(getPlayerData(), getPlayer());
             getPlayer().setGameMode(GameMode.ADVENTURE);
             getPlayerData().setBuild(false);
-            if (getPlayerData().isDoubleJumps()) {
+            if (getPlayerData().isDoubleJumps() || getPlayerData().isFly()) {
                 getPlayer().setAllowFlight(true);
             }
         } else {
@@ -68,18 +69,19 @@ public class CommandBuild extends CommandsAction {
     @Override
     public void help() {
         ArrayList<String> messages = new ArrayList<>();
-        if(getSender().hasPermission(getPermission()+".me.on")){
-            messages.add("§a/build §e<on> §f> Active le build");
-        }
-
-        if(getSender().hasPermission(getPermission()+".me.off")){
-            messages.add("§a/build §e<off> §f> Désactive le build");
+        if(getSender() instanceof Player){
+            if(getSender().hasPermission(getPermission()+".me.on")){
+                messages.add("§a/build §e<on> §f> Active le build");
+            }
+            if(getSender().hasPermission(getPermission()+".me.off")){
+                messages.add("§a/build §e<off> §f> Désactive le build");
+            }
         }
         if(getSender().hasPermission(getPermission()+".player.on")){
-            messages.add("§a/build §e<Player> <on> §f> Active le build au joueur");
+            messages.add("§a/build <on> §e<Joueur> §f> Active le build au joueur");
         }
-        if(getSender().hasPermission("fortycube.build.player.off")){
-            messages.add("§a/build §e<Player> <off> §f> Désactive le build au joueur");
+        if(getSender().hasPermission(getPermission()+".player.off")){
+            messages.add("§a/build <off> §e<Joueur> §f> Désactive le build au joueur");
         }
         if(messages.size() != 0){
             getSender().sendMessage("§e✴-------------------- §aHelp Chat§e ---------------------✴");
@@ -89,8 +91,6 @@ public class CommandBuild extends CommandsAction {
     }
 
     public CommandBuild(CommandSender sender, String args[]) {
-        super(sender, args, "Build", "fortycube.build");
+        super(sender, args, "Build", Command.BUILD.getPermissions());
     }
-
-
 }

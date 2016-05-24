@@ -1,13 +1,13 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Execeptions.SqlException;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 
 import java.sql.ResultSet;
 import java.util.HashMap;
 
-public class Bonus {
+public class Bonus{
     private static HashMap<String, Bonus> listBonus = new HashMap<>();
 
 	private @Getter String bonus;
@@ -24,4 +24,8 @@ public class Bonus {
 		money = Database.FORTYCUBE.getDatabase().getString(results, 3);
         listBonus.put(bonus ,this);
 	}
+
+    public static void clear(){
+        listBonus.clear();
+    }
 }

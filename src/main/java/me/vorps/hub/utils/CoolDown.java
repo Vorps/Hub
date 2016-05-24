@@ -34,18 +34,4 @@ public class CoolDown {
             playerData.visiblePlayer(player);
         }
     }
-
-    public static boolean doubleJumps(Player player, PlayerData playerData){
-        if(CoolDowns.hasCoolDown(player.getName(), "double_jump")){
-            CoolDowns coolDowns = CoolDowns.getCoolDown(playerData.getNamePlayer(), "double_jump");
-            if(coolDowns.getSecondsLeft() <= 0){
-                coolDowns.removeCoolDown();
-                player.setAllowFlight(true);
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return true;
-    }
 }

@@ -1,46 +1,70 @@
 package me.vorps.hub.menu;
 
+import me.vorps.fortycube.menu.MenuRecursive;
 import me.vorps.hub.PlayerData;
 import me.vorps.fortycube.menu.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
 
 /**
  * Project Hub Created by Vorps on 03/03/2016 at 18:26.
  */
-public class MenuPartyRemove extends Menu {
+public class MenuPartyRemove extends MenuRecursive {
 
-    public MenuPartyRemove(Player player, int page){
-        super(new byte[] {14}, null, new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {19, 0}, {20, 0}, {21, 0}, {22, 0}, {23, 0}, {24, 0}, {25, 0}});
+    private MenuPartyRemove(Player player, ArrayList<Item> list){
+        super(new byte[] {14}, Bukkit.createInventory(null, 27, "§6Supprimer un membre"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {19, 0}, {20, 0}, {21, 0}, {22, 0}, {23, 0}, {24, 0}, {25, 0}, {26, 0}}, list, PlayerData.getPlayerData(player.getName()).getLang(), 7, 9);
+        initMenu(player, 1);
+        player.openInventory(menu);
+    }
+
+    @Override
+    public void initMenu(Player player, int page){
+        menu.clear();
+        menu.setItem(4, new Item(Material.BARRIER).withName("§6Supprimer un membre").withLore(new String[] {"§7Supprimer un membre de votre party"}).get());
+        menu.setItem(18, new Item(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu party"}).get());
+        getPage(page);
+        player.updateInventory();
+    }
+
+    public static void createMenu(Player player){
         PlayerData playerData = PlayerData.getPlayerData(player.getName());
+        ArrayList<Item> list = new ArrayList<>();
         playerData.updateParty();
-        Inventory menuParty;
-        if(playerData.getParty().getMembers().size() <= 7){
-            menuParty = Bukkit.createInventory(null, 27, "§6Supprimer un membre");
-        } else {
-            menuParty = Bukkit.createInventory(null, 27, "§6Del un membre|page : §4"+page);
+        playerData.getParty().getMembers().keySet().forEach((String name) -> list.add(new Item(name).withName("§c"+ name).withLore(new String[] {"§7Supprimer ce membre", "§eClic gauche -> §aSupprimer"})));
+        new MenuPartyRemove(player, list);
+    }
+
+    @Override
+    public void interractInventory(InventoryClickEvent e) {
+        ItemStack itemStack = e.getCurrentItem();
+        Player player = (Player) e.getWhoClicked();
+        PlayerData playerData = PlayerData.getPlayerData(player.getName());
+        switch (itemStack.getType()) {
+            case ARROW:
+                new MenuProfil(player);
+                break;
+            case SKULL_ITEM:
+                String member = itemStack.getItemMeta().getDisplayName().substring(2);
+                if(playerData.getParty().isMember(member)){
+                    playerData.getParty().deleteMenber(player, member);
+                    player.closeInventory();
+                } else {
+                    createMenu(player);
+                }
+                break;
+            case PAPER:
+                initMenu(player, page+1);
+                break;
+            case EMPTY_MAP:
+                initMenu(player, page-1);
+                break;
+            default:
+                break;
         }
-        menuParty.setItem(4, new Item(Material.BARRIER).withName("§6Supprimer un membre").get());
-        String[] des = {"Remove Membre"};
-        if(playerData.getParty().getMembers().size() <= 7){
-            list(10, playerData.getParty().getMembers().size()-(page-1)*7, (page-1)*7, 0, playerData.getParty().getMembers(), des);
-        } else {
-            for(int i = 0; i < 7; i++){
-                menuParty.setItem(10+i, new Item(playerData.getParty().getMembers().get((page-1)*7)+i).withName("§6"+ playerData.getParty().getMembers().get((page-1)*7)+i).withLore(des).get());
-            }
-        }
-        if(page > 1){
-            menuParty.setItem(18, new Item(Material.PAPER).withName("§6<- page "+page--).withLore(new String[] {"Party remove back", ""+page--}).get());
-        } else {
-            menuParty.setItem(18, new Item(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu party"}).get());
-        }
-        if(playerData.getParty().getMembers().size() <= page*7){
-            menuParty.setItem(26, new Item(160).withData((byte) 14).withName(" ").get());
-        } else {
-            menuParty.setItem(26, new Item(Material.PAPER).withName("§6Page "+page+1+" ->").withLore(new String[] {"Party remove", ""+page+1}).get());
-        }
-        player.openInventory(menuParty);
     }
 }

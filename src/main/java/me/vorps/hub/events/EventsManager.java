@@ -1,6 +1,7 @@
 package me.vorps.hub.events;
 
 import me.vorps.hub.Hub;
+import me.vorps.hub.chanel.PluginMessageReceived;
 import org.bukkit.Bukkit;
 
 /**
@@ -22,5 +23,10 @@ public class EventsManager {
         Bukkit.getServer().getPluginManager().registerEvents(new WeatherListener(), plugin);
         Bukkit.getServer().getPluginManager().registerEvents(new FoodChangeLevelListener(), plugin);
         Bukkit.getServer().getPluginManager().registerEvents(new MoveListener(), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new SingEvent(), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new SignInterract(), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteractEntities(), plugin);
+        Bukkit.getServer().getMessenger().registerIncomingPluginChannel(plugin, "BungeeCord", new PluginMessageReceived());
     }
 }

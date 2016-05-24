@@ -1,6 +1,8 @@
 package me.vorps.hub.commands;
 
+import me.vorps.fortycube.Exceptions.SqlException;
 import lombok.Getter;
+import me.vorps.fortycube.databases.Database;
 import me.vorps.hub.Data;
 import me.vorps.hub.PlayerData;
 import org.bukkit.Bukkit;
@@ -11,6 +13,7 @@ import org.bukkit.entity.Player;
  * Project Hub Created by Vorps on 02/03/2016 at 21:03.
  */
 public abstract class CommandsAction extends Commands{
+
     private @Getter PlayerData playerData;
     private String name;
     private @Getter Player player;
@@ -22,7 +25,7 @@ public abstract class CommandsAction extends Commands{
             player = (Player) sender;
             playerData = PlayerData.getPlayerData(player.getName());
             if(stateOnlineFunction()){
-                if (sender.hasPermission(permission + "me.off")) {
+                if (sender.hasPermission(permission + ".me.off")) {
                     disableFunction();
                 }
             } else {
@@ -120,11 +123,23 @@ public abstract class CommandsAction extends Commands{
     private void enablePlayerOfflineFunction(String namePlayer){
         setOfflineFunction((byte) 1,namePlayer);
         getSender().sendMessage("§6" + name + " (§aActivé§6) pour §a" +namePlayer + "§6.");
+        try {
+            String notification = "✴§a"+namePlayer+"§e vous à activé le §a"+name+"§e.";
+            Database.FORTYCUBE.getDatabase().sendDatabase("INSERT INTO notification VALUES ('"+namePlayer+"', '"+notification+"')");
+        } catch (SqlException e){
+            e.printStackTrace();
+        }
     }
 
     private void disablePlayerOfflineFunction(String namePlayer){
         setOfflineFunction((byte) 0,namePlayer);
         getSender().sendMessage("§6" + name + " (§4Désactivé§6) pour §a" +namePlayer + "§6.");
+        try {
+            String notification = "✴§a"+namePlayer+"§e vous à désactivé le §a"+name+"§e.";
+            Database.FORTYCUBE.getDatabase().sendDatabase("INSERT INTO notification VALUES ('"+namePlayer+"', '"+notification+"')");
+        } catch (SqlException e){
+            e.printStackTrace();
+        }
     }
 
     private void enablePlayerFunction(String namePlayer){

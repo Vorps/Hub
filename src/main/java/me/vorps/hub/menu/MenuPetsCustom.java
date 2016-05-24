@@ -1,9 +1,11 @@
 package me.vorps.hub.menu;
 
 import me.vorps.fortycube.menu.Item;
+import me.vorps.fortycube.menu.Menu;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -26,4 +28,9 @@ public class MenuPetsCustom extends Menu{
 		menu.setItem(43, new Item(Material.GOLD_BOOTS).withName("§6Mode Balade").get());
         player.openInventory(menu);
 	}
+
+    @Override
+    public void interractInventory(InventoryClickEvent e) {
+
+    }
 }

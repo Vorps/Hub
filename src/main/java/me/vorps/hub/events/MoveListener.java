@@ -2,6 +2,7 @@ package me.vorps.hub.events;
 
 import me.vorps.fortycube.utils.Limite;
 import me.vorps.hub.PlayerData;
+import me.vorps.hub.Object.PlayerJump;
 import me.vorps.hub.Settings;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,9 +17,14 @@ public class MoveListener implements Listener{
     @EventHandler
     public void onMovePlayer(PlayerMoveEvent e){
         Player player = e.getPlayer();
+        PlayerJump playerJump = PlayerData.getPlayerData(player.getName()).getJump();
         if(Limite.limite(player.getLocation(), new double[] {Settings.getXMore(), Settings.getXLess(), Settings.getYMore(), Settings.getYLess(), Settings.getZMore(), Settings.getZLess()})){
-            PlayerData.getPlayerData(player.getName()).teleportSpawn();
-            player.sendMessage("§7Ne vous éloignez pas trop");
+            if(playerJump.isInJump()){
+                playerJump.failManager(player);
+            } else {
+                PlayerData.getPlayerData(player.getName()).teleportSpawn();
+                player.sendMessage("§7Ne vous éloignez pas trop");
+            }
         }
 
     }

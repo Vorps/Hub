@@ -8,7 +8,6 @@ import me.vorps.fortycube.menu.Item;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import me.vorps.hub.Object.Grades;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,33 +26,28 @@ public class Navigator {
 
     public static void playerVisible(PlayerData playerData, Player player){
         if(playerData.isVisiblePlayer()){
-            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs : (§aActivé§6)").withLore(new String[] {"§aPermet de masquer", "§7 - Les joueurs"}).get());
+            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs : (§aActivé§6)").withLore(new String[] {"§aPermet de masquer", "§a -§7 Les joueurs (Sauf Amis/Membre/Staff)"}).get());
         } else {
-            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs : (§cDésactivé§6)").withLore(new String[] {"§aPermet de masquer", "§7 - Les joueurs"}).get());
+            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs : (§cDésactivé§6)").withLore(new String[] {"§aPermet de masquer", "§a -§7 Les joueurs (Sauf Amis/Membre/Staff)"}).get());
         }
     }
 
     public static void profil(PlayerData playerData,Player player, Inventory inv){
-        Grades grade = playerData.getGrade();
         List<String> des = new ArrayList<>();
         des.add("§6§l"+playerData.getNamePlayer());
-        if(grade.getGradeDisplay().equals("")){
-            des.add("§7Grade : "+grade.getColorGrade()+grade.getGradeDisplay());
-        } else {
-            des.add("§7Grade : "+grade.getColorGrade()+grade.getGrade());
-        }
+        des.add("§7Grade : "+playerData.getGrade());
         Bonus bonus = playerData.getBonus();
         Money.getListMoney().values().forEach((Money money) -> {
             if(money.getMoney().equals(bonus.getMoney())){
                 des.add("§7"+money.getMoney()+" : "+money.getColor()+ playerData.getMoney().get(money.getMoney())+" "+money.getAlias()+" §bGains : §c"+100*bonus.getCoefficient()+"%");
             } else {
-                des.add("§7"+money.getMoney()+" : "+money.getColor()+ playerData.getMoney().get(money.getMoney())+" "+money.getAlias()+" §bGains : §c"+100* Settings.getDefaultBonus().getCoefficient()+"%");
+                des.add("§7"+money.getMoney()+" : "+money.getColor()+ playerData.getMoney().get(money.getMoney())+" "+money.getAlias()+" §bGains : §c"+100*1.0+"%");
             }
         });
         if(bonus.getBonus().equals(Settings.getDefaultBonus().getBonus())){
             des.add("§eBonus : §cDésactivé");
         } else {
-            des.add("§eBonus : §a"+ bonus);
+            des.add("§eBonus : §a"+ bonus.getBonus());
         }
         if(inv == null){
             player.getInventory().setItem(1, new Item(player.getName()).withName("§6Résumé du profil").withLore(des.toArray(des.toArray(new String[des.size()]))).get());

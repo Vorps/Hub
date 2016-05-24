@@ -1,7 +1,7 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Execeptions.SqlException;
+import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 
 import java.sql.ResultSet;
@@ -26,5 +26,9 @@ public class Money {
 
     public static Money getMoney(String nameMoney){
         return listMoney.get(nameMoney);
+    }
+
+    public static void clear(){
+        listMoney.clear();
     }
 }

@@ -1,8 +1,8 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Execeptions.SqlException;
 import me.vorps.fortycube.databases.Database;
+import me.vorps.fortycube.Exceptions.SqlException;
 
 import java.sql.ResultSet;
 
@@ -12,10 +12,10 @@ import java.sql.ResultSet;
 public class JumpsSettings {
 	
 	private @Getter	int checkPoint;
-	private @Getter float Yaw;
+	private @Getter float yaw;
 	
 	public JumpsSettings(ResultSet results) throws SqlException {
 		checkPoint = Database.FORTYCUBE.getDatabase().getInt(results, 2);
-		Yaw = Database.FORTYCUBE.getDatabase().getFloat(results, 3);
+		yaw = Database.FORTYCUBE.getDatabase().getFloat(results, 3);
 	}
 }

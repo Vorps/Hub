@@ -2,187 +2,139 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="HubBungee" />
+      <artifact name="Hub" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b017c5c0-b52c-4292-a494-f36afc3d5262" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/HubBungee.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/FortyCubeBukkit.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Data.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Bonus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/BookHelp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Friends.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Grades.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Jumps.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpsSettings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Money.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Party.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Products.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/ProductsPlayers.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Settings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandBuild.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandDoubleJumps.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandFly.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandHub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandJump.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandReload.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandVisiblePlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/Commands.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandsAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/BlockBreakListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DamageListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DropPlayerListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EventsManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FlyOnJumpListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/JoinListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/MoveListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Menu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoutique.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuChestplate.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuCostume.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuExperience.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriends.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriendsRemove.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGadgets.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGrades.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHitIt.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJump.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLeggings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLuckyFight.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParticles.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParty.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPartyRemove.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPets.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPetsCustom.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPrincipal.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuProfil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPurchase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuRush.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSkyWars.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/IronGolemMount.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/PetsManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/RideableBat.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/RideableZombie.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/shop/Shop.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/shop/ShopManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDowns.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/CoolDown.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/PermissionsPlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Commands.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Friends.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Grades.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Hub.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/LoadVariable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Object/Bonus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Object/BookHelp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Object/Jumps.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Object/JumpsSettings.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Object/Money.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Object/Products.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Party.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Permissions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/PlayerHub.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/ProductsPlayers.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/Settings.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/AideCommande.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandBan.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandBuild.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandDoubleJumps.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandFly.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandFriends.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandGrade.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandHub.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandMoney.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandMute.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandPardon.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandParty.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandReSend.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandReload.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandUnMute.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandVisiblePlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/commands/CommandWhisper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/database/Database.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/BlockBreakListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/ChatListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/CommandPreprocessListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/DamageListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/DropPlayerListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/FlyOnJumpListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/InteractListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/JoinListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/MoveListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/QuitListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuBonus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuBoots.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuBoutique.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuChestplate.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuCostume.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuExperience.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuFriends.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuGadgets.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuGrades.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuHelmet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuHelp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuHitIt.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuHub.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuJump.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuLeggings.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuLuckyFight.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuParticles.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuParty.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuPets.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuPetsCustom.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuPrincipal.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuProfil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuPurchase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuRush.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuSettings.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuSkyWars.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/MenuTransactions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/menu/Navigator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/thread/ThreadCooldowns.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/thread/ThreadHub.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/ActionBar.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/ChatInteract.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/ConvertMillis.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/Cooldowns.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/GiveProductPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/HubTabComplete.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/Item.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/ParticleEffect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/Purchase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/ReflectionUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/RemovePlayerProduit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/ScoreBoard.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/TabList.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/Title.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/EntityDamageListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EntityDamageListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/FoodChangeLevelListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FoodChangeLevelListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/InterractInventoryListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/events/WeatherListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/WeatherListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/sirmc/vorps/utils/Permission.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Permission.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/FortyCubeAPIBukkit.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Game.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Item.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpDifficulty.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpEarning.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Location.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Menu.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/MessageTitle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJump.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJumpRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Server.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Stats.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/chanel/PluginMessageReceived.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandsAutoCompletion.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/dispatcher/Dispatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/dispatcher/Parameter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/dispatcher/ServerParameter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/ChatListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/PlayerInteractEntities.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/SignInterract.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/SingEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGame.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGameStats.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetBlock.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetHead.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpDifficulty.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpDifficultyRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuShopGame.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoard.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoardJump.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ClassThread.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDownDoubleJump.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDownsVisiblePlayer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadFile.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadJump.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadServer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/ChatColor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Color.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/EntityManager.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/HubBungee.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/FortyCubeBukkit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandHub.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Menu.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuExperience.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHitIt.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLuckyFight.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuRush.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSkyWars.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/IronGolemMount.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/PetsManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/RideableBat.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/pets/RideableZombie.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/shop/Shop.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/shop/ShopManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDowns.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmet.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetHat.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/PermissionsPlayer.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Permission.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Hub.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Hub.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hub.iml" afterPath="$PROJECT_DIR$/Hub.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Data.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Data.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Bonus.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Bonus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/BookHelp.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/BookHelp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Friends.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Friends.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Grades.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Grades.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Jumps.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Jumps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpsSettings.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpsSettings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Money.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Money.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Mute.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Mute.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Party.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Party.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Products.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Products.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/ProductsPlayers.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/ProductsPlayers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Settings.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Settings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandBuild.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandBuild.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandDoubleJumps.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandDoubleJumps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandFly.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandFly.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandJump.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandJump.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandManager.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandReload.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandReload.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandVisiblePlayer.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandVisiblePlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/Commands.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/Commands.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandsAction.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandsAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/BlockBreakListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/BlockBreakListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DamageListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DamageListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DropPlayerListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DropPlayerListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EntityDamageListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EntityDamageListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EventsManager.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EventsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FlyOnJumpListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FlyOnJumpListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FoodChangeLevelListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FoodChangeLevelListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/JoinListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/JoinListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/MoveListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/MoveListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoutique.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoutique.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuChestplate.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuChestplate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuCostume.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuCostume.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuEvent.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriends.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriends.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriendsRemove.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriendsRemove.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGadgets.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGadgets.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGrades.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGrades.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelp.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHub.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJump.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJump.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLeggings.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLeggings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParticles.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParticles.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParty.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPartyRemove.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPartyRemove.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPets.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPets.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPetsCustom.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPetsCustom.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPrincipal.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPrincipal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuProfil.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuProfil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPurchase.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPurchase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/CoolDown.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/CoolDown.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Permission.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Permission.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" />
     </list>
     <ignored path="Hub.iws" />
@@ -220,74 +172,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Data.java">
+      <file leaf-file-name="ScoreBoardJump.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoardJump.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="255">
+              <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hub.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java">
+      <file leaf-file-name="ScoreBoard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventsManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EventsManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="40" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuFriends.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriends.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+            <state relative-caret-position="646">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Friends.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Friends.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7589286">
-              <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Settings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -298,6 +200,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Singleton" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -313,57 +216,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLeggings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Menu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPrincipal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoutique.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuChestplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuCostume.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuExperience.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriends.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriendsRemove.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGadgets.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGrades.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHitIt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHub.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJump.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLuckyFight.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParticles.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParty.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPartyRemove.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPets.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPetsCustom.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuProfil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuRush.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPurchase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSkyWars.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/BookHelp.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java" />
-        <option value="A:/FortyCube/out/artifacts/FortyCubeBukkit/FortyCubeBukkit.jar!/me/vorps/fortycube/cooldown/CoolDowns.class" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FlyOnJumpListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/JoinListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Grades.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/Commands.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/CoolDown.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDowns.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPurchase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Products.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadJump.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/EntityManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Settings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/MoveListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EventsManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Data.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoardJump.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Grades.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGameStats.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/JoinListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/ProductsPlayers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Bonus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpEarning.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Game.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandJump.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpDifficulty.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpDifficulty.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/PlayerInteractEntities.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Jumps.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpDifficultyRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJumpRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParticles.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetHat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPets.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetBlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuChestplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGadgets.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLeggings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetHead.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGrades.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java" />
+        <option value="$USER_HOME$/Desktop/API/FortyCubeAPIBukkit.jar!/me/vorps/fortycube/scoreboard/ScoreBoard.class" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJump.java" />
       </list>
     </option>
   </component>
@@ -387,7 +290,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1932" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -415,9 +318,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -588,37 +489,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pets" />
+              <option name="myItemId" value="scoreboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -738,25 +609,87 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dispatcher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="commands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chanel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="A:/FortyCube/out/artifacts/FortyCubeBukkit/FortyCubeBukkit.jar!/" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/API/FortyCubeAPIBukkit.jar!/" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="SearchEverywhereHistoryKey" value="messageServer&#9;PSI&#9;JAVA://sirmc.vorps.Settings#messageServer&#10;getJumpSettings&#9;null&#9;null&#10;Money&#9;PSI&#9;JAVA://sirmc.vorps.PlayerHub#money&#10;Profil&#9;PSI&#9;JAVA://sirmc.vorps.menu.Navigator#Profil" />
+    <property name="SearchEverywhereHistoryKey" value="doubleJumps&#9;FILE&#9;file://A:/Hub/src/main/java/me/vorps/hub/commands/CommandDoubleJumps.java&#10;CoolDown.doubleJumps&#9;ACTION&#9;null&#10;messageServer&#9;PSI&#9;JAVA://sirmc.vorps.Settings#messageServer&#10;getJumpSettings&#9;null&#9;null&#10;Money&#9;PSI&#9;JAVA://sirmc.vorps.PlayerHub#money&#10;Profil&#9;PSI&#9;JAVA://sirmc.vorps.menu.Navigator#Profil" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
@@ -764,25 +697,79 @@
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="299" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="301" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="975" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="293" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="292" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="293" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="968" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="me.vorps.hub.dispatcher" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\events" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\Object" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\utils" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\shop" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\pets" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.vorps.hub.menu" />
+      <recent name="me.vorps.hub.events" />
+      <recent name="me.vorps.hub.utils" />
+      <recent name="me.vorps.hub.Object" />
+      <recent name="me.vorps.hub.dispatcher" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\thread" />
       <recent name="A:\Hub\src\main\java\me\vorps\hub" />
       <recent name="A:\Hub\src\main\java\me\vorps\hub\databases" />
       <recent name="A:\Hub" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="me.vorps.hub.pets" />
-      <recent name="me.vorps.hub.commands" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\utils" />
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\shop" />
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\pets" />
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\Object" />
-    </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Bungee">
+  <component name="RunManager" selected="JAR Application.Hub">
+    <configuration default="false" name="DispatcherTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="me.vorps.hub.dispatcher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Hub" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="me.vorps.hub.dispatcher" />
+      <option name="MAIN_CLASS_NAME" value="me.vorps.hub.dispatcher.DispatcherTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -791,31 +778,21 @@
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -825,27 +802,15 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -1039,25 +1004,13 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="Bungee" type="JarApplication" factoryName="JAR Application">
+    <configuration default="false" name="Hub" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="JAR_PATH" value="$USER_HOME$/Desktop/BungeeCord/Hub/spigot.jar" />
+      <option name="PROGRAM_PARAMETERS" value="nogui" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Vorps\Desktop\BungeeCord\Hub\" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <envs />
-      <module name="Hub" />
-      <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="HubBungee" />
-        </option>
-      </method>
-    </configuration>
-    <configuration default="false" name="Hub" type="JarApplication" factoryName="JAR Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="JAR_PATH" value="$USER_HOME$/Desktop/Hub/spigot.jar" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Vorps\Desktop\Hub\" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <envs />
       <module name="Hub" />
       <method>
@@ -1067,11 +1020,18 @@
       </method>
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="JAR Application.Bungee" />
-      <item index="1" class="java.lang.String" itemvalue="JAR Application.Hub" />
+      <item index="0" class="java.lang.String" itemvalue="JAR Application.Hub" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DispatcherTest" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DispatcherTest" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="StructureViewFactory">
     <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
   </component>
@@ -1083,6 +1043,7 @@
       <changelist id="b017c5c0-b52c-4292-a494-f36afc3d5262" name="Default" comment="" />
       <created>1454280037890</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1454280037890</updated>
       <workItem from="1454280038994" duration="1105000" />
       <workItem from="1454281575950" duration="462000" />
@@ -1135,6 +1096,20 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="DispatcherTest - 2016.04.01 at 00h 57m 50s.xml">
+      <configuration name="DispatcherTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DispatcherTest - 2016.04.01 at 00h 58m 09s.xml">
+      <configuration name="DispatcherTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DispatcherTest - 2016.04.01 at 00h 59m 03s.xml">
+      <configuration name="DispatcherTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DispatcherTest - 2016.04.01 at 00h 59m 51s.xml">
+      <configuration name="DispatcherTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="228610000" />
   </component>
@@ -1148,58 +1123,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2665996" sideWeight="0.45735607" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20585048" sideWeight="0.52771854" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33694476" sideWeight="0.5426439" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26868907" sideWeight="0.47228146" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21776815" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23023504" sideWeight="0.49434572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229167" sideWeight="0.49434572" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18643162" sideWeight="0.5056543" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18643162" sideWeight="0.5056543" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33802816" sideWeight="0.4520256" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869988" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3109426" sideWeight="0.47228146" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39869988" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3336945" sideWeight="0.4520256" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20585048" sideWeight="0.52771854" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.312026" sideWeight="0.47228146" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.49434572" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18643162" sideWeight="0.5056543" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1221,7 +1173,7 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1230,369 +1182,414 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuCostume.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/ProductsPlayers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuExperience.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriendsRemove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGadgets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGrades.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHitIt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJump.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLeggings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLuckyFight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParticles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPartyRemove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPetsCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuProfil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuRush.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPurchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSkyWars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://A:/FortyCube/out/artifacts/FortyCubeBukkit/FortyCubeBukkit.jar!/me/vorps/fortycube/utils/ChatInteract.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.185185">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FlyOnJumpListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39144737">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31907895">
-          <caret line="91" column="43" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5986842">
-          <caret line="46" column="60" selection-start-line="46" selection-start-column="60" selection-end-line="46" selection-end-column="60" />
+        <state relative-caret-position="323">
+          <caret line="24" column="80" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7269737">
-          <caret line="26" column="96" selection-start-line="26" selection-start-column="96" selection-end-line="26" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/JoinListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5427632">
-          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://A:/FortyCube/out/artifacts/FortyCubeBukkit/FortyCubeBukkit.jar!/me/vorps/fortycube/scoreboard/ScoreBoard.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.851851">
-          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Grades.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/shop/Shop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19572368">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/Commands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19572368">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://A:/FortyCube/out/artifacts/FortyCubeBukkit/FortyCubeBukkit.jar!/me/vorps/fortycube/cooldown/CoolDowns.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43201378">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33223686">
-          <caret line="695" column="29" selection-start-line="695" selection-start-column="29" selection-end-line="695" selection-end-column="29" />
+        <state relative-caret-position="306">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1611842">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        <state relative-caret-position="663">
+          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDowns.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpEarning.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="765">
+          <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://A:/FortyCube/out/artifacts/FortyCubeBukkit/FortyCubeBukkit.jar!/me/vorps/fortycube/utils/Limite.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5185184">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        <state relative-caret-position="306">
+          <caret line="63" column="95" selection-start-line="63" selection-start-column="95" selection-end-line="63" selection-end-column="95" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/MoveListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2236842">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        <state relative-caret-position="507">
+          <caret line="53" column="40" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/CoolDown.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuShopGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44078946">
-          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+        <state relative-caret-position="58">
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Settings.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="228">
+          <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandJump.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/API/FortyCubeAPIBukkit.jar!/me/vorps/fortycube/menu/Item.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="57" column="65" selection-start-line="56" selection-start-column="19" selection-end-line="57" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPartyRemove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPetsCustom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPrincipal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="84" column="22" selection-start-line="79" selection-start-column="11" selection-end-line="84" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuProfil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPurchase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="21" column="271" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="271" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="762">
+          <caret line="110" column="23" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
+          <folding>
+            <element signature="e#4056#4057#0" expanded="false" />
+            <element signature="e#4097#4098#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpDifficulty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Jumps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="63" column="10" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/PlayerInteractEntities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="110" selection-start-line="20" selection-start-column="110" selection-end-line="20" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJump.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpDifficulty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="41" column="113" selection-start-line="41" selection-start-column="113" selection-end-line="41" selection-end-column="152" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpDifficultyRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="39" column="152" selection-start-line="39" selection-start-column="152" selection-end-line="39" selection-end-column="152" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuJumpRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJumpRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuCostume.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuParticles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="38" column="213" selection-start-line="38" selection-start-column="213" selection-end-line="38" selection-end-column="213" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetHat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="42" column="224" selection-start-line="42" selection-start-column="224" selection-end-line="42" selection-end-column="224" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuPets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="37" column="205" selection-start-line="37" selection-start-column="205" selection-end-line="37" selection-end-column="205" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="38" column="220" selection-start-line="38" selection-start-column="220" selection-end-line="38" selection-end-column="220" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="42" column="225" selection-start-line="42" selection-start-column="225" selection-end-line="42" selection-end-column="225" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuChestplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="39" column="216" selection-start-line="39" selection-start-column="216" selection-end-line="39" selection-end-column="216" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGadgets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="37" column="207" selection-start-line="37" selection-start-column="207" selection-end-line="37" selection-end-column="207" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuLeggings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="39" column="225" selection-start-line="39" selection-start-column="225" selection-end-line="39" selection-end-column="225" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuHelmetHead.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="46" column="225" selection-start-line="46" selection-start-column="225" selection-end-line="46" selection-end-column="225" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="44" column="211" selection-start-line="44" selection-start-column="211" selection-end-line="44" selection-end-column="211" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuGrades.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="37" column="211" selection-start-line="37" selection-start-column="211" selection-end-line="37" selection-end-column="211" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="127" column="9" selection-start-line="118" selection-start-column="7" selection-end-line="127" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="120" column="263" selection-start-line="120" selection-start-column="263" selection-end-line="120" selection-end-column="263" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="38" column="67" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/API/FortyCubeAPIBukkit.jar!/me/vorps/fortycube/scoreboard/ScoreBoard.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="58" column="76" selection-start-line="58" selection-start-column="76" selection-end-line="58" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="68" column="64" selection-start-line="68" selection-start-column="64" selection-end-line="68" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        <state relative-caret-position="220">
+          <caret line="158" column="94" selection-start-line="158" selection-start-column="94" selection-end-line="158" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Data.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Bonus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        <state relative-caret-position="119">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJump.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EventsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuFriends.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        <state relative-caret-position="932">
+          <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Friends.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoardJump.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7589286">
-          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+        <state relative-caret-position="255">
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1667,6 +1664,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1686,7 +1684,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>FortyCubeBukkit</last-edited>
+          <last-edited>FortyCubeAPIBukkit</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
