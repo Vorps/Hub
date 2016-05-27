@@ -1,15 +1,11 @@
 package me.vorps.hub;
 
-import com.avaje.ebean.annotation.Sql;
 import lombok.Getter;
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.databases.Database;
 import me.vorps.hub.Object.Grades;
 import me.vorps.hub.commands.*;
 import me.vorps.hub.dispatcher.Parameter;
 import me.vorps.hub.dispatcher.ServerParameter;
 import me.vorps.hub.events.*;
-import me.vorps.hub.scoreboard.ScoreBoard;
 import me.vorps.hub.thread.ThreadHub;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -17,10 +13,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:44.
@@ -45,7 +37,7 @@ public class Hub extends JavaPlugin{
 	@Override
 	public void onDisable() {
 		interrupt = true;
-		Bukkit.getOnlinePlayers().forEach((Player player) -> PlayerData.getPlayerData(player.getName()).removePlayerHub(false));
+		Bukkit.getOnlinePlayers().forEach((Player player) -> PlayerData.getPlayerData(player.getName()).removePlayerHub());
         ServerParameter.serialisation(new Parameter(false));
 	}
 

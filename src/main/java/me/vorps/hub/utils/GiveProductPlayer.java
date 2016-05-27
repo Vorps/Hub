@@ -2,14 +2,13 @@ package me.vorps.hub.utils;
 
 import me.vorps.fortycube.menu.Item;
 import me.vorps.fortycube.utils.ConvertMillis;
-import me.vorps.hub.Object.Bonus;
 import me.vorps.hub.PlayerData;
 import me.vorps.hub.Object.Products;
 import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 import me.vorps.hub.menu.MenuPetsCustom;
 import me.vorps.hub.menu.Navigator;
-import org.bukkit.Material;
+import me.vorps.hub.particle.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -66,7 +65,7 @@ public class GiveProductPlayer {
                         e.printStackTrace();
                     }
                     player.closeInventory();
-                    playerData.setBonus(products.getName(), true);
+                    playerData.setBonus(products.getName());
                 }
                 break;
             case 6:
@@ -81,11 +80,17 @@ public class GiveProductPlayer {
                     player.closeInventory();
                     break;
                 }
-               player.closeInventory();
+                player.closeInventory();
                 break;
             case 7:
+                playerData.setParticle(new Particle(player, products.getName()));
+                player.sendMessage("§eVoici votre particule");
+                player.closeInventory();
                 break;
             case 8:
+                me.vorps.hub.Object.Gadgets gadgets = me.vorps.hub.Object.Gadgets.getListGadgets().get(products.getName());
+                gadgets.setGadgets(player, products.getName());
+                player.closeInventory();
                 break;
             case 9:
                 new MenuPetsCustom(player, itemStack);

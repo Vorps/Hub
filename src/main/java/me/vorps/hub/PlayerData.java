@@ -10,18 +10,20 @@ import java.util.HashMap;
 import lombok.Getter;
 import lombok.Setter;
 import me.vorps.fortycube.cooldown.CoolDowns;
+import me.vorps.fortycube.utils.NameTag;
 import me.vorps.fortycube.utils.TabList;
 import me.vorps.fortycube.utils.Title;
 import me.vorps.hub.Object.*;
 import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.fortycube.databases.Database;
 import me.vorps.hub.dispatcher.Dispatcher;
+import me.vorps.hub.gadget.Gadgets;
+import me.vorps.hub.particle.Particle;
 import me.vorps.hub.scoreboard.ScoreBoard;
 import me.vorps.hub.thread.ClassThread;
 import me.vorps.hub.thread.ThreadCoolDownsVisiblePlayer;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import me.vorps.hub.menu.Navigator;
 
@@ -52,6 +54,32 @@ public class PlayerData {
     private @Getter me.vorps.fortycube.scoreboard.ScoreBoard scoreBoard;
     private @Setter @Getter ClassThread file;
     private @Getter @Setter PlayerJump jump;
+    private @Getter Particle particle;
+    private @Getter Gadgets gadget;
+
+    public void setParticle(Particle particle){
+        if(this.particle != null && !jump.isInJump()){
+            this.particle.removeParticle();
+        }
+        if(!jump.isInJump() && particle != null){
+            particle.start();
+        }
+        try {
+            Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_particle = '"+particle+"' WHERE ps_player = '"+namePlayer+"'");
+        }catch (SqlException e){
+            e.printStackTrace();
+        }
+        this.particle = particle;
+    }
+
+    public void setGadgets(Gadgets gadget){
+        try {
+            Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_gadget = '"+gadget+"' WHERE ps_player = '"+namePlayer+"'");
+        }catch (SqlException e){
+            e.printStackTrace();
+        }
+        this.gadget = gadget;
+    }
 
 	public PlayerData(Player player){
 		this.namePlayer = player.getName();
@@ -81,6 +109,8 @@ public class PlayerData {
         }
         playersData.put(namePlayer , this);
         Dispatcher.updateListServer(player);
+        updateParticle();
+        updateGadget();
 	}
 
     public void setScoreBoard(Player player , me.vorps.fortycube.scoreboard.ScoreBoard scoreBoard){
@@ -93,6 +123,37 @@ public class PlayerData {
             ResultSet result = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM player_setting WHERE ps_player = '" + namePlayer + "'");
             result.next();
             lang = Database.FORTYCUBE.getDatabase().getString(result, 16);
+        } catch (SQLException e){
+            //
+        } catch (SqlException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void updateParticle(){
+        try {
+            ResultSet result = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM player_setting WHERE ps_player = '" + namePlayer + "'");
+            result.next();
+            String particle = Database.FORTYCUBE.getDatabase().getString(result, 17);
+            if(particle != null && !particle.equals("null")){
+                this.particle = new Particle(Bukkit.getPlayer(namePlayer), particle);
+                this.particle.start();
+            }
+        } catch (SQLException e){
+            //
+        } catch (SqlException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void updateGadget(){
+        try {
+            ResultSet result = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM player_setting WHERE ps_player = '" + namePlayer + "'");
+            result.next();
+            String gadget = Database.FORTYCUBE.getDatabase().getString(result, 18);
+            if(gadget != null && !gadget.equals("null")){
+                me.vorps.hub.Object.Gadgets.getListGadgets().get(gadget).setGadgets(Bukkit.getPlayer(namePlayer), gadget);
+            }
         } catch (SQLException e){
             //
         } catch (SqlException e){
@@ -125,12 +186,8 @@ public class PlayerData {
         } catch (SqlException e) {
             e.printStackTrace();
         }
-        if(!jump.isInJump()){
-            int i = 9;
-            for(Money money : Money.getListMoney().values()){
-                scoreBoard.add(money.getMoney(), " §7"+money.getMoney()+" : "+money.getColor()+ this.money.get(money.getMoney())+" "+money.getAlias(), i);
-                i--;
-            }
+        if(scoreBoard instanceof ScoreBoard){
+            ((ScoreBoard) scoreBoard).updateMoney();
         }
 	}
 
@@ -156,20 +213,16 @@ public class PlayerData {
 
 	public void getBonusFunction(){
         try {
-            setBonus(Database.FORTYCUBE.getDatabase().getString(getPlayerDatabases(), 3), true);
+            setBonus(Database.FORTYCUBE.getDatabase().getString(getPlayerDatabases(), 3));
         } catch (SqlException e){
             e.printStackTrace();
         }
 	}
 
-    public void setBonus(String bonus, boolean state){
+    public void setBonus(String bonus){
         this.bonus = Bonus.getBonus(bonus);
-        if(!jump.isInJump() && !bonus.equals(Settings.getDefaultBonus().getBonus())){
-            if (state){
-                scoreBoard.add("bonus", " §eBonus : §a"+ bonus, 2);
-            } else {
-                scoreBoard.remove("bonus");
-            }
+        if(scoreBoard instanceof ScoreBoard){
+            ((ScoreBoard) scoreBoard).updateBonus();
         }
     }
 
@@ -356,9 +409,10 @@ public class PlayerData {
         Permission.permissionGradeInit(this);
         Bukkit.getPlayer(namePlayer).setPlayerListName(grade.toString()+" "+namePlayer);
 		Navigator.profil(this, Bukkit.getPlayer(namePlayer), null);
-        if(jump.isInJump()){
-            scoreBoard.add("grade", " §7Grade : "+grade, 10);
+        if(scoreBoard instanceof ScoreBoard){
+            ((ScoreBoard) scoreBoard).updateGrade();
         }
+        NameTag.setTag(Bukkit.getPlayer(namePlayer), grade.getGradeDisplay()+" "+namePlayer, Bukkit.getPlayer(namePlayer));
 	}
 
 	public void displayMessage(){
@@ -449,11 +503,12 @@ public class PlayerData {
         party.getMembersOnline().forEach((String nameMember) -> Bukkit.getPlayer(nameMember).sendMessage("§eLe membre §a"+namePlayer+"§e vient de se connecté"));
 	}
 	
-	public void removePlayerHub(boolean state){
-		Bukkit.getPlayer(namePlayer).getInventory().clear();
-		if(state){
-			playersData.remove(namePlayer);
-		}
+	public void removePlayerHub(){
+        Bukkit.getPlayer(namePlayer).getInventory().clear();
+        if(particle != null){
+            particle.removeParticle();
+        }
+        playersData.remove(namePlayer);
 	}
 
 	private ResultSet getPlayerDatabases() throws SqlException {

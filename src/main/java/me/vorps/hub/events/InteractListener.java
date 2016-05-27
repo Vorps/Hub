@@ -1,7 +1,9 @@
 package me.vorps.hub.events;
 
+import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
 import me.vorps.hub.Object.Jumps;
+import me.vorps.hub.gadget.Gadgets;
 import me.vorps.hub.menu.MenuBoutique;
 import me.vorps.hub.menu.MenuPrincipal;
 import me.vorps.hub.menu.MenuProfil;
@@ -32,6 +34,22 @@ public class InteractListener implements Listener{
         if(!e.getAction().equals(Action.PHYSICAL) && e.isCancelled() && e.getItem() != null){
             ItemStack is = e.getItem();
             Action action = e.getAction();
+            Products products = Products.getProductItem(is, playerData.getLang());
+            if(products != null){
+                if(products.getType() == 8){
+                    if(action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.RIGHT_CLICK_BLOCK)){
+                        Gadgets gadgets =  playerData.getGadget();
+                        if(gadgets != null){
+                            gadgets.run();
+                        }
+                        player.updateInventory();
+                    } else {
+                        player.getInventory().clear(4);
+                        playerData.setGadgets(null);
+                        player.updateInventory();
+                    }
+                }
+            }
             if(is.getType().equals(Material.WRITTEN_BOOK)){
                 if(e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)){
                     player.getInventory().clear(4);

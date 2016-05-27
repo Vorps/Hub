@@ -22,17 +22,34 @@ public class ScoreBoard extends me.vorps.fortycube.scoreboard.ScoreBoard{
         super.add("3", "", 12);
         super.add("4", "§7-----§cInfos§7-----", 11);
         super.add("6", "   ", 1);
+        super.add("grade", " §7Grade : ", 10);
+        int i = 9;
+        for(Money money : Money.getListMoney().values()){
+            super.add(money.getMoney(), " §7"+money.getMoney()+" : "+money.getColor()+0+" "+money.getAlias(), i);
+            i--;
+        }
         super.add("7", "§eplay.fortycube.fr", 0);
     }
 
-    public void update(){
-        super.add("grade", " §7Grade : "+playerData.getGrade(), 10);
-        int i = 9;
-        for(Money money : Money.getListMoney().values()){
-            super.add(money.getMoney(), " §7"+money.getMoney()+" : "+money.getColor()+ playerData.getMoney().get(money.getMoney())+" "+money.getAlias(), i);
-            i--;
-        }
-        super.add("bonus", " §eBonus : §a"+ playerData.getBonus(), 2);
+    public void updateGrade(){
+        super.updateValue("grade", " §7Grade : "+playerData.getGrade());
     }
 
+    public void updateMoney(){
+        for(Money money : Money.getListMoney().values()){
+            super.updateValue(money.getMoney(), " §7"+money.getMoney()+" : "+money.getColor()+playerData.getMoney().get(money.getMoney())+" "+money.getAlias());
+        }
+    }
+
+    public void updateBonus(){
+        if(!playerData.getBonus().getBonus().equals(Settings.getDefaultBonus().getBonus())){
+            super.add("bonus", " §eBonus : §a"+playerData.getBonus().getBonus(), 2);
+        } else {
+            try {
+                super.remove("bonus");
+            } catch (Exception e){
+                //
+            }
+        }
+    }
 }

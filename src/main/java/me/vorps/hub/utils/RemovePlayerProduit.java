@@ -5,6 +5,8 @@ import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
 import me.vorps.fortycube.databases.Database;
 import me.vorps.hub.Settings;
+import me.vorps.hub.particle.Particle;
+import net.minecraft.server.v1_8_R3.EnumParticle;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -56,7 +58,7 @@ public class RemovePlayerProduit {
             } catch (SqlException e){
                 e.printStackTrace();
             }
-			playerData.setBonus(Settings.getDefaultBonus().getBonus(), false);
+			playerData.setBonus(Settings.getDefaultBonus().getBonus());
 			break;
 		case 6:
 			if(playerData.getGrade().getGrade().equals(nameProduct)){
@@ -70,6 +72,10 @@ public class RemovePlayerProduit {
 			}
 			break;
 		case 7:
+            Particle particle =  PlayerData.getPlayerData(player.getName()).getParticle();
+            if(particle != null && particle.getParticle().equals(products.getName())){
+                PlayerData.getPlayerData(player.getName()).setParticle(null);
+            }
 			break;
 		case 8:
 			break;

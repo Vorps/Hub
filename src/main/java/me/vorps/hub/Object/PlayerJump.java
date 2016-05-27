@@ -139,6 +139,12 @@ public class PlayerJump {
 
 
     private void startJump(Player player, Jumps jumps){
+        if(playerData.getParticle() != null){
+            playerData.getParticle().removeParticle();
+        }
+        if(playerData.getGadget() != null){
+            player.getInventory().clear(4);
+        }
         this.jump = jumps;
         initJump(player);
         init();
@@ -150,13 +156,18 @@ public class PlayerJump {
         player.sendMessage("§7Mode : "+jumpDifficulty.toString(playerData.getLang()));
         player.getInventory().setItem(3, new Item(Material.BARRIER).withName("§6Fin du jump").withLore(new String[] {"§7Mettre fin au jump"}).get());
         player.getInventory().setItem(5, new Item(Material.ARROW).withName("§6Respawn").withLore(new String[] {"§7Respawn au checkpoint précédent"}).get());
-        PlayerData.getPlayerData(player.getName()).setScoreBoard(player, new ScoreBoardJump(jumps, this).getScoreBoard());
-        threadJump = new ThreadJump(PlayerData.getPlayerData(player.getName()).getScoreBoard(), playerData.getNamePlayer());
+        playerData.setScoreBoard(player, new ScoreBoardJump(jumps, this).getScoreBoard());
+        threadJump = new ThreadJump(playerData.getScoreBoard(), playerData.getNamePlayer());
         threadJump.start();
     }
 
     public void stopJump(Player player, boolean state){
-        PlayerData playerData = PlayerData.getPlayerData(player.getName());
+        if(playerData.getParticle() != null){
+            playerData.getParticle().restart();
+        }
+        if(playerData.getGadget() != null){
+            player.getInventory().setItem(4, Products.getProduct(playerData.getGadget().getGadgets().getName()).getItem().get(playerData.getLang()).withLore(new String[] {}).get());
+        }
         jump = null;
         if(playerData.isFly()){
             player.sendMessage("§6Fly (§aActivé§6).");
@@ -176,7 +187,9 @@ public class PlayerJump {
         player.getInventory().setItem(3, new ItemStack(Material.AIR));
         player.getInventory().setItem(5, new ItemStack(Material.AIR));
         ScoreBoard scoreBoard = new ScoreBoard(playerData);
-        scoreBoard.update();
+        scoreBoard.updateGrade();
+        scoreBoard.updateMoney();
+        scoreBoard.updateBonus();
         PlayerData.getPlayerData(player.getName()).setScoreBoard(player, scoreBoard);
         if(state){
             playerData.teleportSpawn();

@@ -24,7 +24,7 @@ public class QuitListener implements Listener {
         } else {
             e.setQuitMessage("");
         }
-        playerData.removePlayerHub(true);
+        playerData.removePlayerHub();
         for(PlayerData playerDataList : PlayerData.getPlayersData().values()){
             if(!playerDataList.getJump().isInJump()){
                 playerDataList.getScoreBoard().updateValue("player", "§aJoueur : §6"+PlayerData.nbrConnect());

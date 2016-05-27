@@ -17,6 +17,7 @@ public class CommandManager {
         plugin.getCommand(Commands.Command.VISIBLE_PLAYER.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.VISIBLE_PLAYER));
         plugin.getCommand(Commands.Command.JUMP.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.JUMP));
         plugin.getCommand(Commands.Command.RELOAD_HUB.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.RELOAD_HUB));
+        plugin.getCommand(Commands.Command.SETTING.getCommand()).setTabCompleter(new CommandsAutoCompletion(Commands.Command.SETTING));
     }
 
     @EventHandler
@@ -33,6 +34,8 @@ public class CommandManager {
             return new CommandReload(sender, args).isStateExec();
         } else if(label.equalsIgnoreCase(Commands.Command.JUMP.getCommand())){
             return new CommandJump(sender, args).isStateExec();
+        } else if(label.equalsIgnoreCase(Commands.Command.SETTING.getCommand())){
+            return new CommandSetting(sender, args).isStateExec();
         }
         return false;
     }

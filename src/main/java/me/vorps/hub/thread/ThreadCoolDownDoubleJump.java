@@ -1,7 +1,9 @@
 package me.vorps.hub.thread;
 
-import me.vorps.fortycube.cooldown.CoolDowns;
+import me.vorps.hub.Hub;
 import me.vorps.hub.PlayerData;
+import me.vorps.hub.Settings;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /**
@@ -9,31 +11,15 @@ import org.bukkit.entity.Player;
  */
 public class ThreadCoolDownDoubleJump extends Thread {
 
-    private Player player;
-
     public ThreadCoolDownDoubleJump(Player player){
-        this.player = player;
-        run();
-    }
-
-    @Override
-    public void run(){
         PlayerData playerData = PlayerData.getPlayerData(player.getName());
-        while(CoolDowns.hasCoolDown(player.getName(), "double_jump")){
-            CoolDowns coolDowns = CoolDowns.getCoolDown(player.getName(), "double_jump");
-            if(coolDowns.getSecondsLeft() > 0 && playerData.isDoubleJumps()){
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Hub.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                if (playerData.isDoubleJumps()) {
+                    player.setAllowFlight(true);
                 }
-            } else {
-                coolDowns.removeCoolDown();
             }
-        }
-        if(playerData.isDoubleJumps()){
-            player.setAllowFlight(true);
-        }
-        interrupt();
+        }, Settings.getCoolDownDoubleJump()*20L);
     }
 }

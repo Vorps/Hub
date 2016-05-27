@@ -14,7 +14,8 @@ public abstract class Commands{
         FLY("fly", "fortycube.fly"),
         JUMP("jump", "fortycube.jump"),
         RELOAD_HUB("reloadhub", "fortycube.reloadhub"),
-        VISIBLE_PLAYER("visibleplayer", "fortycube.visible_player");
+        VISIBLE_PLAYER("visibleplayer", "fortycube.visible_player"),
+        SETTING("settings", "fortycube.setting");
 
         private @Getter String command;
         private @Getter String permissions;

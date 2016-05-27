@@ -4,6 +4,7 @@ import me.vorps.fortycube.menu.MenuRecursive;
 import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
 import me.vorps.fortycube.menu.Item;
+import me.vorps.hub.particle.Particle;
 import me.vorps.hub.utils.Purchase;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -27,7 +28,7 @@ public class MenuParticles extends MenuRecursive {
     @Override
     public void initMenu(Player player, int page){
         menu.clear();
-        menu.setItem(4, new Item(Material.GLOWSTONE_DUST).withName("§6Pets").get());
+        menu.setItem(4, new Item(Material.GLOWSTONE_DUST).withName("§6Particule").get());
         menu.setItem(13, new Item(Material.BARRIER).withName("§6Retirer ma particules").withLore(new String[] {"§7Retirer ma particule actuel"}).get());
         menu.setItem(36, new Item(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
         getPage(page);
@@ -49,7 +50,8 @@ public class MenuParticles extends MenuRecursive {
                 MenuBoutique.createMenu(player);
                 break;
             case BARRIER:
-                player.sendMessage("§6En développement");
+                PlayerData.getPlayerData(player.getName()).setParticle(null);
+                player.sendMessage("§7Votre particule a été retiré");
                 break;
             case PAPER:
                 initMenu(player, page+1);

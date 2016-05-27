@@ -56,7 +56,24 @@ public class Data {
         getBookHelp();
         getPermissions();
         getJumpRecord();
+        getGadget();
 	}
+
+
+    private static void getGadget(){
+        MessageTitle.clear();
+        try {
+            ResultSet results = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM gadget ");
+            while (results.next()) {
+                new Gadgets(results);
+            }
+        } catch (SQLException e){
+            //
+        } catch (SqlException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private static void getMessageTitle(){
         MessageTitle.clear();

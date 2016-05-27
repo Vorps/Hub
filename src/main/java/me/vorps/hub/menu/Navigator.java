@@ -1,6 +1,7 @@
 package me.vorps.hub.menu;
 
 import me.vorps.hub.Object.Bonus;
+import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
 import me.vorps.hub.Object.Money;
 import me.vorps.hub.Settings;
@@ -20,6 +21,9 @@ public class Navigator {
     public static void navigator(PlayerData playerData, Player player){
        player.getInventory().setItem(0, new Item(Material.COMPASS).withName("§6Menu Principal").withLore(new String[] {"§7Accéder au menu principal"}).get());
         profil(playerData, player, null);
+        if(playerData.getGadget() != null){
+            player.getInventory().setItem(4, Products.getProduct(playerData.getGadget().getGadgets().getName()).getItem().get(playerData.getLang()).withLore(new String[] {}).get());
+        }
         playerVisible(playerData, player);
         player.getInventory().setItem(8, new Item(Material.ENDER_CHEST).withName("§6Boutique").withLore(new String[] {"§7Accéder au menu Boutique"}).get());
     }

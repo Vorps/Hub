@@ -98,32 +98,37 @@ public class InterractInventoryListener implements Listener {
                 }
                 Products products = Products.getProductItem(is, playerData.getLang());
                 if(products != null){
-                    ResultSet results;
-                    try {
-                        results = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM player_product WHERE pp_player = '" +player.getName() + "'");
-                        while (results.next()) {
-                            if (Database.FORTYCUBE.getDatabase().getString(results, 2).equals(products.getName())) {
-                                state = false;
+                    if(e.getSlot() == 4 && products.getType() == 8){
+                        player.getInventory().clear(4);
+                        playerData.setGadgets(null);
+                    } else {
+                        ResultSet results;
+                        try {
+                            results = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM player_product WHERE pp_player = '" +player.getName() + "'");
+                            while (results.next()) {
+                                if (Database.FORTYCUBE.getDatabase().getString(results, 2).equals(products.getName())) {
+                                    state = false;
+                                }
+                            }
+                        } catch (SQLException e1){
+                            //
+                        } catch (SqlException e1) {
+                            e1.printStackTrace();
+                        }
+                        boolean stateGrade = true;
+                        if(products.getType() == 6){
+                            Grades gradePlayer = Grades.getGradesList().get(playerData.getGrade().getGrade());
+                            if(Grades.getGradesList().get(products.getName()).getLevelGrade() < gradePlayer.getLevelGrade()){
+                                stateGrade = false;
                             }
                         }
-                    } catch (SQLException e1){
-                        //
-                    } catch (SqlException e1) {
-                        e1.printStackTrace();
-                    }
-                    boolean stateGrade = true;
-                    if(products.getType() == 6){
-                        Grades gradePlayer = Grades.getGradesList().get(playerData.getGrade().getGrade());
-                        if(Grades.getGradesList().get(products.getName()).getLevelGrade() < gradePlayer.getLevelGrade()){
-                            stateGrade = false;
-                        }
-                    }
-                    if((products.getType() == 5 && playerData.getBonus().getBonus().equals("default")) || (products.getType() == 6 && !playerData.getGrade().getGrade().equals(products.getName()) && stateGrade) || products.getType() != 5 || products.getType() != 6){
-                        if(!state){
-                            GiveProductPlayer.giveItemPlayer(player, products, false, is);
-                        } else {
-                            if(playerData.getMoney().get(products.getMoney()) >= products.getPrice()){
-                                new MenuPurchase(player, products);
+                        if((products.getType() == 5 && playerData.getBonus().getBonus().equals("default")) || (products.getType() == 6 && !playerData.getGrade().getGrade().equals(products.getName()) && stateGrade) || products.getType() != 5 || products.getType() != 6){
+                            if(!state){
+                                GiveProductPlayer.giveItemPlayer(player, products, false, is);
+                            } else {
+                                if(playerData.getMoney().get(products.getMoney()) >= products.getPrice()){
+                                    new MenuPurchase(player, products);
+                                }
                             }
                         }
                     }

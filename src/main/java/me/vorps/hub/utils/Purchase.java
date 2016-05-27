@@ -61,7 +61,13 @@ public class Purchase {
                     }
                 }
                 if(products.getType() != 0){
-                    des.add("§aMetre " + message);
+                    if(products.getType() == 8 && playerData.getGadget() != null && playerData.getGadget().toString().equals(products.getName())){
+                        des.add("§aVous utilisez déja ce gadget ");
+                    } else if(products.getType() == 7 && playerData.getParticle() != null && playerData.getParticle().getParticle().equals(products.getName())){
+                        des.add("§aVous utilisez déja cette particule ");
+                    } else {
+                        des.add("§aMettre " + message);
+                    }
                 } else {
                     des.add("§aVous possedez déja" + message);
                 }

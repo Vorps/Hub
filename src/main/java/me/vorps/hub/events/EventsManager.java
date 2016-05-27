@@ -27,6 +27,8 @@ public class EventsManager {
         Bukkit.getServer().getPluginManager().registerEvents(new SignInterract(), plugin);
         Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), plugin);
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteractEntities(), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new SneakListener(), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new ProjectileHitListener(), plugin);
         Bukkit.getServer().getMessenger().registerIncomingPluginChannel(plugin, "BungeeCord", new PluginMessageReceived());
     }
 }

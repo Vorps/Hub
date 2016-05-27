@@ -32,7 +32,7 @@ public class MenuProfil extends Menu {
         Player player = (Player) e.getWhoClicked();
         switch (e.getCurrentItem().getType()){
             case REDSTONE_COMPARATOR:
-                new MenuSettings(player);
+                new MenuSettings(player, false);
                 break;
             case MAGMA_CREAM:
                 MenuParty.createMenu(player);
