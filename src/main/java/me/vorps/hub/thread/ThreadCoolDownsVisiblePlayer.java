@@ -1,10 +1,10 @@
 package me.vorps.hub.thread;
 
 import lombok.Getter;
-import me.vorps.fortycube.cooldown.CoolDowns;
-import me.vorps.fortycube.menu.Item;
+import net.vorps.api.cooldowns.CoolDowns;
 import me.vorps.hub.PlayerData;
 import me.vorps.hub.menu.Navigator;
+import net.vorps.api.menu.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -27,21 +27,21 @@ public class ThreadCoolDownsVisiblePlayer extends Thread{
 	}
 	
 	public void run(){
-		while(CoolDowns.hasCoolDown(player.getName(), "visible_player")){
+		/*while(CoolDowns.hasCoolDown(player.getName(), "visible_player")){
             CoolDowns coolDowns = CoolDowns.getCoolDown(player.getName(), "visible_player");
             if(coolDowns.getSecondsLeft() > 0){
                 if(PlayerData.isPlayerDataExits(player.getName())){
                     if(playerData.isVisiblePlayer()){
                         if(coolDowns.getSecondsLeft() >= 2){
-                            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§aActivé§6) §7("+ coolDowns.getSecondsLeft()+" Secondes)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
+                            player.getInventory().setItem(7, new ItemBuilder(Material.BLAZE_POWDER).withName("§6Joueurs (§aActivé§6) §7("+ coolDowns.getSecondsLeft()+" Secondes)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
                         } else {
-                            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§aActivé§6) §7("+ coolDowns.getSecondsLeft()+" Seconde)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
+                            player.getInventory().setItem(7, new ItemBuilder(Material.BLAZE_POWDER).withName("§6Joueurs (§aActivé§6) §7("+ coolDowns.getSecondsLeft()+" Seconde)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
                         }
                     } else {
                         if(coolDowns.getSecondsLeft() >= 2){
-                            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§4Désactivé§6) §7("+ coolDowns.getSecondsLeft()+" Secondes)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
+                            player.getInventory().setItem(7, new ItemBuilder(Material.BLAZE_POWDER).withName("§6Joueurs (§4Désactivé§6) §7("+ coolDowns.getSecondsLeft()+" Secondes)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
                         } else {
-                            player.getInventory().setItem(7, new Item(Material.BLAZE_POWDER).withName("§6Joueurs (§4Désactivé§6) §7("+ coolDowns.getSecondsLeft()+" Seconde)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
+                            player.getInventory().setItem(7, new ItemBuilder(Material.BLAZE_POWDER).withName("§6Joueurs (§4Désactivé§6) §7("+ coolDowns.getSecondsLeft()+" Seconde)§6.").withAmount((int) -coolDowns.getSecondsLeft()).withLore(des).get());
                         }
                     }
                     try {
@@ -55,6 +55,6 @@ public class ThreadCoolDownsVisiblePlayer extends Thread{
             }
 		}
         Navigator.playerVisible(playerData, player);
-        interrupt();
+        interrupt();*/
 	}
 }

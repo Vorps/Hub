@@ -1,11 +1,10 @@
 package me.vorps.hub.menu;
 
-import me.vorps.fortycube.menu.Item;
-import me.vorps.fortycube.menu.MenuRecursive;
+import me.vorps.hub.Hub;
+import net.vorps.api.menu.ItemBuilder;
+import net.vorps.api.menu.MenuRecursive;
 import me.vorps.hub.Object.JumpDifficulty;
 import me.vorps.hub.Object.Jumps;
-import me.vorps.hub.Object.PlayerJump;
-import me.vorps.hub.Object.PlayerJumpRecord;
 import me.vorps.hub.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -14,6 +13,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Project Hub Created by Vorps on 19/05/2016 at 17:32.
@@ -22,54 +22,54 @@ public class MenuJumpDifficulty extends MenuRecursive{
 
     private Jumps jumps;
 
-    public MenuJumpDifficulty(Player player, ArrayList<Item> list, Jumps jumps){
-        super(jumps.getMenu().getIds(),  Bukkit.createInventory(null, jumps.getMenu().getSize(), jumps.getMenu().getLabel().get(PlayerData.getPlayerData(player.getName()).getLang())), jumps.getMenu().getModel(), list, PlayerData.getPlayerData(player.getName()).getLang(), jumps.getMenu().getLineSize(), jumps.getMenu().getStart(), jumps.getMenu().getExclude());
+    public MenuJumpDifficulty(UUID uuid, ArrayList<ItemBuilder> list, Jumps jumps){
+        super(jumps.getMenu().getIds(),  Bukkit.createInventory(null, jumps.getMenu().getSize(), jumps.getMenu().getLabel().get(PlayerData.getLang(uuid))), jumps.getMenu().getModel(), list, PlayerData.getLang(uuid), jumps.getMenu().getLineSize(), jumps.getMenu().getStart(), jumps.getMenu().getExclude(), Type.STATIC, Hub.getInstance());
         this.jumps = jumps;
-        initMenu(player, 1);
-        player.openInventory(menu);
+        initMenu(uuid, 1);
+        Bukkit.getPlayer(uuid).openInventory(menu);
     }
 
-    public void initMenu(Player player, int page){
-        menu.setItem(4, jumps.getIcon().get(PlayerData.getPlayerData(player.getName()).getLang()).get());
-        menu.setItem(18, new Item(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu jump"}).get());
+    public void initMenu(UUID uuid, int page){
+        menu.setItem(4, jumps.getIcon().get(PlayerData.getLang(uuid)).get());
+        menu.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu jump"}).get());
         getPage(page);
-        player.updateInventory();
+        Bukkit.getPlayer(uuid).updateInventory();
     }
 
-    public static void createMenu(Player player, Jumps jumps){
-        ArrayList<Item> list = new ArrayList<>();
+    public static void createMenu(UUID uuid, Jumps jumps){
+        ArrayList<ItemBuilder> list = new ArrayList<>();
         for(JumpDifficulty jumpDifficulty : jumps.getJumpDifficulty()){
-            list.add(jumpDifficulty.getIcon().get(PlayerData.getPlayerData(player.getName()).getLang()).withLore(jumpDifficulty.getLore(jumps.getJump())));
+            list.add(jumpDifficulty.getIcon().get(PlayerData.getLang(uuid)).withLore(jumpDifficulty.getLore(jumps.getJump())));
         }
-        new MenuJumpDifficulty(player, list, jumps);
+        new MenuJumpDifficulty(uuid, list, jumps);
     }
 
     @Override
     public void interractInventory(InventoryClickEvent e) {
         ItemStack itemStack = e.getCurrentItem();
-        Player player = (Player) e.getWhoClicked();
+        UUID uuid = e.getWhoClicked().getUniqueId();
         switch (itemStack.getType()) {
             case ARROW:
                 if(Jumps.nbrJump() == 1){
-                    MenuPrincipal.createMenu(player);
+                    MenuPrincipal.createMenu(uuid);
                 } else {
-                    MenuJump.createMenu(player);
+                    MenuJump.createMenu(uuid);
                 }
                 break;
             case PAPER:
-                initMenu(player, page+1);
+                initMenu(uuid, page+1);
                 break;
-            case EMPTY_MAP:
-                initMenu(player, page-1);
+            case MAP:
+                initMenu(uuid, page-1);
                 break;
             default:
                 break;
         }
-        JumpDifficulty jumpDifficulty = JumpDifficulty.getJumpDifficultyLabel(itemStack.getItemMeta().getDisplayName(), PlayerData.getPlayerData(player.getName()).getLang());
-        if(jumpDifficulty != null){
-            player.teleport(jumps.getJumpLocationPlayer());
-            PlayerData.getPlayerData(player.getName()).getJump().setJumpDifficulty(jumpDifficulty);
-        }
+        JumpDifficulty jumpDifficulty = JumpDifficulty.getJumpDifficultyLabel(itemStack.getItemMeta().getDisplayName(), PlayerData.getLang(uuid));
+        /*if(jumpDifficulty != null){
+            Bukkit.getPlayer(uuid).teleport(jumps.getJumpLocationPlayer());
+            PlayerData.getPlayerData(uuid).getJump().setJumpDifficulty(jumpDifficulty);
+        }*/
     }
 
 }

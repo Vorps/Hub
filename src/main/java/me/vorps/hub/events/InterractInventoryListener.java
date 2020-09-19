@@ -1,14 +1,12 @@
 package me.vorps.hub.events;
 
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.hub.Object.Grades;
 import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
-import me.vorps.fortycube.databases.Database;
+import net.vorps.api.databases.Database;
 import me.vorps.hub.menu.*;
 import me.vorps.hub.utils.CoolDown;
 import me.vorps.hub.utils.GiveProductPlayer;
-import org.bukkit.GameMode;
+import net.vorps.api.objects.Rank;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,8 +23,8 @@ import java.sql.SQLException;
 public class InterractInventoryListener implements Listener {
 
     @EventHandler
-    public void onInterractInventory(InventoryClickEvent e){
-        boolean state;
+    public void onInteractInventory(InventoryClickEvent e){
+        /*boolean state;
         Player player = (Player) e.getWhoClicked();
         PlayerData playerData = PlayerData.getPlayerData(e.getWhoClicked().getName());
         if(e.getCurrentItem() != null){
@@ -75,7 +73,7 @@ public class InterractInventoryListener implements Listener {
                         case COMPASS:
                             MenuPrincipal.createMenu(player);
                             break;
-                        case SKULL_ITEM:
+                        case SKELETON_SKULL:
                             new MenuProfil(player);
                             break;
                         case BLAZE_POWDER:
@@ -104,9 +102,9 @@ public class InterractInventoryListener implements Listener {
                     } else {
                         ResultSet results;
                         try {
-                            results = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM player_product WHERE pp_player = '" +player.getName() + "'");
+                            results = Database.CORE.getDatabase().getData("player_product", "pp_player = '" +player.getName() + "'");
                             while (results.next()) {
-                                if (Database.FORTYCUBE.getDatabase().getString(results, 2).equals(products.getName())) {
+                                if (Database.CORE.getDatabase().getString(results, 2).equals(products.getName())) {
                                     state = false;
                                 }
                             }
@@ -117,12 +115,12 @@ public class InterractInventoryListener implements Listener {
                         }
                         boolean stateGrade = true;
                         if(products.getType() == 6){
-                            Grades gradePlayer = Grades.getGradesList().get(playerData.getGrade().getGrade());
-                            if(Grades.getGradesList().get(products.getName()).getLevelGrade() < gradePlayer.getLevelGrade()){
+                            Rank gradePlayer = Rank.getRankList().get(playerData.getRank().getRank());
+                            if(Rank.getRankList().get(products.getName()).getLevelRank() < gradePlayer.getLevelRank()){
                                 stateGrade = false;
                             }
                         }
-                        if((products.getType() == 5 && playerData.getBonus().getBonus().equals("default")) || (products.getType() == 6 && !playerData.getGrade().getGrade().equals(products.getName()) && stateGrade) || products.getType() != 5 || products.getType() != 6){
+                        if((products.getType() == 5 && playerData.getBonus().getBonus().equals("default")) || (products.getType() == 6 && !playerData.getRank().getRank().equals(products.getName()) && stateGrade) || products.getType() != 5 || products.getType() != 6){
                             if(!state){
                                 GiveProductPlayer.giveItemPlayer(player, products, false, is);
                             } else {
@@ -134,6 +132,6 @@ public class InterractInventoryListener implements Listener {
                     }
                 }
             }
-        }
+        }*/
     }
 }

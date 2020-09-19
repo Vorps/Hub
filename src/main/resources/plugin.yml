@@ -3,12 +3,6 @@ main: me.vorps.hub.Hub
 version: 1.0
 description: Hub
 author: Vorps
+api-version: 1.16
 commands:
-  build:
-  doublejump:
-  fly:
-  jump:
-  visibleplayer:
-  reloadhub:
-  friends:
-  settings:
+  double_jump:

@@ -1,10 +1,8 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.databases.Database;
-import me.vorps.fortycube.utils.LangSetting;
-import org.apache.commons.codec.language.bm.Lang;
+import net.vorps.api.lang.LangSetting;
+import net.vorps.api.objects.Item;
 import org.bukkit.inventory.ItemStack;
 
 import java.sql.ResultSet;
@@ -22,7 +20,7 @@ public class Products{
     private @Getter String money;
     private @Getter long time;
     private @Getter int type;
-    private @Getter HashMap<String, me.vorps.fortycube.menu.Item> item;
+    private @Getter HashMap<String, net.vorps.api.menu.ItemBuilder> item;
     private @Getter int level;
     private @Getter Game game;
 
@@ -64,30 +62,30 @@ public class Products{
         return productsGrades.size() > 0;
     }
 
-    public Products(ResultSet results) throws SqlException {
+    public Products(ResultSet results) throws SQLException {
         item = new HashMap<>();
         this.productsGrades = new ArrayList<>();
-        name = Database.FORTYCUBE.getDatabase().getString(results, 1);
-        price = Database.FORTYCUBE.getDatabase().getDouble(results, 2);
-        money = Database.FORTYCUBE.getDatabase().getString(results, 3);
-        time = Database.FORTYCUBE.getDatabase().getLong(results, 4);
-        type = Database.FORTYCUBE.getDatabase().getInt(results, 5);
-        for(LangSetting langSetting : LangSetting.getListLangSetting().values()){
-            item.put(langSetting.getName(), Item.getItem(Database.FORTYCUBE.getDatabase().getString(results, 6), langSetting.getName()));
+        name = results.getString(1);
+        price = results.getDouble(2);
+        money = results.getString(3);
+        time = results.getLong(4);
+        type = results.getInt(5);
+        for(String langSetting : LangSetting.getListLangSetting()){
+            item.put(langSetting, Item.getItem(results.getString(6), langSetting));
         }
-        level = Database.FORTYCUBE.getDatabase().getInt(results, 7);
-        String game = Database.FORTYCUBE.getDatabase().getString(results, 8);
+        level = results.getInt(7);
+        String game = results.getString(8);
         if(game != null){
             this.game  = Game.getGame(game);
         }
-        ResultSet resultsGrade = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM product_grade WHERE pg_product = '"+Database.FORTYCUBE.getDatabase().getString(results, 1)+"'");
+        /*ResultSet resultsGrade = results.getData("product_grade", "pg_product = '"+results.getString(1)+"'");
         try {
             while (resultsGrade.next()){
-                productsGrades.add(Database.FORTYCUBE.getDatabase().getString(resultsGrade, 2));
+                productsGrades.add(resultsGrade.getString(2));
             }
         } catch (SQLException e){
             //
-        }
+        }*/
         listProducts.put(name, this);
     }
 

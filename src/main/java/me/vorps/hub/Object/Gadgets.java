@@ -1,13 +1,12 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.databases.Database;
 import me.vorps.hub.PlayerData;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Constructor;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
@@ -15,22 +14,22 @@ import java.util.HashMap;
  */
 public class Gadgets {
 
-    private static @Getter HashMap<String, Gadgets> listGadgets = new HashMap<>();
-    private String classe;
-    private @Getter int max;
-    private @Getter int timeCooldown;
-    private @Getter String name;
+    private static HashMap<String, Gadgets> gadgets = new HashMap<>();
+    private final String classe;
+    private final @Getter int max;
+    private final @Getter int timeCooldown;
+    private final @Getter String name;
 
-    public Gadgets(ResultSet result) throws SqlException{
-        name = Database.FORTYCUBE.getDatabase().getString(result, 1);
-        classe = Database.FORTYCUBE.getDatabase().getString(result, 2);
-        max = Database.FORTYCUBE.getDatabase().getInt(result, 3);
-        timeCooldown = Database.FORTYCUBE.getDatabase().getInt(result, 4);
-        listGadgets.put(name, this);
+    public Gadgets(ResultSet result) throws SQLException {
+        this.name = result.getString(1);
+        this.classe = result.getString(2);
+        this.max = result.getInt(3);
+        this.timeCooldown = result.getInt(4);
+        Gadgets.gadgets.put(this.name, this);
     }
 
     public void setGadgets(Player player, String gadget) {
-        try {
+        /*try {
             Class classe = Class.forName(this.classe);
             Constructor constructor = classe.getConstructor(new Class[] {Class.forName("org.bukkit.entity.Player"), Class.forName("me.vorps.hub.Object.Gadgets")});
             me.vorps.hub.gadget.Gadgets instance = (me.vorps.hub.gadget.Gadgets) constructor.newInstance(new Object[] {player, this});
@@ -54,6 +53,10 @@ public class Gadgets {
             System.out.println("Le constructeur de la classe " + classe + " n'existe pas");
         } catch (IllegalArgumentException iae) {
             System.out.println("Un parametre du constructueur de la classe "+ classe + " n'est pas du bon type");
-        }
+        }*/
+    }
+
+    public static void clear(){
+        Gadgets.gadgets.clear();
     }
 }

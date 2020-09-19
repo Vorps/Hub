@@ -1,12 +1,13 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.databases.Database;
-import me.vorps.fortycube.utils.Lang;
-import me.vorps.fortycube.utils.LangSetting;
+import net.vorps.api.lang.Lang;
+import net.vorps.api.lang.LangSetting;
+import net.vorps.api.menu.ItemBuilder;
+import net.vorps.api.objects.Item;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,34 +18,34 @@ import java.util.HashMap;
  */
 public class JumpDifficulty implements Comparable<JumpDifficulty> {
 
-    private static HashMap<String, JumpDifficulty> listJumpDifficulty = new HashMap<>();
+    private static final HashMap<String, JumpDifficulty> jumpDifficulty = new HashMap<>();
 
-    private @Getter String name;
-    private @Getter HashMap<String, me.vorps.fortycube.menu.Item> icon;
-    private int level;
-    private HashMap<String, String> label;
-    private @Getter Menu menu;
+    private @Getter final String name;
+    private @Getter final HashMap<String, ItemBuilder> icon;
+    private final int level;
+    private final HashMap<String, String> label;
+    private @Getter final Menu menu;
 
     public int compareTo(JumpDifficulty jumpDifficulty){
         return this.level >= jumpDifficulty.level ? 1 : -1;
     }
 
-    public JumpDifficulty(ResultSet result) throws SqlException{
-        icon = new HashMap<>();
-        label = new HashMap<>();
-        name = Database.FORTYCUBE.getDatabase().getString(result, 1);
-        for(LangSetting langSetting : LangSetting.getListLangSetting().values()){
-            label.put(langSetting.getName(), Lang.getMessage(Database.FORTYCUBE.getDatabase().getString(result, 2), langSetting.getName()));
-            icon.put(langSetting.getName(), me.vorps.hub.Object.Item.getItem(Database.FORTYCUBE.getDatabase().getString(result, 3), langSetting.getName()));
+    public JumpDifficulty(ResultSet result) throws SQLException {
+        this.icon = new HashMap<>();
+        this.label = new HashMap<>();
+        this.name = result.getString(1);
+        for(String langSetting : LangSetting.getListLangSetting()){
+            this.label.put(langSetting, Lang.getMessage(result.getString(2), langSetting));
+            this.icon.put(langSetting, Item.getItem(result.getString(3), langSetting));
         }
-        level = Database.FORTYCUBE.getDatabase().getInt(result, 4);
-        menu = Menu.getMenu(Database.FORTYCUBE.getDatabase().getString(result, 5));
-        listJumpDifficulty.put(name, this);
+        this.level = result.getInt(4);
+        this.menu = Menu.getMenu(result.getString(5));
+        JumpDifficulty.jumpDifficulty.put(this.name, this);
     }
 
 
     public String[] getLore(String jump){
-        ArrayList<PlayerJumpRecord> list = PlayerJumpRecord.getPlayerDifficulty(jump, name);
+        /*ArrayList<PlayerJumpRecord> list = PlayerJumpRecord.getPlayerDifficulty(jump, name);
         String[] listPlayer = new String[list.size()];
         int i = 0;
         for(PlayerJumpRecord playerJumpRecord : list){
@@ -58,15 +59,12 @@ public class JumpDifficulty implements Comparable<JumpDifficulty> {
             }
             listPlayer[i++] = "§7"+playerJumpRecord.getNamePlayer()+" :§6 "+simpleDateFormat.format(date);
         }
-        return listPlayer;
-    }
-
-    public static  JumpDifficulty getJumpDifficulty(String name){
-        return listJumpDifficulty.get(name);
+        return listPlayer;*/
+        return null;
     }
 
     public static JumpDifficulty getJumpDifficultyLabel(String label, String lang){
-        for(JumpDifficulty jumpDifficulty : listJumpDifficulty.values()){
+        for(JumpDifficulty jumpDifficulty : JumpDifficulty.jumpDifficulty.values()){
             if(jumpDifficulty.icon.get(lang).get().getItemMeta().getDisplayName().equals(label)){
                 return jumpDifficulty;
             }
@@ -78,7 +76,7 @@ public class JumpDifficulty implements Comparable<JumpDifficulty> {
         return label.get(lang);
     }
     public static void clear(){
-        listJumpDifficulty.clear();
+        JumpDifficulty.jumpDifficulty.clear();
     }
 
 }

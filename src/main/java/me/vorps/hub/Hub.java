@@ -1,17 +1,17 @@
 package me.vorps.hub;
 
 import lombok.Getter;
-import me.vorps.hub.Object.Grades;
-import me.vorps.hub.commands.*;
-import me.vorps.hub.dispatcher.Parameter;
-import me.vorps.hub.dispatcher.ServerParameter;
+import me.vorps.hub.commands.CommandManager;
+import me.vorps.hub.data.SettingsHub;
 import me.vorps.hub.events.*;
-import me.vorps.hub.thread.ThreadHub;
+import net.vorps.api.API;
+import net.vorps.api.data.DataCore;
+import net.vorps.api.databases.Database;
+import net.vorps.api.listeners.ListenerManager;
+import net.vorps.api.message.ServerState;
+import net.vorps.hub.channel.PluginMessageReceived;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -19,31 +19,40 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class Hub extends JavaPlugin{
 	private @Getter static Hub instance;
-	private @Getter boolean interrupt;
 
 	@Override
 	public void onEnable() {
-        instance = this;
-        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        EventsManager.registerEvents();
-		Data.loadVariables();
-        Grades.gradeDisplayInit();
-        Bukkit.getOnlinePlayers().forEach((Player player) -> new PlayerData(player));
-		new ThreadHub().start();
-        new CommandManager();
-        ServerParameter.serialisation(new Parameter(true));
-	}
-	
-	@Override
-	public void onDisable() {
-		interrupt = true;
-		Bukkit.getOnlinePlayers().forEach((Player player) -> PlayerData.getPlayerData(player.getName()).removePlayerHub());
-        ServerParameter.serialisation(new Parameter(false));
+        Hub.instance = this;
+        API.setPlugin(this);
+        DataCore.setDatabase(Database.HUB.getDatabase());
+        SettingsHub.initSettings();
+
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", new PluginMessageReceived());
+        ServerState.setState(ServerState.WAITING);
+        new ListenerManager(
+                new CancelledEventListener(),
+                new DamageListener(),
+                new FlyOnJumpListener(),
+                new InteractListener(),
+                new InterractInventoryListener(),
+                new MoveListener(),
+                new PlayerInteractEntitiesListener(),
+                new PlayerJoinListener(),
+                new ProjectileHitListener(),
+                new QuitListener(),
+                new SignListener(),
+                new SneakListener());
+        CommandManager.init();
+
+        Bukkit.getOnlinePlayers().forEach((Player player) -> new PlayerData(player.getUniqueId()));
+
+        //new ThreadHub().start();
 	}
 
-    @EventHandler
-    public boolean onCommand(CommandSender sender , Command command, String label, String args[]){
-        return CommandManager.onCommand(sender, label, args);
+    @Override
+    public void onDisable() {
+        //ServerState.setState(ServerState.STOP);
+        Bukkit.getOnlinePlayers().forEach((Player player) -> PlayerData.getPlayerData(player.getName()).removePlayerHub());
     }
-
 }

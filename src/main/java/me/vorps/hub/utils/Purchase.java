@@ -1,17 +1,17 @@
 package me.vorps.hub.utils;
 
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.utils.ConvertMillis;
-import me.vorps.hub.Object.Grades;
-import me.vorps.hub.Object.Money;
+import net.vorps.api.objects.Money;
+import net.vorps.api.objects.Rank;
+import net.vorps.api.utils.ConvertMillis;
 import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
-import me.vorps.fortycube.databases.Database;
+import net.vorps.api.databases.Database;
 import org.bukkit.Bukkit;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:41.
@@ -19,22 +19,20 @@ import java.util.ArrayList;
 public class Purchase {
 
     private ArrayList<String> des = new ArrayList<>();
-    private String namePlayer;
+    private UUID uuid;
     private String message;
-    private PlayerData playerData;
     private Products products;
 
-    public Purchase(String namePlayer, String message){
-        this.namePlayer = namePlayer;
+    public Purchase(UUID uuid, String message){
+        this.uuid = uuid;
         this.message = message;
-        playerData = PlayerData.getPlayerData(namePlayer);
     }
 
     public String[] purchase(String nameProduct){
         des.clear();
         products = Products.getProduct(nameProduct);
-        try {
-            ResultSet results = Database.FORTYCUBE.getDatabase().getData("SELECT * FROM player_product WHERE pp_player = '" + namePlayer + "' && pp_product = '" + nameProduct + "'");
+        /*try {
+            ResultSet results = Database.CORE.getDatabase().getData("player_product", "pp_player = '" + namePlayer + "' && pp_product = '" + nameProduct + "'");
             if (results.next()) {
                 if (Bukkit.getPlayer(namePlayer).getInventory().getHelmet() != null){
                     if (Bukkit.getPlayer(namePlayer).getInventory().getHelmet().getItemMeta().getLore().get(0).substring(2).equals(nameProduct)) {
@@ -82,22 +80,22 @@ public class Purchase {
         if(!products.isProductGrade()){
             testMoneyFunction(nameProduct);
         } else {
-            if(products.accessProductGrade(playerData.getGrade().getGrade())){
+            if(products.accessProductGrade(playerData.getRank().getRank())){
                 testMoneyFunction(nameProduct);
             } else {
                 des.add("§cCe produit est reservé au grade :");
-                Products.getProduct(nameProduct).getProductsGrades().forEach((String grade) -> des.add(Grades.getGrades(grade).toString()));
+                Products.getProduct(nameProduct).getProductsGrades().forEach((String grade) -> des.add(Rank.getRank(grade).toString()));
             }
         }
         if(products.getTime() > 0){
             des.add("§7Ce produit n'est pas a vie | §4Duré§e : ");
-            des.add("§c"+ ConvertMillis.convertMillisToDate(products.getTime()));
-        }
+            des.add("§c"+ ConvertMillis.convertMillisToTime(products.getTime()));
+        }*/
         return des.toArray(new String[des.size()]);
     }
 
     private void testMoneyFunction(String nameProduct){
-        Money money = Money.getMoney(products.getMoney());
+        /*Money money = Money.getMoney(products.getMoney());
         if(playerData.getMoney().get(products.getMoney()) >= products.getPrice()){
             des.add("§aClic gauche : §eAcheter -> §e"+ money.getColor()+products.getPrice()+" "+money.getMoney());
         } else {
@@ -105,33 +103,33 @@ public class Purchase {
             des.add("§cVous n'avez pas assez de §a"+money.getColor()+money.getMoney());
             des.add("§cpour acheter le produit §a"+nameProduct);
             des.add("§bIl vous manque "+money.getColor()+(products.getPrice()-playerData.getMoney().get(products.getMoney()))+" "+money.getMoney());
-        }
+        }*/
     }
 
     public String[] purchaseBonus(String nameProduct){
-        des.clear();
+        /*des.clear();
         playerData.getBonusFunction();
         if(playerData.getBonus().getBonus().equals("default")){
             return purchase(nameProduct);
         } else {
             des.add("§cVous possedez déjà un bonus : §a"+ playerData.getBonus().getBonus());
-        }
+        }*/
         return des.toArray(new String[des.size()]);
     }
 
 
     public String[] purchaseGrade(String nameProduct){
-        des.clear();
-        if(playerData.getGrade().getGrade().equals(nameProduct)){
+        /*des.clear();
+        if(playerData.getRank().getRank().equals(nameProduct)){
             des.add("§aVous possédez déjà "+message);
             return des.toArray(new String[des.size()]);
         } else {
-            Grades gradePlayer = Grades.getGradesList().get(playerData.getGrade().getGrade());
-            if(Grades.getGradesList().get(nameProduct).getLevelGrade() < gradePlayer.getLevelGrade()){
+            Rank gradePlayer = Rank.getRankList().get(playerData.getRank().getRank());
+            if(Rank.getRankList().get(nameProduct).getLevelRank() < gradePlayer.getLevelRank()){
                 des.add("§aVous possédez déjà le grade : "+gradePlayer.toString());
                 return des.toArray(new String[des.size()]);
             }
-        }
+        }*/
         return purchase(nameProduct);
     }
 }

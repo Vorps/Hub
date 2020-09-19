@@ -1,16 +1,12 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.databases.Database;
-import me.vorps.fortycube.menu.Item;
-import me.vorps.fortycube.utils.Lang;
-import me.vorps.fortycube.utils.LangSetting;
-import me.vorps.hub.Data;
+import net.vorps.api.lang.Lang;
+import net.vorps.api.lang.LangSetting;
 import org.apache.commons.lang.ArrayUtils;
-import org.bukkit.enchantments.Enchantment;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,18 +25,18 @@ public class Menu {
     private @Getter int lineSize;
     private @Getter int[] exclude;
 
-    public Menu(ResultSet result) throws SqlException{
+    public Menu(ResultSet result) throws SQLException {
         label = new HashMap<>();
-        for(LangSetting langSetting : LangSetting.getListLangSetting().values()){
-            label.put(langSetting.getName(), Lang.getMessage(Database.FORTYCUBE.getDatabase().getString(result, 2), langSetting.getName()));
+        for(String langSetting : LangSetting.getListLangSetting()){
+            label.put(langSetting, Lang.getMessage(result.getString(2), langSetting));
         }
-        size = Database.FORTYCUBE.getDatabase().getInt(result, 3);
-        ids = ids(Database.FORTYCUBE.getDatabase().getString(result, 4));
-        model = model(Database.FORTYCUBE.getDatabase().getString(result, 5));
-        start = Database.FORTYCUBE.getDatabase().getInt(result, 6);
-        lineSize = Database.FORTYCUBE.getDatabase().getInt(result, 7);
-        exclude = exclude(Database.FORTYCUBE.getDatabase().getString(result, 8));
-        listMenu.put(Database.FORTYCUBE.getDatabase().getString(result, 1), this);
+        size = result.getInt(3);
+        ids = ids(result.getString(4));
+        model = model(result.getString(5));
+        start = result.getInt(6);
+        lineSize = result.getInt(7);
+        exclude = exclude(result.getString(8));
+        listMenu.put(result.getString(1), this);
     }
 
     private static byte[] ids(String ids){

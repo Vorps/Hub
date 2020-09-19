@@ -1,8 +1,7 @@
 package me.vorps.hub.Object;
 
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.databases.Database;
-import me.vorps.fortycube.utils.LangSetting;
+import net.vorps.api.databases.Database;
+import net.vorps.api.lang.LangSetting;
 import me.vorps.hub.PlayerData;
 
 import java.sql.ResultSet;
@@ -12,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * Project Hub Created by Vorps on 09/05/2016 at 17:42.
@@ -32,21 +32,21 @@ public class Stats {
 
     private String[] lore;
 
-    public Stats(String namePlayer, Database database){
-        PlayerData playerData = PlayerData.getPlayerData(namePlayer);
+    public Stats(UUID uuid, Database database){
+        /*PlayerData playerData = PlayerData.getPlayerData(namePlayer);
         ArrayList<String> lore = new ArrayList<>();
         try {
-            ResultSet result = database.getDatabase().getData("SELECT * FROM stats WHERE s_player = '"+namePlayer+"' ");
+            ResultSet result = database.getDatabase().getData("stats", "s_player = '"+namePlayer+"' ");
             String[] column = getNomsColonnes(result);
             label = new HashMap<>();
-            ResultSet resultSetting = database.getDatabase().getData("SELECT * FROM stats_setting");
+            ResultSet resultSetting = database.getDatabase().getData("stats_setting");
             resultSetting.next();
-            for(LangSetting langSetting : LangSetting.getListLangSetting().values()){
+            for(String langSetting : LangSetting.getListLangSetting()){
                 String[] statsLabel = new String[column.length-1];
                 for(int i = 0; i < statsLabel.length; i++){
-                    statsLabel[i] = resultSetting.getString("s"+column[i+1]+"_"+langSetting.getColumnId());
+                    statsLabel[i] = resultSetting.getString("s"+column[i+1]+"_"+LangSetting.getLangSetting(langSetting).getColumnId());
                 }
-                label.put(langSetting.getName(), statsLabel);
+                label.put(langSetting, statsLabel);
             }
             if(result.next()){
                 int i = 0;
@@ -71,10 +71,8 @@ public class Stats {
             }
         } catch (SQLException e){
             //
-        } catch (SqlException e){
-            e.printStackTrace();
         }
-        this.lore = lore.toArray(new String[lore.size()]);
+        this.lore = lore.toArray(new String[lore.size()]);*/
     }
 
     public String[] getStats(){

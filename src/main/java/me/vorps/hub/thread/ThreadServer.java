@@ -2,17 +2,14 @@ package me.vorps.hub.thread;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-import com.sun.xml.internal.ws.api.ha.HaInfo;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import me.vorps.hub.Hub;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
- * Project FortycubeBungee Created by Vorps on 10/04/2016 at 18:42.
+ * Project COREBungee Created by Vorps on 10/04/2016 at 18:42.
  */
 public class ThreadServer extends ClassThread {
 

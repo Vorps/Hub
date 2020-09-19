@@ -8,7 +8,7 @@ import me.vorps.hub.Hub;
 import org.bukkit.entity.Player;
 
 /**
- * Project FortycubeBungee Created by Vorps on 13/04/2016 at 00:34.
+ * Project COREBungee Created by Vorps on 13/04/2016 at 00:34.
  */
 public class ThreadFile extends ClassThread {
 

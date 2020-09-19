@@ -1,7 +1,8 @@
 package me.vorps.hub.gadget;
 
 import lombok.Getter;
-import me.vorps.fortycube.cooldown.CoolDowns;
+import me.vorps.hub.thread.ThreadCoolDownGadget;
+import net.vorps.api.cooldowns.CoolDowns;
 import org.bukkit.entity.Player;
 
 /**
@@ -26,6 +27,12 @@ public abstract class Gadgets extends Thread {
             if(++number == gadgets.getMax()){
                 number = 0;
                 new CoolDowns(player.getName(), gadgets.getTimeCooldown(), "gadget");
+                if(gadgets.getTimeCooldown() > 1){
+                    player.sendMessage("§eVotre gadjet est désactivé pendant §a"+gadgets.getTimeCooldown()+" §esecondes");
+                } else {
+                    player.sendMessage("§eVotre gadjet est désactivé pendant §a"+gadgets.getTimeCooldown()+" §eseconde");
+                }
+                new ThreadCoolDownGadget(player).start();
             }
             runGadget();
         } else {

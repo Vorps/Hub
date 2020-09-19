@@ -14,13 +14,13 @@ public class DamageListener implements Listener {
 
     @EventHandler
     public void onEntityDamageEvent(EntityDamageEvent e){
-        if(e.getEntity() instanceof Player){
+        /*if(e.getEntity() instanceof Player){
             Player player = (Player) e.getEntity();
             PlayerJump playerJump = PlayerData.getPlayerData(player.getName()).getJump();
             if(playerJump.isInJump() && e.getDamage() > 4){
                 playerJump.failManager(player);
             }
-        }
+        }*/
         e.setCancelled(true);
     }
 }

@@ -1,7 +1,8 @@
 package me.vorps.hub.menu;
 
-import me.vorps.fortycube.menu.Item;
-import me.vorps.fortycube.menu.MenuRecursive;
+import me.vorps.hub.Hub;
+import net.vorps.api.menu.ItemBuilder;
+import net.vorps.api.menu.MenuRecursive;
 import me.vorps.hub.Object.Game;
 import me.vorps.hub.Object.Products;
 import me.vorps.hub.PlayerData;
@@ -13,6 +14,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Project Hub Created by Vorps on 18/05/2016 at 00:41.
@@ -21,44 +23,44 @@ public class MenuShopGame extends MenuRecursive {
 
     private Game game;
 
-    public MenuShopGame(Player player, ArrayList<Item> list, Game game){
-        super(game.getShopMenu().getIds(), Bukkit.createInventory(null, game.getShopMenu().getSize(), game.getShopMenu().getLabel().get(PlayerData.getPlayerData(player.getName()).getLang())), game.getShopMenu().getModel(), list, PlayerData.getPlayerData(player.getName()).getLang(), game.getShopMenu().getLineSize(), game.getShopMenu().getStart(), game.getShopMenu().getExclude());
+    public MenuShopGame(UUID uuid, ArrayList<ItemBuilder> list, Game game){
+        super(game.getShopMenu().getIds(), Bukkit.createInventory(null, game.getShopMenu().getSize(), game.getShopMenu().getLabel().get(PlayerData.getLang(uuid))), game.getShopMenu().getModel(), list, PlayerData.getLang(uuid), game.getShopMenu().getLineSize(), game.getShopMenu().getStart(), game.getShopMenu().getExclude(), Type.STATIC, Hub.getInstance());
         this.game = game;
-        initMenu(player, 1);
-        player.openInventory(menu);
+        initMenu(uuid, 1);
+        Bukkit.getPlayer(uuid).openInventory(menu);
     }
 
     @Override
-    public void initMenu(Player player, int page){
-        menu.setItem(4, game.getIcon().get(PlayerData.getPlayerData(player.getName()).getLang()).get());
-        menu.setItem(game.getShopMenu().getSize()-9, new Item(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
+    public void initMenu(UUID uuid, int page){
+        menu.setItem(4, game.getIcon().get(PlayerData.getLang(uuid)).get());
+        menu.setItem(game.getShopMenu().getSize()-9, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
         getPage(page);
-        player.updateInventory();
+        Bukkit.getPlayer(uuid).updateInventory();
     }
 
-    public static void createMenu(Player player, Game game){
+    public static void createMenu(UUID uuid, Game game){
         ArrayList<Products> products = Products.getProduct(game);
-        ArrayList<Item> list = new ArrayList<>();
+        ArrayList<ItemBuilder> list = new ArrayList<>();
         for(Products product : products){
-            Purchase purchase = new Purchase(player.getName(), " ce kit");
-            list.add(product.getItem().get(PlayerData.getPlayerData(player.getName()).getLang()).withLore(purchase.purchase(product.getName())));
+            Purchase purchase = new Purchase(uuid, " ce kit");
+            list.add(product.getItem().get(PlayerData.getLang(uuid)).withLore(purchase.purchase(product.getName())));
         }
-        new MenuShopGame(player, list, game);
+        new MenuShopGame(uuid, list, game);
     }
 
     @Override
     public void interractInventory(InventoryClickEvent e){
         ItemStack itemStack = e.getCurrentItem();
-        Player player = (Player) e.getWhoClicked();
+        UUID uuid =e.getWhoClicked().getUniqueId();
         switch (itemStack.getType()){
             case PAPER:
-                initMenu(player, ++page);
+                initMenu(uuid, ++page);
                 break;
             case ARROW:
-                MenuBoutique.createMenu(player);
+                MenuBoutique.createMenu(uuid);
                 break;
-            case EMPTY_MAP:
-                initMenu(player, --page);
+            case MAP:
+                initMenu(uuid, --page);
                 break;
             default:
                 break;

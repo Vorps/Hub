@@ -1,7 +1,7 @@
 package me.vorps.hub.thread;
 
 import lombok.Getter;
-import me.vorps.fortycube.scoreboard.ScoreBoard;
+import net.vorps.api.scoreboard.ScoreBoard;
 import me.vorps.hub.PlayerData;
 import me.vorps.hub.Object.PlayerJump;
 
@@ -29,7 +29,7 @@ public class ThreadJump extends Thread {
 
     @Override
     public void run(){
-        PlayerJump playerJump = PlayerData.getPlayerData(namePlayer).getJump();
+        /*PlayerJump playerJump = PlayerData.getPlayerData(namePlayer).getJump();
         while (PlayerData.isPlayerDataExits(namePlayer) && playerJump.isInJump()){
             Date date = new Date(time++*1000);
             Date dateCheckPoint = new Date(timeChecPoint++*1000);
@@ -48,6 +48,6 @@ public class ThreadJump extends Thread {
             } catch (InterruptedException e){
                 //
             }
-        }
+        }*/
     }
 }

@@ -2,7 +2,6 @@ package me.vorps.hub.particle;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.vorps.fortycube.utils.ParticleEffect;
 import me.vorps.hub.PlayerData;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -38,7 +37,7 @@ public class Particle extends Thread {
                     double y = r * Math.cos(phi) + 1.5;
                     double z = r * Math.sin(theta) * Math.sin(phi);
                     location.add(x, y, z);
-                    ParticleEffect.valueOf(particle.toUpperCase()).display(0, 0, 0, 0, 0,  location, 1);
+                    //ParticleEffect.valueOf(particle.toUpperCase()).display(0, 0, 0, 0, 0,  location, 1);
                     location.subtract(x, y, z);
                 }
                 if (phi > Math.PI) {
@@ -46,7 +45,7 @@ public class Particle extends Thread {
                     sneak = false;
                 }
             } else {
-                ParticleEffect.valueOf(particle.toUpperCase()).display(1, 1, 1, 0, 1,  player.getLocation(), 1);
+                //ParticleEffect.valueOf(particle.toUpperCase()).display(1, 1, 1, 0, 1,  player.getLocation(), 1);
             }
             try {
                 Thread.sleep(20);
@@ -63,7 +62,7 @@ public class Particle extends Thread {
     public void restart() {
         Particle particle = new Particle(player, this.particle);
         particle.start();
-        PlayerData.getPlayerData(player.getName()).setParticle(particle);
+        //PlayerData.getPlayerData(player.getName()).setParticle(particle);
     }
 
     @Override

@@ -2,13 +2,13 @@ package me.vorps.hub.Object;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.vorps.fortycube.menu.Item;
-import me.vorps.fortycube.utils.Title;
 import me.vorps.hub.PlayerData;
 import me.vorps.hub.menu.Navigator;
 import me.vorps.hub.scoreboard.ScoreBoard;
 import me.vorps.hub.scoreboard.ScoreBoardJump;
 import me.vorps.hub.thread.ThreadJump;
+import net.vorps.api.menu.ItemBuilder;
+import net.vorps.api.nms.TitleBuilder;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -20,7 +20,7 @@ import org.bukkit.inventory.ItemStack;
  * Project Hub Created by Vorps on 20/05/2016 at 05:13.
  */
 public class PlayerJump {
-    private @Getter PlayerData playerData;
+    /*private @Getter PlayerData playerData;
     private @Getter @Setter Jumps jump;
     private @Setter @Getter JumpDifficulty jumpDifficulty;
     private @Setter @Getter int checkPoint;
@@ -42,7 +42,7 @@ public class PlayerJump {
     public void jumpManager(Player player, Block block){
         playerData = PlayerData.getPlayerData(player.getName());
         Location location = block.getLocation();
-        if(block.getType() == Material.GOLD_PLATE){
+        if(block.getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE){
             if(!isInJump()){
                 Jumps jumps = Jumps.getJump(location);
                 if(jumps != null){
@@ -51,14 +51,14 @@ public class PlayerJump {
             } else if(checkPoint == jump.nbrChecpoint()){
                 win(player);
             }
-        } else if(block.getType() == Material.IRON_PLATE && isInJump()){
+        } else if(block.getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE && isInJump()){
             checkPoint(location, player);
         }
     }
 
     private void win(Player player){
         player.sendMessage(jump.getWinMessage().get(playerData.getLang()));
-        new Title(jump.getMessageTitle().getTitle().get(playerData.getLang()), jump.getMessageTitle().getSubTitle().get(playerData.getLang())).send(player);
+        new TitleBuilder(jump.getMessageTitle().getTitle(playerData.getLang()), jump.getMessageTitle().getSubTitle(playerData.getLang())).sendTo(player);
         jump.getJumpEarning().get(jumpDifficulty.getName()).getEarning(player);
         PlayerJumpRecord.record(player.getName(), jump.getJump(), jumpDifficulty.getName(), threadJump.getTime());
         stopJump(player, true);
@@ -154,9 +154,9 @@ public class PlayerJump {
             jumpDifficulty = jumps.getJumpDifficulty()[0];
         }
         player.sendMessage("§7Mode : "+jumpDifficulty.toString(playerData.getLang()));
-        player.getInventory().setItem(3, new Item(Material.BARRIER).withName("§6Fin du jump").withLore(new String[] {"§7Mettre fin au jump"}).get());
-        player.getInventory().setItem(5, new Item(Material.ARROW).withName("§6Respawn").withLore(new String[] {"§7Respawn au checkpoint précédent"}).get());
-        playerData.setScoreBoard(player, new ScoreBoardJump(jumps, this).getScoreBoard());
+        player.getInventory().setItem(3, new ItemBuilder(Material.BARRIER).withName("§6Fin du jump").withLore(new String[] {"§7Mettre fin au jump"}).get());
+        player.getInventory().setItem(5, new ItemBuilder(Material.ARROW).withName("§6Respawn").withLore(new String[] {"§7Respawn au checkpoint précédent"}).get());
+        playerData.setScoreBoard(player, new ScoreBoardJump(jumps, this));
         threadJump = new ThreadJump(playerData.getScoreBoard(), playerData.getNamePlayer());
         threadJump.start();
     }
@@ -198,5 +198,5 @@ public class PlayerJump {
 
     public String toString(String lang){
         return "§7Quitte le jump §6"+jump.toString(lang);
-    }
+    }*/
 }

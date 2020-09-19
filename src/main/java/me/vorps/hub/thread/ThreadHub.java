@@ -1,16 +1,5 @@
 package me.vorps.hub.thread;
 
-import me.vorps.fortycube.utils.ActionBar;
-import me.vorps.hub.Hub;
-import me.vorps.hub.Object.Products;
-import me.vorps.hub.Object.ProductsPlayers;
-import me.vorps.hub.PlayerData;
-import me.vorps.hub.utils.RemovePlayerProduit;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
-import me.vorps.hub.Settings;
-
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:41.
  */
@@ -20,14 +9,14 @@ public class ThreadHub extends Thread {
 
 	public void run(){
         long time;
-		while(!Hub.getInstance().isInterrupt()){
+		/*while(!Hub.getInstance().isInterrupt()){
 			if(i > Settings.getTimeMessage()){
 				i = 0;
 				index++;
 				if(index == Settings.getMessageServer().size()){
 					index = 0;
 				}
-				Bukkit.getOnlinePlayers().forEach(p -> ActionBar.sendActionBar(Settings.getMessageServer().get(index), p));
+				Bukkit.getOnlinePlayers().forEach(p -> new ActionBarBuilder(Settings.getMessageServer().get(index)).sendTo(p));
 
                 time = System.currentTimeMillis();
                 for(Player player : Bukkit.getOnlinePlayers()){
@@ -51,7 +40,7 @@ public class ThreadHub extends Thread {
 			} catch (InterruptedException e) {
                 //
             }
-		}
-		interrupt();
+		}*/
+		//interrupt();
 	}
 }

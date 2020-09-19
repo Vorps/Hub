@@ -1,31 +1,41 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
-import me.vorps.fortycube.Exceptions.SqlException;
-import me.vorps.fortycube.databases.Database;
+import me.vorps.hub.data.DataHub;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 public class Bonus{
-    private static HashMap<String, Bonus> listBonus = new HashMap<>();
+    private static HashMap<String, Bonus> bonus;
 
-	private @Getter String bonus;
-	private @Getter double coefficient;
-	private @Getter String money;
+	private @Getter final String name;
+	private @Getter final double coefficient;
+	private @Getter final String money;
 
-    public static Bonus getBonus(String nameBonus){
-        return listBonus.get(nameBonus);
+    static {
+        Bonus.bonus = new HashMap<>();
+        DataHub.loadBonus();
     }
 
-	public Bonus(ResultSet results) throws SqlException {
-		bonus = Database.FORTYCUBE.getDatabase().getString(results, 1);
-        coefficient = Database.FORTYCUBE.getDatabase().getDouble(results, 2);
-		money = Database.FORTYCUBE.getDatabase().getString(results, 3);
-        listBonus.put(bonus ,this);
+	public Bonus(ResultSet results) throws SQLException {
+		this.name = results.getString(1);
+        this.coefficient = results.getDouble(2);
+        this.money = results.getString(3);
+        Bonus.bonus.put(this.name ,this);
 	}
 
+	public static Bonus getBonus(String name){
+	    return Bonus.bonus.get(name);
+    }
+
     public static void clear(){
-        listBonus.clear();
+        Bonus.bonus.clear();
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

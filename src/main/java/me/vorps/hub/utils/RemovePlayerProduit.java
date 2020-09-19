@@ -1,25 +1,17 @@
 package me.vorps.hub.utils;
 
-import me.vorps.fortycube.Exceptions.SqlException;
 import me.vorps.hub.Object.Products;
-import me.vorps.hub.PlayerData;
-import me.vorps.fortycube.databases.Database;
-import me.vorps.hub.Settings;
-import me.vorps.hub.particle.Particle;
-import net.minecraft.server.v1_8_R3.EnumParticle;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:41.
  */
 public class RemovePlayerProduit {
 	public static void boutiqueRemovePlayerProduit(Player player, Products products, String nameProduct){
-        PlayerData playerData = PlayerData.getPlayerData(player.getName());
+        /*PlayerData playerData = PlayerData.getPlayerData(player.getName());
 		player.sendMessage("§7Votre produit : "+nameProduct+" a été retiré.");
         try{
-            Database.FORTYCUBE.getDatabase().sendDatabase("DELETE FROM player_product WHERE pp_player = '"+ player.getName()+"' && pp_product = '"+nameProduct+"'");
+            Database.CORE.getDatabase().delete("player_product", "pp_player = '"+ player.getName()+"' && pp_product = '"+nameProduct+"'");
         } catch (SqlException e){
             e.printStackTrace();
         }
@@ -54,21 +46,21 @@ public class RemovePlayerProduit {
 			break;
 		case 5:
             try {
-                Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_bonus = '"+ Settings.getDefaultBonus().getBonus()+"' WHERE ps_player = '"+ player.getName() +"'");
+                Database.CORE.getDatabase().updateTable("player_setting", "ps_player = '"+ player.getName() +"'", new DatabaseManager.Values("ps_bonus", Settings.getDefaultBonus().getBonus()));
             } catch (SqlException e){
                 e.printStackTrace();
             }
 			playerData.setBonus(Settings.getDefaultBonus().getBonus());
 			break;
 		case 6:
-			if(playerData.getGrade().getGrade().equals(nameProduct)){
+			if(playerData.getRank().getRank().equals(nameProduct)){
                 try {
-                    Database.FORTYCUBE.getDatabase().sendDatabase("UPDATE player_setting SET ps_grade = '"+Settings.getDefaultGrade().getGrade()+"' WHERE ps_player = '"+ player.getName() +"'");
+                    Database.CORE.getDatabase().updateTable("player_setting", "ps_player = '"+ player.getName() +"'", new DatabaseManager.Values("ps_grade", Settings.getDefaultRank().getRank()));
                 } catch (SqlException e){
                     e.printStackTrace();
                 }
-                playerData.updateGrades();
-                player.sendMessage("§eVous êtes maintenant §a"+playerData.getGrade()+"§e.");
+                //playerData.updateGrades();
+                player.sendMessage("§eVous êtes maintenant §a"+playerData.getRank()+"§e.");
 			}
 			break;
 		case 7:
@@ -84,5 +76,5 @@ public class RemovePlayerProduit {
 		default:
 			break;
 		}
-	}
+*/	}
 }

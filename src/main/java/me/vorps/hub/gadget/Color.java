@@ -1,7 +1,6 @@
 package me.vorps.hub.gadget;
 
-import me.vorps.hub.events.ProjectileHitListener;
-import org.bukkit.block.Block;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 
@@ -11,10 +10,9 @@ import org.bukkit.entity.Snowball;
 public class Color extends Gadgets {
 
     public static final int R = 4;
-    public static final ProjectileHitListener.Block[] whitelist = new ProjectileHitListener.Block[]{new ProjectileHitListener.Block(5, (byte) 2), new ProjectileHitListener.Block(18, (byte) 3),
-            new ProjectileHitListener.Block(24, (byte) 0), new ProjectileHitListener.Block(24, (byte) 1), new ProjectileHitListener.Block(24, (byte) 2), new ProjectileHitListener.Block(17),
-            new ProjectileHitListener.Block(95), new ProjectileHitListener.Block(5, (byte) 1), new ProjectileHitListener.Block(159), new ProjectileHitListener.Block(1), new ProjectileHitListener.Block(17, (byte) 3),
-            new ProjectileHitListener.Block(18, (byte) 3), new ProjectileHitListener.Block(7), new ProjectileHitListener.Block(49), new ProjectileHitListener.Block(4), new ProjectileHitListener.Block(14), new ProjectileHitListener.Block(18, (byte) 3)};
+    public static final Material[] whitelist = {Material.BIRCH_WOOD, Material.JUNGLE_LEAVES,Material.SANDSTONE, Material.CHISELED_SANDSTONE, Material.SMOOTH_SANDSTONE, Material.OAK_WOOD, Material.WHITE_STAINED_GLASS};
+//            Material.SPRUCE_WOOD, Material., new ProjectileHitListener.Block(1), new ProjectileHitListener.Block(17, (byte) 3),
+//            new ProjectileHitListener.Block(18, (byte) 3), new ProjectileHitListener.Block(7), new ProjectileHitListener.Block(49), new ProjectileHitListener.Block(4), new ProjectileHitListener.Block(14), new ProjectileHitListener.Block(18, (byte) 3)};
 
     public Color(Player player, me.vorps.hub.Object.Gadgets gadgets){
         super(player, gadgets);
@@ -27,18 +25,8 @@ public class Color extends Gadgets {
         ball.setVelocity(player.getLocation().getDirection().multiply(1.5));
     }
 
-    public static boolean content(Block blockMaterial){
-        for(ProjectileHitListener.Block block : whitelist){
-            if(block.getMaterial() == blockMaterial.getType()){
-                if(block.getData() != -1){
-                    if(block.getData() == blockMaterial.getData()){
-                        return true;
-                    }
-                } else {
-                    return true;
-                }
-            }
-        }
+    public static boolean content(Material blockMaterial){
+        for(Material block : whitelist) if(block == blockMaterial) return true;
         return false;
     }
 }

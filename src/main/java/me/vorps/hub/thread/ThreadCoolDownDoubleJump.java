@@ -1,9 +1,5 @@
 package me.vorps.hub.thread;
 
-import me.vorps.hub.Hub;
-import me.vorps.hub.PlayerData;
-import me.vorps.hub.Settings;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /**
@@ -12,7 +8,7 @@ import org.bukkit.entity.Player;
 public class ThreadCoolDownDoubleJump extends Thread {
 
     public ThreadCoolDownDoubleJump(Player player){
-        PlayerData playerData = PlayerData.getPlayerData(player.getName());
+        /*PlayerData playerData = PlayerData.getPlayerData(player.getName());
         Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Hub.getInstance(), new Runnable() {
             @Override
             public void run() {
@@ -20,6 +16,6 @@ public class ThreadCoolDownDoubleJump extends Thread {
                     player.setAllowFlight(true);
                 }
             }
-        }, Settings.getCoolDownDoubleJump()*20L);
+        }, Settings.getCoolDownDoubleJump()*20L);*/
     }
 }
