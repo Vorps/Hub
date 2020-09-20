@@ -23,48 +23,29 @@ public class MenuJumpDifficultyRecord extends MenuRecursive{
     private Jumps jumps;
 
     private MenuJumpDifficultyRecord(UUID uuid, ArrayList<ItemBuilder> list, Jumps jumps){
-        super(jumps.getMenu().getIds(),  Bukkit.createInventory(null, jumps.getMenu().getSize(), jumps.getMenu().getLabel().get(PlayerData.getLang(uuid))), jumps.getMenu().getModel(), list, PlayerData.getLang(uuid), jumps.getMenu().getLineSize(), jumps.getMenu().getStart(), jumps.getMenu().getExclude(), Type.STATIC, Hub.getInstance());
+        super(uuid, jumps.getMenu().getIds(),  Bukkit.createInventory(null, jumps.getMenu().getSize(), jumps.getMenu().getLabel(PlayerData.getLang(uuid))), jumps.getMenu().getModel(), list, PlayerData.getLang(uuid), jumps.getMenu().getLineSize(), jumps.getMenu().getStart(), jumps.getMenu().getExclude(), Type.DYNAMIQUE, Hub.getInstance());
         this.jumps = jumps;
-        initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
     }
 
     public void initMenu(UUID uuid, int page){
-        menu.setItem(4, jumps.getIcon().get(PlayerData.getLang(uuid)).get());
-        menu.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu jump"}).get());
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
+        super.setItem(4, jumps.getIcon(PlayerData.getLang(uuid)).get());
+        super.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu jump"}).get());
     }
 
     public static void createMenu(UUID uuid, Jumps jumps){
         ArrayList<ItemBuilder> list = new ArrayList<>();
-        for(JumpDifficulty jumpDifficulty : jumps.getJumpDifficulty()){
+        /*for(JumpDifficulty jumpDifficulty : jumps.getJumpDifficulty()){
             list.add(jumpDifficulty.getIcon().get(PlayerData.getLang(uuid)).withLore(jumpDifficulty.getLore(jumps.getJump())));
-        }
+        }*/
         new MenuJumpDifficultyRecord(uuid, list, jumps);
     }
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                Bukkit.getPlayer(uuid).closeInventory();
-                break;
-            case PAPER:
-                initMenu(uuid, page+1);
-                break;
-            case MAP:
-                initMenu(uuid, page-1);
-                break;
-            default:
-                break;
-        }
-        JumpDifficulty jumpDifficulty = JumpDifficulty.getJumpDifficultyLabel(itemStack.getItemMeta().getDisplayName(), PlayerData.getLang(uuid));
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+        /*JumpDifficulty jumpDifficulty = JumpDifficulty.getJumpDifficultyLabel(itemStack.getItemMeta().getDisplayName(), PlayerData.getLang(uuid));
         if(jumpDifficulty != null){
             MenuJumpRecord.createMenu(uuid, jumps, jumpDifficulty);
-        }
+        }*/
     }
 
 }

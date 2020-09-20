@@ -20,7 +20,7 @@ public class MenuSettings extends Menu{
     private boolean state;
 
 	public MenuSettings(UUID uuid, boolean state){
-        super(new byte[] {11}, Bukkit.createInventory(null, 36, "§6Paramètre"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {18, 0}, {26, 0}, {28, 0}, {29, 0}, {30, 0}, {31, 0}, {32, 0}, {33, 0}, {34, 0}, {35, 0}}, Hub.getInstance());
+        super(uuid, new byte[] {11}, Bukkit.createInventory(null, 36, "§6Paramètre"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {18, 0}, {26, 0}, {28, 0}, {29, 0}, {30, 0}, {31, 0}, {32, 0}, {33, 0}, {34, 0}, {35, 0}}, Hub.getInstance());
         this.state = state;
         /*PlayerData playerData = PlayerData.getPlayerData(uuid);
         if(player.hasPermission("CORE.visible_player.me.on" ) || player.hasPermission("CORE.visible_player.me.off")){
@@ -64,18 +64,17 @@ public class MenuSettings extends Menu{
         } else {
             menu.setItem(27, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu profil"}).get());
         }*/
-		Bukkit.getPlayer(uuid).openInventory(menu);
 	}
 
     @Override
-    public void interractInventory(InventoryClickEvent e){
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()){
-            case ARROW:
-                if(state) Bukkit.getPlayer(uuid).closeInventory();
-                else new MenuProfil(uuid);
-                break;
+    protected void back(UUID uuid) {
+        if(state) Bukkit.getPlayer(uuid).closeInventory();
+        else new MenuProfil(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e){
+        switch (type){
             case GRAY_DYE:
             case GREEN_DYE:
                 /*switch (itemStack.getItemMeta().getDisplayName()){

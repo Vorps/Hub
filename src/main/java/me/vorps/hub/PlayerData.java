@@ -29,14 +29,15 @@ public class PlayerData extends net.vorps.api.players.PlayerData {
 	private @Getter @Setter int nbrClickVisiblePlayer;
 	private @Getter @Setter int nbrDoubleJumps;
 	private @Getter boolean doubleJumps;
-	private @Getter ArrayList<ProductsPlayers> products;
+
     private @Getter net.vorps.api.scoreboard.ScoreBoard scoreBoard;
     private @Setter @Getter ClassThread file;
     private @Getter @Setter PlayerJump jump;
 
     private Bonus bonus;
-    private @Getter Particle particle;
-    private @Getter Gadgets gadget;
+    private Particle particle;
+    private Gadgets gadget;
+    private ArrayList<ProductsPlayers> productsPlayers;
 
 
 
@@ -60,6 +61,7 @@ public class PlayerData extends net.vorps.api.players.PlayerData {
     @Override
     public void init() {
         this.bonus = PlayerData.getBonus(this.UUID);
+        this.productsPlayers = PlayerData.getProductsPlayers(this.UUID);
     }
 
 	public static void updatePlayerDataDataBase(UUID uuid){
@@ -94,6 +96,23 @@ public class PlayerData extends net.vorps.api.players.PlayerData {
             }
         }
         return bonus;
+    }
+
+    public static ArrayList<ProductsPlayers> getProductsPlayers(UUID uuid) {
+        ArrayList<ProductsPlayers> productsPlayers = new ArrayList<>();
+        if(net.vorps.api.players.PlayerData.isPlayerDataCore(uuid)){
+            productsPlayers = PlayerData.getPlayerData(uuid).productsPlayers;
+        } else {
+            try {
+                ResultSet result = Database.HUB.getDatabase().getData("player_product", "pp_uuid = '"+uuid+"'");
+                while(result.next()){
+                    productsPlayers.add(new ProductsPlayers(result));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return productsPlayers;
     }
 
     /*public void setParticle(Particle particle){
@@ -172,25 +191,7 @@ public class PlayerData extends net.vorps.api.players.PlayerData {
         return (PlayerData) PlayerData.getPlayerDataCore(uuid);
     }
 
-	/*public void getProductsPlayerFunction(){
-        products = new ArrayList<>();
-		try {
-			ResultSet result = Database.CORE.getDatabase().getData("player_product", "pp_player = '"+namePlayer+"'");
-			while(result.next()){
-                products.add(new ProductsPlayers(result, namePlayer));
-			}
-            Collections.sort(products, new Comparator<ProductsPlayers>() {
-                @Override
-                public int compare(ProductsPlayers p1, ProductsPlayers p2) {
-                    return Long.compare(p2.getDate(), p1.getDate());
-                }
-            });
-        } catch (SQLException e){
-            //
-        } catch (SqlException e) {
-            e.printStackTrace();
-        }
-	}
+	/*
 
 	public void getBonusFunction(){
         try {

@@ -1,7 +1,10 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
+import net.vorps.api.databases.Database;
+import net.vorps.api.lang.Lang;
 import net.vorps.api.menu.ItemBuilder;
+import net.vorps.api.objects.Item;
 import net.vorps.api.objects.MessageTitle;
 import org.bukkit.Location;
 
@@ -16,77 +19,102 @@ import java.util.HashMap;
 public class Jumps{
     private static @Getter ArrayList<Jumps> listJumps = new ArrayList<>();
 
-    private @Getter ArrayList<JumpsSettings> jumpsSettings;
-    private @Getter JumpDifficulty[] jumpDifficulty;
-    private @Getter HashMap<String, HashMap<Integer, Integer>> jumpDifficultySetting;
-	private @Getter String jump;
-    private @Getter HashMap<String, String> label;
-	private @Getter Location jumpLocation;
-    private @Getter Location jumpLocationPlayer;
-    private @Getter HashMap<String , ItemBuilder> icon;
+    private @Getter String name;
+    private String label;
+    private @Getter Location location;
+    private @Getter Location playerLocation;
+    private String icon;
     private @Getter Menu menu;
-    private @Getter HashMap<String, String> winMessage;
-    private @Getter
-    MessageTitle messageTitle;
-	private @Getter HashMap<String, String> message;
+    private String message;
+    private String winMessage;
+    private @Getter MessageTitle messageTitle;
+
+    private @Getter ArrayList<JumpsSettings> jumpsSettings;
+
+
+    private @Getter JumpDifficulty[] jumpDifficulty;
+
+    private @Getter HashMap<String, HashMap<Integer, Integer>> jumpDifficultySetting;
+
+
+
+
+
     private @Getter HashMap<String, JumpEarning> jumpEarning;
 
     public static int nbrJump(){
         return listJumps.size();
     }
 
-	public Jumps(ResultSet results) throws SQLException {
-        /*icon = new HashMap<>();
-        label = new HashMap<>();
-        winMessage = new HashMap<>();
-        message = new HashMap<>();
-        jumpsSettings = new ArrayList<>();
-        jumpDifficultySetting = new HashMap<>();
-        jumpEarning = new HashMap<>();
-		jump =  results.getString(results, 1);
-		jumpLocation = net.vorps.api.objects.Location.getLocation(results.getString(results, 3));
-        jumpLocationPlayer = net.vorps.api.objects.Location.getLocation(results.getString(results, 4));
-        for(LangSetting langSetting : LangSetting.getListLangSetting().values()) {
-            icon.put(langSetting.getName(), Item.getItem(results.getString(results, 5), langSetting.getName()));
-            label.put(langSetting.getName(), Lang.getMessage(results.getString(results, 2), langSetting.getName()));
-            winMessage.put(langSetting.getName(), Lang.getMessage(results.getString(results, 8), langSetting.getName()));
-            message.put(langSetting.getName(), Lang.getMessage(results.getString(results, 7), langSetting.getName()));
-        }
-        menu = Menu.getMenu(results.getString(results, 6));
-        messageTitle = MessageTitle.getMessageTitle(results.getString(results, 9));
-        //EntityManager.entityManager(EntityType.VILLAGER, me.vorps.hub.Object.Location.getLocation(results.getString(results, 10)), label.get(Settings.getDefaultLang())+" §6Classement", Villager.Profession.LIBRARIAN);
+    public String getLabel(String lang){
+        return Lang.getMessage(this.label, lang);
+    }
 
+    public ItemBuilder getIcon(String lang){
+        return Item.getItem(this.icon, lang);
+    }
+
+	public Jumps(ResultSet results, Database database) throws SQLException {
+        this.name = results.getString("jump_name");
+        this.label = results.getString("jump_label");
+        this.location = net.vorps.api.objects.Location.getLocation(results.getString("jump_location"));
+        this.playerLocation = net.vorps.api.objects.Location.getLocation(results.getString("jump_player_location"));
+        this.icon = results.getString("jump_icon");
+        this.menu = Menu.getMenu(results.getString("jump_menu"));
+        this.message = results.getString("jump_message");
+        this.winMessage = results.getString("jump_win_message");
+        this.messageTitle =  MessageTitle.getMessageTitle(results.getString("jump_win_message_title"));
+
+/*
+
+        this.jumpsSettings = new ArrayList<>();
         try {
-			results = results.getData("jump_setting", "js_jump = '"+jump+"'");
-			while(results.next()){
-                jumpsSettings.add(new JumpsSettings(results));
-			}
-            results = results.getData("jump_difficulty_setting", "jds_jump = '"+jump+"' && jds_checkpoint = '"+1+"'");
-            results.last();
-            jumpDifficulty = new JumpDifficulty[results.getRow()];
-            results.beforeFirst();
-            for(int i = 0; results.next(); i++){
-                jumpDifficulty[i] = JumpDifficulty.getJumpDifficulty(results.getString(results, 2));
+            results = database.getDatabase().getData("jump_setting", "js_jump = '"+this.name+"'");
+            while(results.next()){
+                this.jumpsSettings.add(new JumpsSettings(results));
             }
-            Arrays.sort(jumpDifficulty);
+        } catch (SQLException e) {
+            //
+        }
+
+
+        this.jumpDifficultySetting = new HashMap<>();
+        try {
+            results = database.getDatabase().getData("jump_difficulty_setting", "jds_jump = '"+this.name+"' && jds_checkpoint = '"+1+"'");
+            results.last();
+            this.jumpDifficulty = new JumpDifficulty[results.getRow()];
+            results.beforeFirst();
+            for(int i = 0; results.next(); i++) this.jumpDifficulty[i] = JumpDifficulty.getJumpDifficulty(results.getString("jds_difficulty"));
+
             for(JumpDifficulty jumpDifficulty : this.jumpDifficulty){
-                results = results.getData("jump_difficulty_setting", "jds_jump = '"+jump+"'  && jds_difficulty = '"+jumpDifficulty.getName()+"'");
+                results = database.getDatabase().getData("jump_difficulty_setting", "jds_jump = '"+this.name+"'  && jds_difficulty = '"+jumpDifficulty.getName()+"'");
                 HashMap<Integer, Integer> difficultySettingsHashMap = new HashMap<>();
                 while (results.next()){
                     difficultySettingsHashMap.put(results.getInt(3), results.getInt(4));
                 }
                 jumpDifficultySetting.put(jumpDifficulty.getName(), difficultySettingsHashMap);
             }
+        } catch (SQLException e) {
+            //
+        }
+
+        jumpEarning = new HashMap<>();
+
+        //EntityManager.entityManager(EntityType.VILLAGER, me.vorps.hub.Object.Location.getLocation(results.getString(results, 10)), label.get(Settings.getDefaultLang())+" §6Classement", Villager.Profession.LIBRARIAN);
+
+        try {
+
+
             results = results.getData("jump_earning", "je_jump = '"+jump+"'");
             while (results.next()){
                 jumpEarning.put(results.getString(2), new JumpEarning(results));
             }
 		} catch (SQLException e) {
             //
-        }
-        listJumps.add(this);*/
+        }*/
+        listJumps.add(this);
 	}
-
+/*
     public static Jumps getJump(String label, String lang){
         for (Jumps jumps : listJumps){
             if(jumps.icon.get(lang).get().getItemMeta().getDisplayName().equals(label)){
@@ -112,7 +140,7 @@ public class Jumps{
     public String toString(String lang){
         return label.get(lang);
     }
-
+*/
     public static void clear(){
         listJumps.clear();
     }

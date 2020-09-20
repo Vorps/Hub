@@ -53,18 +53,19 @@ public class InteractListener implements Listener{
                     }
                 }
             }*/
-            /*if(is.getType().equals(Material.WRITTEN_BOOK)){
+            if(is.getType().equals(Material.WRITTEN_BOOK)){
                 if(e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)){
-                    player.getInventory().clear(4);
+                    Bukkit.getPlayer(uuid).getInventory().clear(4);
                 }
                 e.setCancelled(false);
-            }*/
+                return;
+            }
             if(action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.RIGHT_CLICK_BLOCK)){
                 switch(is.getType()){
                     case COMPASS:
                         MenuPrincipal.createMenu(uuid);
                         break;
-                    case SKELETON_SKULL:
+                    case PLAYER_HEAD:
                         new MenuProfil(uuid);
                         break;
                     case BLAZE_POWDER:

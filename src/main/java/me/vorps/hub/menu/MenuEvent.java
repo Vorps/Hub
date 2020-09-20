@@ -17,22 +17,18 @@ import java.util.UUID;
 public class MenuEvent extends Menu{
 
 	public MenuEvent(UUID uuid){
-        super(new byte[] {3}, Bukkit.createInventory(null, 27, "§6Events"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {19, 0}, {20, 0}, {21, 0}, {22, 0}, {23, 0}, {24, 0}, {25, 0}, {26, 0}}, Hub.getInstance());
-        menu.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Principal"}).get());
-		Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[] {3}, Bukkit.createInventory(null, 27, "§6Events"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {19, 0}, {20, 0}, {21, 0}, {22, 0}, {23, 0}, {24, 0}, {25, 0}, {26, 0}}, Hub.getInstance());
+        super.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Principal"}).get());
 	}
 
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                MenuPrincipal.createMenu(uuid);
-                break;
-            default:
-                break;
-        }
+    protected void back(UUID uuid) {
+        MenuPrincipal.createMenu(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+
     }
 }

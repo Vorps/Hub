@@ -12,7 +12,7 @@ import java.util.UUID;
 public class GiveProductPlayer {
 
     public static void giveItemPlayer(UUID uuid, Products products, boolean state){
-        GiveProductPlayer.giveItemPlayer(uuid, products, state, products.getItem().get(PlayerData.getLang(uuid)).get());
+        GiveProductPlayer.giveItemPlayer(uuid, products, state, products.getItem(PlayerData.getLang(uuid)).get());
     }
 
     public static void giveItemPlayer(UUID uuid, Products products, boolean state, ItemStack itemStack){

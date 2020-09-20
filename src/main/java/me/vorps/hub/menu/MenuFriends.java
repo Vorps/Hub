@@ -19,15 +19,11 @@ import java.util.UUID;
 public class MenuFriends extends MenuRecursive {
 
 	private MenuFriends(UUID uuid, ArrayList<ItemBuilder> list){
-        super(new byte[] {5}, Bukkit.createInventory(null, 45, "§6Profil > Amis") , new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {18, 0}, {26, 0}, {27, 0}, {35, 0}, {37, 0}, {38, 0}, {39, 0}, {40, 0}, {41, 0}, {42, 0}, {43, 0}, {44, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.STATIC, Hub.getInstance());
-        initMenu(uuid, 1);
-		Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[] {5}, Bukkit.createInventory(null, 45, "§6Profil > Amis") , new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {18, 0}, {26, 0}, {27, 0}, {35, 0}, {37, 0}, {38, 0}, {39, 0}, {40, 0}, {41, 0}, {42, 0}, {43, 0}, {44, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.DYNAMIQUE, Hub.getInstance());
 	}
 
     @Override
     public void initMenu(UUID uuid, int page){
-        menu.clear();
-        PlayerData playerData = PlayerData.getPlayerData(uuid);
         //menu.setItem(4, new ItemBuilder(Material.SUNFLOWER).withName("§6Amis en ligne").withLore(new String[] {"§7Affiche vos amis en ligne", "§7En ligne : §a"+ playerData.getFriends().getFriendsOnline().size(), "§7Hors ligne : §7"+(playerData.getFriends().getFriendsOnline().size()- playerData.getFriends().getFriendsOnline().size())}).get());
         //menu.setItem(36, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu profil"}).get());
         /*if(!playerData.getFriends().getFriends().isEmpty()){
@@ -36,8 +32,6 @@ public class MenuFriends extends MenuRecursive {
         } else {
             menu.setItem(40, new ItemBuilder(Material.ITEM_FRAME).withName("§6Ajouter un ami").withLore(new String[] {"§7Ajouter un joueur de votre liste d'amis"}).get());
         }*/
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
     }
 
     public static void createMenu(UUID uuid){
@@ -49,14 +43,14 @@ public class MenuFriends extends MenuRecursive {
     }
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
+    protected void back(UUID uuid) {
+        new MenuProfil(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
         PlayerData playerData = PlayerData.getPlayerData(uuid);
-        switch (itemStack.getType()) {
-            case ARROW:
-                new MenuProfil(uuid);
-                break;
+        switch (type) {
             case BARRIER:
                 MenuFriendsRemove.createMenu(uuid);
                 break;
@@ -78,12 +72,6 @@ public class MenuFriends extends MenuRecursive {
             case ITEM_FRAME:
                 //playerData.getFriends().addFriend(player);
                 Bukkit.getPlayer(uuid).closeInventory();
-                break;
-            case PAPER:
-                initMenu(uuid, page+1);
-                break;
-            case MAP:
-                initMenu(uuid, page-1);
                 break;
             default:
                 break;

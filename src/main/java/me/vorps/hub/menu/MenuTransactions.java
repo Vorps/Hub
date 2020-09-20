@@ -26,45 +26,39 @@ import org.bukkit.inventory.ItemStack;
 public class MenuTransactions extends MenuRecursive{
 
 	public MenuTransactions(UUID uuid, ArrayList<ItemBuilder> list){
-        super(null, Bukkit.createInventory(null, 45, "§6Transactions éffectuées"), null, list, PlayerData.getLang(uuid), 9, 0, Type.STATIC, Hub.getInstance());
-        initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, null, Bukkit.createInventory(null, 45, "§6Transactions éffectuées"), null, list, PlayerData.getLang(uuid), 9, 0, Type.DYNAMIQUE, Hub.getInstance());
 	}
 
 	@Override
     public void initMenu(UUID uuid, int page){
-        menu.setItem(36, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
+        super.setItem(36, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
     }
 
     public static void createMenu(UUID uuid){
-        PlayerData playerData = PlayerData.getPlayerData(uuid);
         ArrayList<ItemBuilder> list = new ArrayList<>();
-        for(int i = 0; i < playerData.getProducts().size(); i++){
-            Products products = Products.getProduct(playerData.getProducts().get(i).getProduct());
+        PlayerData.getProductsPlayers(uuid).forEach(productPlayer -> {
+            System.out.println("TEST");
+            Products product = Products.getProduct(productPlayer.getProduct());
             List<String> des = new ArrayList<>();
-            des.add("§7Prix : §a"+products.getPrice()+"§7 "+products.getMoney());
-            if(products.getTime() > 0){
-                des.add("§7Temps : §a"+ ConvertMillis.convertMillisToTime(products.getTime()));
-                des.add("§7Temps restant: §a"+ConvertMillis.convertMillisToTime((playerData.getProducts().get(i).getDate()+products.getTime())-System.currentTimeMillis()));
+            des.add("§7Prix : §a"+product.getPrice()+"§7 "+product.getMoney());
+            if(product.getTime() > 0){
+                des.add("§7Temps : §a"+ ConvertMillis.convertMillisToTime(product.getTime()));
+                des.add("§7Temps restant: §a"+ConvertMillis.convertMillisToTime((productPlayer.getDate()+product.getTime())-System.currentTimeMillis()));
             }
-            des.add("§7Date de l'achat : §a"+ Data.FORMAT_DAY_MONTH_YEAR.format(new Timestamp(playerData.getProducts().get(i).getDate())));
-            list.add(new ItemBuilder(Material.PAPER).withName("§6"+ playerData.getProducts().get(i).getProduct()).withLore(des.toArray(des.toArray(new String[des.size()]))));
-        }
+            des.add("§7Date de l'achat : §a"+ Data.FORMAT_DAY_MONTH_YEAR.format(new Timestamp(productPlayer.getDate())));
+            list.add(new ItemBuilder(Material.PAPER).withName("§6"+ product.getName()).withLore(des.toArray(des.toArray(new String[0]))));
+        });
+
         new MenuTransactions(uuid, list);
     }
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                MenuBoutique.createMenu(uuid);
-                break;
-            default:
-                break;
-        }
+    protected void back(UUID uuid) {
+        MenuBoutique.createMenu(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+
     }
 }

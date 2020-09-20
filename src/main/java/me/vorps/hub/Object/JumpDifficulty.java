@@ -1,6 +1,7 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
+import me.vorps.hub.data.DataHub;
 import net.vorps.api.lang.Lang;
 import net.vorps.api.lang.LangSetting;
 import net.vorps.api.menu.ItemBuilder;
@@ -16,34 +17,34 @@ import java.util.HashMap;
 /**
  * Project Hub Created by Vorps on 20/05/2016 at 00:15.
  */
-public class JumpDifficulty implements Comparable<JumpDifficulty> {
+public class JumpDifficulty {
 
-    private static final HashMap<String, JumpDifficulty> jumpDifficulty = new HashMap<>();
+    private static HashMap<String, JumpDifficulty> jumpDifficulty;
 
     private @Getter final String name;
-    private @Getter final HashMap<String, ItemBuilder> icon;
-    private final int level;
-    private final HashMap<String, String> label;
+    private final String icon;
+    private final String label;
     private @Getter final Menu menu;
 
-    public int compareTo(JumpDifficulty jumpDifficulty){
-        return this.level >= jumpDifficulty.level ? 1 : -1;
-    }
-
     public JumpDifficulty(ResultSet result) throws SQLException {
-        this.icon = new HashMap<>();
-        this.label = new HashMap<>();
-        this.name = result.getString(1);
-        for(String langSetting : LangSetting.getListLangSetting()){
-            this.label.put(langSetting, Lang.getMessage(result.getString(2), langSetting));
-            this.icon.put(langSetting, Item.getItem(result.getString(3), langSetting));
-        }
-        this.level = result.getInt(4);
-        this.menu = Menu.getMenu(result.getString(5));
+        this.name = result.getString("jd_name");
+        this.label = result.getString("jd_label");
+        this.icon = result.getString("jd_icon");
+        this.menu = Menu.getMenu(result.getString("jd_menu"));
         JumpDifficulty.jumpDifficulty.put(this.name, this);
     }
 
+    public ItemBuilder getIcon(String lang){
+        return Item.getItem(this.icon, lang);
+    }
 
+    static {
+        JumpDifficulty.jumpDifficulty = new HashMap<>();
+        DataHub.loadJumpDifficulty();
+    }
+
+
+    @Deprecated
     public String[] getLore(String jump){
         /*ArrayList<PlayerJumpRecord> list = PlayerJumpRecord.getPlayerDifficulty(jump, name);
         String[] listPlayer = new String[list.size()];
@@ -63,18 +64,23 @@ public class JumpDifficulty implements Comparable<JumpDifficulty> {
         return null;
     }
 
-    public static JumpDifficulty getJumpDifficultyLabel(String label, String lang){
+    /*public static JumpDifficulty getJumpDifficultyLabel(String label, String lang){
         for(JumpDifficulty jumpDifficulty : JumpDifficulty.jumpDifficulty.values()){
             if(jumpDifficulty.icon.get(lang).get().getItemMeta().getDisplayName().equals(label)){
                 return jumpDifficulty;
             }
         }
         return null;
+    }*/
+
+    public static JumpDifficulty getJumpDifficulty(String name){
+        return JumpDifficulty.jumpDifficulty.get(name);
     }
 
     public String toString(String lang){
-        return label.get(lang);
+        return Lang.getMessage(this.label, lang);
     }
+
     public static void clear(){
         JumpDifficulty.jumpDifficulty.clear();
     }

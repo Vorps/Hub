@@ -1,6 +1,8 @@
 package me.vorps.hub.Object;
 
 import lombok.Getter;
+import me.vorps.hub.data.DataHub;
+import me.vorps.hub.data.SettingsHub;
 import net.vorps.api.lang.Lang;
 import net.vorps.api.lang.LangSetting;
 import org.apache.commons.lang.ArrayUtils;
@@ -17,26 +19,31 @@ public class Menu {
 
     private static HashMap<String, Menu> listMenu = new HashMap<>();
 
-    private @Getter HashMap<String, String> label;
-    private @Getter int size;
-    private @Getter byte[] ids;
-    private @Getter int[][] model;
-    private @Getter int start;
-    private @Getter int lineSize;
-    private @Getter int[] exclude;
+    private final String label;
+    private @Getter final int size;
+    private @Getter final byte[] ids;
+    private @Getter final int[][] model;
+    private @Getter final int start;
+    private @Getter final int lineSize;
+    private @Getter final int[] exclude;
 
+    public String getLabel(String lang){
+        return Lang.getMessage(this.label, lang);
+    }
     public Menu(ResultSet result) throws SQLException {
-        label = new HashMap<>();
-        for(String langSetting : LangSetting.getListLangSetting()){
-            label.put(langSetting, Lang.getMessage(result.getString(2), langSetting));
-        }
-        size = result.getInt(3);
-        ids = ids(result.getString(4));
-        model = model(result.getString(5));
-        start = result.getInt(6);
-        lineSize = result.getInt(7);
-        exclude = exclude(result.getString(8));
-        listMenu.put(result.getString(1), this);
+        this.label = result.getString("menu_label");
+        this.size = result.getInt("menu_size");
+        this.ids = ids(result.getString("menu_ids"));
+        this.model = model(result.getString("menu_model"));
+        this.start = result.getInt("menu_start");
+        this.lineSize = result.getInt("menu_line_size");
+        this.exclude = exclude(result.getString("menu_exclude"));
+        Menu.listMenu.put(result.getString("menu_name"), this);
+    }
+
+    static {
+        Menu.listMenu = new HashMap<>();
+        DataHub.loadMenu();
     }
 
     private static byte[] ids(String ids){
@@ -105,10 +112,10 @@ public class Menu {
     }
 
     public static Menu getMenu(String name){
-        return listMenu.get(name);
+        return Menu.listMenu.get(name);
     }
 
     public static void clear(){
-        listMenu.clear();
+        Menu.listMenu.clear();
     }
 }

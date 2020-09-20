@@ -4,6 +4,7 @@ import lombok.Getter;
 import me.vorps.hub.commands.CommandManager;
 import me.vorps.hub.data.SettingsHub;
 import me.vorps.hub.events.*;
+import me.vorps.hub.thread.ThreadHub;
 import net.vorps.api.API;
 import net.vorps.api.data.DataCore;
 import net.vorps.api.databases.Database;
@@ -19,6 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class Hub extends JavaPlugin{
 	private @Getter static Hub instance;
+	private @Getter boolean interrupt;
 
 	@Override
 	public void onEnable() {
@@ -47,12 +49,13 @@ public class Hub extends JavaPlugin{
 
         Bukkit.getOnlinePlayers().forEach((Player player) -> new PlayerData(player.getUniqueId()));
 
-        //new ThreadHub().start();
+        new ThreadHub().start();
 	}
 
     @Override
     public void onDisable() {
         //ServerState.setState(ServerState.STOP);
+        this.interrupt = true;
         Bukkit.getOnlinePlayers().forEach((Player player) -> PlayerData.getPlayerData(player.getName()).removePlayerHub());
     }
 }

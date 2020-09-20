@@ -1,25 +1,26 @@
 package me.vorps.hub.thread;
 
+import me.vorps.hub.Hub;
+import me.vorps.hub.data.SettingsHub;
+import net.vorps.api.data.Settings;
+import net.vorps.api.nms.ActionBarBuilder;
+import org.bukkit.Bukkit;
+
 /**
  * Project Hub Created by Vorps on 01/02/2016 at 01:41.
  */
 public class ThreadHub extends Thread {
-	private	int i = 0;
 	private int index = 0;
 
-	public void run(){
-        long time;
-		/*while(!Hub.getInstance().isInterrupt()){
-			if(i > Settings.getTimeMessage()){
-				i = 0;
-				index++;
-				if(index == Settings.getMessageServer().size()){
-					index = 0;
-				}
-				Bukkit.getOnlinePlayers().forEach(p -> new ActionBarBuilder(Settings.getMessageServer().get(index)).sendTo(p));
+	public ThreadHub(){
+		this.index = 0;
+	}
 
-                time = System.currentTimeMillis();
-                for(Player player : Bukkit.getOnlinePlayers()){
+	public void run(){
+		while(!Hub.getInstance().isInterrupt()){
+			if(index == SettingsHub.getMessage_server().size()) index = 0;
+			Bukkit.getOnlinePlayers().forEach(p -> new ActionBarBuilder(SettingsHub.getMessage_server().get(this.index++)).sendTo(p));
+                /*for(Player player : Bukkit.getOnlinePlayers()){
                     if(PlayerData.isPlayerDataExits(player.getName())){
                         PlayerData playerData = PlayerData.getPlayerData(player.getName());
                         for(ProductsPlayers products : playerData.getProducts()){
@@ -32,15 +33,14 @@ public class ThreadHub extends Thread {
                             }
                         }
                     }
-                }
-			}
-			i += Settings.getSpeedThread();
+                }*/
+
 			try {
-				Thread.sleep(500);
+				Thread.sleep(SettingsHub.getTime_thread_message());
 			} catch (InterruptedException e) {
                 //
             }
-		}*/
-		//interrupt();
+		}
+		interrupt();
 	}
 }

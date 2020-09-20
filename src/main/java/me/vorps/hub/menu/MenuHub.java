@@ -48,14 +48,11 @@ public class MenuHub extends MenuRecursive{
 
     }
 	private MenuHub(UUID uuid, ArrayList<ItemBuilder> list){
-        super(new byte[] {10}, Bukkit.createInventory(null, 27, "§6Hub ("+ 0/*DataHub.NB_SERVER*/+")"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {19, 0}, {20, 0}, {21, 0}, {23, 0}, {24, 0}, {25, 0}, {26, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.STATIC, Hub.getInstance());
-        initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[] {10}, Bukkit.createInventory(null, 27, "§6Hub ("+ 0/*DataHub.NB_SERVER*/+")"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {19, 0}, {20, 0}, {21, 0}, {23, 0}, {24, 0}, {25, 0}, {26, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.DYNAMIQUE, Hub.getInstance());
 	}
 
     public void initMenu(UUID uuid, int page){
-        menu.clear();
-        menu.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Principal"}).get());
+        super.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Principal"}).get());
         String[] lore;
         PlayerJump playerJump = PlayerData.getPlayerData(uuid).getJump();
         /*if(playerJump.isInJump()){
@@ -67,8 +64,6 @@ public class MenuHub extends MenuRecursive{
         lore[0] = "§7Retourner au spawn de "+ Settings.getNameServer()+".";
         menu.setItem(22, new ItemBuilder(Material.ENDER_PEARL).withName("§6Centre du hub").withLore(lore).get());
         */
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
     }
 
     public static void createMenu(UUID uuid){
@@ -112,28 +107,23 @@ public class MenuHub extends MenuRecursive{
         new MenuHub(player, list);*/
     }
 
+
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                MenuPrincipal.createMenu(uuid);
-                break;
+    protected void back(UUID uuid) {
+        MenuPrincipal.createMenu(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+        switch (type) {
             case ENDER_PEARL:
                 //PlayerData.getPlayerData(uuid).teleportSpawn();
-                break;
-            case PAPER:
-                initMenu(uuid, page+1);
-                break;
-            case MAP:
-                initMenu(uuid, page-1);
                 break;
             default:
                 break;
         }
-        switch (itemStack.getType().getId()){
-            case 159:
+        //switch (itemStack.getType().getId()){
+        //    case 159:
                 /*int nbHub = 0;
                 System.out.println(itemStack.getItemMeta().getDisplayName().substring(8, 9));
                 try {
@@ -160,10 +150,10 @@ public class MenuHub extends MenuRecursive{
                         player.sendPluginMessage(Hub.getInstance(), "BungeeCord", out.toByteArray());
                     }
                 }*/
-                break;
-            default:
-                break;
-        }
+            //    break;
+            //default:
+            //    break;
+        //}
     }
 
     public static void connectServer(UUID uuid, String server, int nbrPlayer){

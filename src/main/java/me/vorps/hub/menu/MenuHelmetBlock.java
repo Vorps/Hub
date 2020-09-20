@@ -22,54 +22,47 @@ import java.util.UUID;
 public class MenuHelmetBlock extends MenuRecursive {
 
 	private MenuHelmetBlock(UUID uuid, ArrayList<ItemBuilder> list) {
-        super(new byte[]{10, 2, 6}, Bukkit.createInventory(null, 54, "§6Boutique > Costumes > Blocks"), new int[][]{{0, 0}, {1, 1}, {2, 2}, {3, 0}, {5, 0}, {6, 2}, {7, 1}, {8, 0}, {9, 1}, {17, 1}, {18, 2}, {26, 2}, {27, 2}, {35, 2}, {36, 1}, {44, 1}, {46, 1}, {47, 2}, {48, 0}, {49, 1}, {50, 0}, {51, 2}, {52, 1}, {53, 0}}, list, PlayerData.getLang(uuid), 7, 9, new int[]{12, 13, 14}, Type.STATIC, Hub.getInstance());
-        initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[]{10, 2, 6}, Bukkit.createInventory(null, 54, "§6Boutique > Costumes > Blocks"), new int[][]{{0, 0}, {1, 1}, {2, 2}, {3, 0}, {5, 0}, {6, 2}, {7, 1}, {8, 0}, {9, 1}, {17, 1}, {18, 2}, {26, 2}, {27, 2}, {35, 2}, {36, 1}, {44, 1}, {46, 1}, {47, 2}, {48, 0}, {49, 1}, {50, 0}, {51, 2}, {52, 1}, {53, 0}}, list, PlayerData.getLang(uuid), 7, 9, new int[]{12, 13, 14}, Type.DYNAMIQUE, Hub.getInstance());
     }
 
     @Override
     public void initMenu(UUID uuid, int page){
-        menu.clear();
-        menu.setItem(4, new ItemBuilder(Material.GOLDEN_HELMET).withName("§6Chapeaux").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
-        menu.setItem(13, new ItemBuilder(Material.BARRIER).withName("§6Retirer mon chapeaux").withLore(new String[]{"§7Retire votre chapeaux actuel"}).get());
-        menu.setItem(45, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[]{"§7Retour au menu Costumes"}).get());
+        super.setItem(4, new ItemBuilder(Material.GOLDEN_HELMET).withName("§6Chapeaux").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
+        super.setItem(13, new ItemBuilder(Material.BARRIER).withName("§6Retirer mon chapeaux").withLore(new String[]{"§7Retire votre chapeaux actuel"}).get());
+        super.setItem(45, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[]{"§7Retour au menu Costumes"}).get());
         this.getPage(page);
         if(menu.getItem(52).getType().getId() == 160){
-            menu.setItem(52, new ItemBuilder(Material.MAP).withName("§6Page Précedente -> Têtes").withLore(new String[]{"§7Retour au menu Têtes"}).get());
+            super.setItem(52, new ItemBuilder(Material.MAP).withName("§6Page Précedente -> Têtes").withLore(new String[]{"§7Retour au menu Têtes"}).get());
         }
-        Bukkit.getPlayer(uuid).updateInventory();
     }
 
     public static void createMenu(UUID uuid){
         ArrayList<ItemBuilder> list = new ArrayList<>();
-        Products.getProduct(11).forEach((Products product) -> list.add(product.getItem().get(PlayerData.getLang(uuid)).withLore(new Purchase(uuid, "ce chapeau sur votre tête.").purchase(product.getName()))));
+        Products.getProduct(11).forEach((Products product) -> list.add(product.getItem(PlayerData.getLang(uuid)).withLore(new Purchase(uuid, "ce chapeau sur votre tête.").purchase(product.getName()))));
         new MenuHelmetBlock(uuid, list);
     }
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                new MenuCostume(uuid);
-                break;
+    protected void back(UUID uuid) {
+        new MenuCostume(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+        switch (type) {
             case MAP:
-                if(itemStack.getItemMeta().getDisplayName().equals("§6Page Précedente -> Têtes")){
+                /*if(itemStack.getItemMeta().getDisplayName().equals("§6Page Précedente -> Têtes")){
                     MenuHelmetHead.createMenu(uuid);
                 } else {
                     initMenu(uuid, page-1);
-                }
-                break;
-            case PAPER:
-                initMenu(uuid, page+1);
+                }*/
                 break;
             case BARRIER:
-                if(Bukkit.getPlayer(uuid).getInventory().getHelmet() != null){
+                /*if(Bukkit.getPlayer(uuid).getInventory().getHelmet() != null){
                     Bukkit.getPlayer(uuid).getInventory().setHelmet(new ItemStack(Material.AIR));
                     Bukkit.getPlayer(uuid).sendMessage("§eChapeau retiré");
                     MenuHelmetBlock.createMenu(uuid);
-                }
+                }*/
                 break;
             default:
                 break;

@@ -24,18 +24,14 @@ public class MenuJumpRecord extends MenuRecursive {
     JumpDifficulty jumpDifficulty;
 
     private MenuJumpRecord(UUID uuid, Jumps jump, ArrayList<ItemBuilder> list, JumpDifficulty jumpDifficulty){
-        super(jumpDifficulty.getMenu().getIds(), Bukkit.createInventory(null, jumpDifficulty.getMenu().getSize(), jumpDifficulty.getMenu().getLabel().get(PlayerData.getLang(uuid))),  jumpDifficulty.getMenu().getModel(), list, PlayerData.getLang(uuid), jumpDifficulty.getMenu().getLineSize(), jumpDifficulty.getMenu().getStart(), jumpDifficulty.getMenu().getExclude(), Type.STATIC, Hub.getInstance());
+        super(uuid, jumpDifficulty.getMenu().getIds(), Bukkit.createInventory(null, jumpDifficulty.getMenu().getSize(), jumpDifficulty.getMenu().getLabel(PlayerData.getLang(uuid))),  jumpDifficulty.getMenu().getModel(), list, PlayerData.getLang(uuid), jumpDifficulty.getMenu().getLineSize(), jumpDifficulty.getMenu().getStart(), jumpDifficulty.getMenu().getExclude(), Type.DYNAMIQUE, Hub.getInstance());
         this.jump = jump;
         this.jumpDifficulty = jumpDifficulty;
-        initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
     }
 
     public void initMenu(UUID uuid, int page){
-        menu.setItem(27, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au jeu"}).get());
-        menu.setItem(4, jumpDifficulty.getIcon().get(PlayerData.getLang(uuid)).withLore(jumpDifficulty.getLore(jump.getJump())).get());
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
+        super.setItem(27, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au jeu"}).get());
+        //menu.setItem(4, jumpDifficulty.getIcon().get(PlayerData.getLang(uuid)).withLore(jumpDifficulty.getLore(jump.getJump())).get());
     }
 
     public static void createMenu(UUID uuid, Jumps jumps, JumpDifficulty jumpDifficulty){
@@ -43,21 +39,11 @@ public class MenuJumpRecord extends MenuRecursive {
     }
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                MenuJumpDifficultyRecord.createMenu(uuid, jump);
-                break;
-            case PAPER:
-                initMenu(uuid, ++page);
-                break;
-            case MAP:
-                initMenu(uuid, --page);
-                break;
-            default:
-                break;
-        }
+    protected void back(UUID uuid) {
+        MenuJumpDifficultyRecord.createMenu(uuid, jump);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
     }
 }

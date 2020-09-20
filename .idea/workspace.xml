@@ -28,111 +28,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b017c5c0-b52c-4292-a494-f36afc3d5262" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Hub_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/API.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_1_R0_1_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/channel/PluginMessageReceived.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/DoubleJump.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/data/DataHub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/data/SettingsHub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/CancelledEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDownGadget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Hub.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copyright/Vorps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copyright/Vorps.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.ids" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Vorps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Vorps.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/API_spigot_1_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/FortyCubeAPIBukkit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_17_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_persistence_api_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_8_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_16_R0_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_avaje_ebean_2_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_8_8_R0_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_22.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_8_8_R0_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/SneakListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hub.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Data.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Hub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Bonus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/BookHelp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Friends.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Gadgets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Gadgets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Grades.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Item.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpDifficulty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpEarning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpEarning.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Jumps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Jumps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpsSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/JumpsSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Location.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/MessageTitle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Money.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Mute.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Party.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Permission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJump.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJumpRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/PlayerJumpRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Products.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/ProductsPlayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/ProductsPlayers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Object/Stats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/PlayerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/chanel/PluginMessageReceived.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandBuild.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandDoubleJumps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandFly.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandJump.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandReload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandSetting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandVisiblePlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/Commands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandsAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/commands/CommandsAutoCompletion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/dispatcher/Dispatcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/dispatcher/Parameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/dispatcher/ServerParameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/BlockBreakListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/ChatListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DamageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DamageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/DropPlayerListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EntityDamageListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/EventsManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FlyOnJumpListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FlyOnJumpListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/FoodChangeLevelListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/data/DataHub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/data/DataHub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/data/SettingsHub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/data/SettingsHub.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InteractListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/InterractInventoryListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/PlayerJoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/MoveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/MoveListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/PlayerInteractEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/PlayerInteractEntitiesListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/ProjectileHitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/ProjectileHitListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/QuitListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/SignInterract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/SignListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/SingEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/WeatherListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/events/sneakListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/gadget/Bat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/gadget/Bat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/gadget/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/gadget/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/gadget/Gadgets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/gadget/Gadgets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBonus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoots.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoutique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuBoutique.java" afterDir="false" />
@@ -166,28 +74,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuShopGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuShopGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/MenuTransactions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/menu/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/particle/Particle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/particle/Particle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoardJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/scoreboard/ScoreBoardJump.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ClassThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ClassThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDownDoubleJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDownDoubleJump.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDownsVisiblePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadCoolDownsVisiblePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadGadget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadGadget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadHub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadJump.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/thread/ThreadServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/ChatColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Color.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/CoolDown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/CoolDown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/EntityManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/GiveProductPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Permission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/Purchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/vorps/hub/utils/RemovePlayerProduit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +147,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="last_opened_file_path" value="$USER_HOME$/Server/HUB/HUB_00/plugins" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -269,20 +158,6 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="me.vorps.hub.dispatcher" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\events" />
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\Object" />
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\utils" />
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\shop" />
-      <recent name="A:\Hub\src\main\java\me\vorps\hub\pets" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="me.vorps.hub.menu" />
-      <recent name="me.vorps.hub.events" />
-      <recent name="me.vorps.hub.utils" />
-      <recent name="me.vorps.hub.Object" />
-      <recent name="me.vorps.hub.dispatcher" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -291,6 +166,20 @@
       <recent name="A:\Hub\src\main\java\me\vorps\hub" />
       <recent name="A:\Hub\src\main\java\me\vorps\hub\databases" />
       <recent name="A:\Hub" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.vorps.hub.menu" />
+      <recent name="me.vorps.hub.events" />
+      <recent name="me.vorps.hub.utils" />
+      <recent name="me.vorps.hub.Object" />
+      <recent name="me.vorps.hub.dispatcher" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\events" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\Object" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\utils" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\shop" />
+      <recent name="A:\Hub\src\main\java\me\vorps\hub\pets" />
     </key>
   </component>
   <component name="RunManager">
@@ -400,17 +289,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -584,7 +462,10 @@
       <workItem from="1595868795339" duration="2536000" />
       <workItem from="1600506866106" duration="10293000" />
       <workItem from="1600517718227" duration="12491000" />
-      <workItem from="1600542098125" duration="4727000" />
+      <workItem from="1600542098125" duration="21181000" />
+      <workItem from="1600602262048" duration="4594000" />
+      <workItem from="1600606885485" duration="542000" />
+      <workItem from="1600607441457" duration="8146000" />
     </task>
     <servers />
   </component>
@@ -635,10 +516,10 @@
     <state x="2659" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.2560.1080/0.0.1920.1044/4480.0.1920.1080@1920.0.2560.1080" timestamp="1595683263557" />
     <state x="5028" y="143" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.2560.1080/0.0.1920.1044/4480.0.1920.1080@4480.0.1920.1080" timestamp="1595889086985" />
     <state x="2651" y="143" width="1081" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600523865872" />
-    <state x="3009" y="232" key="#com.intellij.ide.util.MemberChooser" timestamp="1600542582922">
+    <state x="3009" y="232" key="#com.intellij.ide.util.MemberChooser" timestamp="1600614545686">
       <screen x="1920" y="0" width="2560" height="1080" />
     </state>
-    <state x="3009" y="232" key="#com.intellij.ide.util.MemberChooser/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600542582922" />
+    <state x="3009" y="232" key="#com.intellij.ide.util.MemberChooser/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600614545686" />
     <state x="2934" y="274" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600546008982">
       <screen x="1920" y="0" width="2560" height="1080" />
     </state>
@@ -676,15 +557,21 @@
     <state x="2512" y="120" key="SettingsEditor/1920.0.2560.1080/0.0.1920.1044/4480.0.1920.1080@1920.0.2560.1080" timestamp="1595682903570" />
     <state x="4924" y="120" key="SettingsEditor/1920.0.2560.1080/0.0.1920.1044/4480.0.1920.1080@4480.0.1920.1080" timestamp="1595358155607" />
     <state x="2512" y="120" key="SettingsEditor/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600520346226" />
-    <state x="5322" y="330" width="336" height="387" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1600522231827">
+    <state x="5322" y="330" width="336" height="387" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1600591645404">
       <screen x="4480" y="0" width="1920" height="1080" />
     </state>
-    <state x="3042" y="330" width="336" height="387" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600521896412" />
-    <state x="5322" y="330" width="336" height="387" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@4480.0.1920.1080" timestamp="1600522231827" />
-    <state x="3006" y="341" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1600522742057">
+    <state x="3042" y="330" width="336" height="387" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600552325452" />
+    <state x="5322" y="330" width="336" height="387" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@4480.0.1920.1080" timestamp="1600591645404" />
+    <state x="2905" y="342" width="588" height="351" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1600605980913">
       <screen x="1920" y="0" width="2560" height="1080" />
     </state>
-    <state x="3006" y="341" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600522742057" />
+    <state x="2905" y="342" width="588" height="351" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600605980913" />
+    <state x="5219" y="342" width="441" height="363" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@4480.0.1920.1080" timestamp="1600592314974" />
+    <state x="3006" y="341" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1600603519947">
+      <screen x="1920" y="0" width="2560" height="1080" />
+    </state>
+    <state x="3006" y="341" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@1920.0.2560.1080" timestamp="1600603519947" />
+    <state x="5295" y="341" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.2560.1080/4480.0.1920.1080/0.0.1920.1044@4480.0.1920.1080" timestamp="1600592326019" />
     <state x="2518" y="269" key="com.intellij.database.view.ui.DatabasePreviewDialog" timestamp="1600522746899">
       <screen x="1920" y="0" width="2560" height="1080" />
     </state>

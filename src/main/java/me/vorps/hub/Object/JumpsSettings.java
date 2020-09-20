@@ -10,11 +10,11 @@ import java.sql.SQLException;
  */
 public class JumpsSettings {
 	
-	private @Getter	int checkPoint;
-	private @Getter float yaw;
+	private final @Getter int checkPoint;
+	private final @Getter float yaw;
 	
 	public JumpsSettings(ResultSet results) throws SQLException {
-		checkPoint =results.getInt(2);
-		yaw = results.getFloat(3);
+		checkPoint = results.getInt("js_checkpoint");
+		yaw = results.getFloat("js_yaw");
 	}
 }

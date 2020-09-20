@@ -21,41 +21,28 @@ import java.util.UUID;
 public class MenuPets extends MenuRecursive {
 
 	public MenuPets(UUID uuid, ArrayList<ItemBuilder> list){
-        super(new byte[] {0, 8}, Bukkit.createInventory(null, 54, "§6Boutique > Pets"), new int[][] {{0, 0}, {1, 1}, {2, 0}, {3, 1}, {5, 1}, {6, 0}, {7, 1}, {8, 0}, {46, 1}, {47, 0}, {48, 1}, {49, 0}, {50, 1}, {51, 0}, {52, 1}, {53, 0}}, list, PlayerData.getLang(uuid), 9, 9, new int[] {40}, Type.STATIC, Hub.getInstance());
-		initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[] {0, 8}, Bukkit.createInventory(null, 54, "§6Boutique > Pets"), new int[][] {{0, 0}, {1, 1}, {2, 0}, {3, 1}, {5, 1}, {6, 0}, {7, 1}, {8, 0}, {46, 1}, {47, 0}, {48, 1}, {49, 0}, {50, 1}, {51, 0}, {52, 1}, {53, 0}}, list, PlayerData.getLang(uuid), 9, 9, new int[] {40}, Type.DYNAMIQUE, Hub.getInstance());
 	}
 
     @Override
     public void initMenu(UUID uuid, int page){
-        menu.clear();
-        menu.setItem(4, new ItemBuilder(Material.BONE).withName("§6Pets").get());
-        menu.setItem(45, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
+        super.setItem(4, new ItemBuilder(Material.BONE).withName("§6Pets").get());
+        super.setItem(45, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Boutique"}).get());
     }
 
     public static void createMenu(UUID uuid){
         ArrayList<ItemBuilder> list = new ArrayList<>();
-        Products.getProduct(9).forEach((Products product) -> list.add(product.getItem().get(PlayerData.getLang(uuid)).withLore(new Purchase(uuid, "ce pets").purchase(product.getName()))));
+        Products.getProduct(9).forEach((Products product) -> list.add(product.getItem(PlayerData.getLang(uuid)).withLore(new Purchase(uuid, "ce pets").purchase(product.getName()))));
         new MenuPets(uuid, list);
     }
+
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                MenuBoutique.createMenu(uuid);
-                break;
-            case PAPER:
-                initMenu(uuid, page+1);
-                break;
-            case MAP:
-                initMenu(uuid, page-1);
-                break;
-            default:
-                break;
-        }
+    protected void back(UUID uuid) {
+        MenuBoutique.createMenu(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+
     }
 }

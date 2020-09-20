@@ -20,22 +20,18 @@ import java.util.UUID;
 public class MenuPrincipal extends MenuRecursive{
 
 	private MenuPrincipal(UUID uuid, ArrayList<ItemBuilder> list){
-        super(new byte[] {4, 1}, Bukkit.createInventory(null, 45, "§6Menu Principal"), new int[][] {{0, 0}, {1, 1}, {2, 0}, {3, 1}, {4, 0}, {5, 1}, {6, 0}, {7, 1}, {8, 0}, {18, 0}, {26, 0}, {37, 1}, {38, 0}, {40, 0}, {42, 0}, {43, 1}, {44, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.STATIC, Hub.getInstance());
-        initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[] {4, 1}, Bukkit.createInventory(Bukkit.getPlayer(uuid), 45, "§6Menu Principal"), new int[][] {{0, 0}, {1, 1}, {2, 0}, {3, 1}, {4, 0}, {5, 1}, {6, 0}, {7, 1}, {8, 0}, {18, 0}, {26, 0}, {37, 1}, {38, 0}, {40, 0}, {42, 0}, {43, 1}, {44, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.DYNAMIQUE, Hub.getInstance());
 	}
 
     @Override
     public void initMenu(UUID uuid, int page){
-        menu.setItem(9, new ItemBuilder(Material.BOOK).withName("§6Aide").withLore(new String[] {"§7Besoin d'aide ?"}).get());
-        menu.setItem(17, new ItemBuilder(Material.NETHER_STAR).withName("§6Hub").withLore(new String[] {"§7Changer de hub"}).get());
-        menu.setItem(27, new ItemBuilder(Material.LEATHER_BOOTS).withName("§6Jump").withColor(Color.PURPLE).withLore(new String[] {"§7Jumps"}).get());
-        menu.setItem(35, new ItemBuilder(Material.DIAMOND).withName("§6Events").withLore(new String[] {"§7Events prochainement"}).get());
-        menu.setItem(36, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au jeu"}).get());
-        menu.setItem(39, new ItemBuilder(Material.BEACON).withName("§6Zone VIP").withLore(new String[] {"§7Espace réservé exclusivement aux §a§nVIP"}).get());
-        menu.setItem(41, new ItemBuilder(Material.ENCHANTED_GOLDEN_APPLE).withName("§6Mini Jeux en BETA").withLore(new String[] {"§7En développement"}).get());
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
+        super.setItem(9, new ItemBuilder(Material.BOOK).withAction((e) -> MenuHelp.createMenu(uuid)).withName("§6Aide").withLore(new String[] {"§7Besoin d'aide ?"}).get());
+        super.setItem(17, new ItemBuilder(Material.NETHER_STAR).withName("§6Hub").withLore(new String[] {"§7Changer de hub"}).get());
+        super.setItem(27, new ItemBuilder(Material.LEATHER_BOOTS).withAction(e -> MenuJump.createMenu(uuid)).withName("§6Jump").withColor(Color.PURPLE).withLore(new String[] {"§7Jumps"}).get());
+        super.setItem(35, new ItemBuilder(Material.DIAMOND).withAction(e -> new MenuEvent(uuid)).withName("§6Events").withLore(new String[] {"§7Events prochainement"}).get());
+        super.setItem(36, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au jeu"}).get());
+        super.setItem(39, new ItemBuilder(Material.BEACON).withName("§6Zone VIP").withLore(new String[] {"§7Espace réservé exclusivement aux §a§nVIP"}).get());
+        super.setItem(41, new ItemBuilder(Material.ENCHANTED_GOLDEN_APPLE).withName("§6Mini Jeux en BETA").withLore(new String[] {"§7En développement"}).get());
     }
 
     public static void createMenu(UUID uuid){
@@ -45,13 +41,8 @@ public class MenuPrincipal extends MenuRecursive{
 
     }
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case BOOK:
-                MenuHelp.createMenu(uuid);
-                break;
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+        switch (type) {
             case NETHER_STAR:
                 /*Server.getServer().values().forEach((Server server) -> server.update());
                 for(Server server : Server.getServerOnline().values()){
@@ -61,28 +52,11 @@ public class MenuPrincipal extends MenuRecursive{
                     player.sendPluginMessage(Hub.getInstance(), "BungeeCord", out.toByteArray());
                 }*/
                 break;
-            case LEATHER_BOOTS:
-                MenuJump.createMenu(uuid);
-                break;
-            case DIAMOND:
-                new MenuEvent(uuid);
-                break;
-            case ARROW:
-                Bukkit.getPlayer(uuid).closeInventory();
-                break;
-            case BEACON:
-                break;
-            case PAPER:
-                initMenu(uuid, ++page);
-                break;
-            case MAP:
-                initMenu(uuid, --page);
-                break;
             default:
-                Game game = Game.getGame(itemStack.getType().getId(), PlayerData.getLang(uuid));
+                /*Game game = Game.getGame(type.getId(), PlayerData.getLang(uuid));
                 if(game != null){
                     MenuGame.createMenu(uuid, game);
-                }
+                }*/
                 break;
         }
     }

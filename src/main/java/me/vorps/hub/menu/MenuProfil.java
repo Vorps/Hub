@@ -18,20 +18,17 @@ import java.util.UUID;
 public class MenuProfil extends Menu {
 
 	public MenuProfil(UUID uuid){
-        super(new byte[] {2, 6}, Bukkit.createInventory(null, 45, "§6Profil"), new int[][] {{0, 0}, {1, 1}, {2, 0}, {3, 1}, {4, 0}, {5, 1}, {6, 0}, {7, 1}, {8, 0}, {9, 1}, {17, 1}, {27, 1}, {35, 1}, {37, 1}, {38, 0}, {39, 1}, {40, 0}, {41, 1}, {42, 0}, {43, 1}, {44, 0}}, Hub.getInstance());
-		menu.setItem(18, new ItemBuilder(Material.SUNFLOWER).withName("§6Amis").withLore(new String[] {"§a- §7Affiche les amis en ligne", "§a- §7Rejoindre ses amis", "§a- §7Inviter des amis", "§a- §7Ajouter ou suprimer des joueurs dans votre liste d'amis"}).get());
-        menu.setItem(20, new ItemBuilder(Material.WRITABLE_BOOK).withName("§6Statistiques").withLore(new String[] {"§7Statistique du joueur"}).get());
+        super(uuid, new byte[] {2, 6}, Bukkit.createInventory(null, 45, "§6Profil"), new int[][] {{0, 0}, {1, 1}, {2, 0}, {3, 1}, {4, 0}, {5, 1}, {6, 0}, {7, 1}, {8, 0}, {9, 1}, {17, 1}, {27, 1}, {35, 1}, {37, 1}, {38, 0}, {39, 1}, {40, 0}, {41, 1}, {42, 0}, {43, 1}, {44, 0}}, Hub.getInstance());
+        super.setItem(18, new ItemBuilder(Material.SUNFLOWER).withName("§6Amis").withLore(new String[] {"§a- §7Affiche les amis en ligne", "§a- §7Rejoindre ses amis", "§a- §7Inviter des amis", "§a- §7Ajouter ou suprimer des joueurs dans votre liste d'amis"}).get());
+        super.setItem(20, new ItemBuilder(Material.WRITABLE_BOOK).withName("§6Statistiques").withLore(new String[] {"§7Statistique du joueur"}).get());
 		Navigator.profil(uuid, menu);
-        menu.setItem(24, new ItemBuilder(Material.COMPARATOR).withName("§6Paramètres").withLore(new String[] {"§7Préférences"}).get());
-        menu.setItem(26, new ItemBuilder(Material.MAGMA_CREAM).withName("§6Party").withLore(new String[] {"§a- §7Affiche les membres du groupe en ligne", "§a- §7Rejoindre une party", "§a- §7Ajouter ou suprimer des membre de votre party"}).get());
-        menu.setItem(36, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au jeu"}).get());
-        Bukkit.getPlayer(uuid).openInventory(menu);
+        super.setItem(24, new ItemBuilder(Material.COMPARATOR).withName("§6Paramètres").withLore(new String[] {"§7Préférences"}).get());
+        super.setItem(26, new ItemBuilder(Material.MAGMA_CREAM).withName("§6Party").withLore(new String[] {"§a- §7Affiche les membres du groupe en ligne", "§a- §7Rejoindre une party", "§a- §7Ajouter ou suprimer des membre de votre party"}).get());
+        super.setItem(36, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au jeu"}).get());
 	}
 
     @Override
-    public void interractInventory(InventoryClickEvent e){
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e){
         switch (e.getCurrentItem().getType()){
             case COMPARATOR:
                 new MenuSettings(uuid, false);

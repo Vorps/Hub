@@ -20,14 +20,11 @@ import java.util.UUID;
 public class MenuParty extends MenuRecursive{
 
 	private MenuParty(UUID uuid, ArrayList<ItemBuilder> list){
-        super(new byte[] {1}, Bukkit.createInventory(null, 27, "§6Party"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {19, 0}, {21, 0}, {23, 0}, {26, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.STATIC, Hub.getInstance());
-        initMenu(uuid, 1);
-		Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[] {1}, Bukkit.createInventory(null, 27, "§6Party"), new int[][] {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0}, {17, 0}, {19, 0}, {21, 0}, {23, 0}, {26, 0}}, list, PlayerData.getLang(uuid), 7, 9, Type.DYNAMIQUE, Hub.getInstance());
 	}
 
     @Override
     public void initMenu(UUID uuid, int page){
-        menu.clear();
         /*PlayerData playerData = PlayerData.getPlayerData(uuid);
         menu.setItem(4, new ItemBuilder(Material.MAGMA_CREAM).withName("§6Membres en ligne").get());
         menu.setItem(18, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu profil"}).get());
@@ -49,8 +46,6 @@ public class MenuParty extends MenuRecursive{
             menu.setItem(24, new ItemBuilder(Material.ORANGE_STAINED_GLASS_PANE).withName(" ").get());
             menu.setItem(25, new ItemBuilder(Material.ORANGE_STAINED_GLASS_PANE).withName(" ").get());
         }*/
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
     }
 
     public static void createMenu(UUID uuid){
@@ -62,14 +57,13 @@ public class MenuParty extends MenuRecursive{
     }
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        PlayerData playerData = PlayerData.getPlayerData(uuid);
-        switch (itemStack.getType()) {
-            case ARROW:
-                new MenuProfil(uuid);
-                break;
+    protected void back(UUID uuid) {
+        new MenuProfil(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+        switch (type) {
             case BARRIER:
                 MenuPartyRemove.createMenu(uuid);
                 break;
@@ -83,12 +77,6 @@ public class MenuParty extends MenuRecursive{
             case ITEM_FRAME:
 //                playerData.getParty().createParty();
                 Bukkit.getPlayer(uuid).closeInventory();
-                break;
-            case PAPER:
-                initMenu(uuid, page+1);
-                break;
-            case MAP:
-                initMenu(uuid, page-1);
                 break;
             default:
                 break;

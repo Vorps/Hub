@@ -112,7 +112,7 @@ public class DataHub extends Data {
 		try {
 			ResultSet results = Database.HUB.getDatabase().getData("jump");
 			while(results.next()){
-				new Jumps(results);
+				new Jumps(results, Database.HUB);
 			}
         } catch (SQLException e){
             //
@@ -130,6 +130,5 @@ public class DataHub extends Data {
         } catch (SQLException e){
             //
         }
-        Products.trieProduct();
 	}
 }

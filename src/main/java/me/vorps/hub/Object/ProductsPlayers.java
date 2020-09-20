@@ -15,9 +15,9 @@ public class ProductsPlayers {
     private @Getter long date;
     private @Getter long time;
 
-    public ProductsPlayers(ResultSet results, String namePlayer) throws SQLException {
-        product = results.getString(2);
-        date = results.getTimestamp(3).getTime();
+    public ProductsPlayers(ResultSet results) throws SQLException {
+        product = results.getString("pp_product");
+        date = results.getTimestamp("pp_date").getTime();
         /*try {
             results = results.getData("product LEFT JOIN player_product ON product.product_name = player_product.pp_product" , "product.product_time > '"+0+"' && player_product.pp_player = '"+namePlayer+"' && product.product_name = '"+product+"'");
             if(results.next()){

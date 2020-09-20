@@ -22,47 +22,36 @@ import java.util.UUID;
 public class MenuLeggings extends MenuRecursive {
 
     public MenuLeggings(UUID uuid, ArrayList<ItemBuilder> list){
-        super(new byte[] {11, 5, 3}, Bukkit.createInventory(null, 54, "§6Boutique > Costumes > "), new int[][] {{0, 0}, {1, 1}, {2, 2}, {3, 0}, {5, 0}, {6, 2}, {7, 1}, {8, 0}, {9, 1}, {17, 1}, {18, 2}, {26, 2}, {27, 2}, {35, 2}, {36, 1}, {44, 1}, {46, 1}, {47, 2}, {48, 0}, {49, 1}, {50, 0}, {51, 2}, {52, 1}, {53, 0}}, list, PlayerData.getLang(uuid), 7, 9,  new int[]{12, 13, 14, 19, 25}, Type.STATIC, Hub.getInstance());
-        initMenu(uuid, 1);
-        Bukkit.getPlayer(uuid).openInventory(menu);
+        super(uuid, new byte[] {11, 5, 3}, Bukkit.createInventory(null, 54, "§6Boutique > Costumes > "), new int[][] {{0, 0}, {1, 1}, {2, 2}, {3, 0}, {5, 0}, {6, 2}, {7, 1}, {8, 0}, {9, 1}, {17, 1}, {18, 2}, {26, 2}, {27, 2}, {35, 2}, {36, 1}, {44, 1}, {46, 1}, {47, 2}, {48, 0}, {49, 1}, {50, 0}, {51, 2}, {52, 1}, {53, 0}}, list, PlayerData.getLang(uuid), 7, 9,  new int[]{12, 13, 14, 19, 25}, Type.DYNAMIQUE, Hub.getInstance());
 	}
 
     @Override
     public void initMenu(UUID uuid, int page){
-        menu.clear();
-        menu.setItem(4, new ItemBuilder(Material.GOLDEN_LEGGINGS).withName("§6Pantalons").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
-        menu.setItem(13, new ItemBuilder(Material.BARRIER).withName("§6Retirer mon pantalon").withLore(new String[] {"§7Retire votre pantalon actuel"}).get());
-        menu.setItem(45, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Costumes"}).get());
-        getPage(page);
-        Bukkit.getPlayer(uuid).updateInventory();
+        super.setItem(4, new ItemBuilder(Material.GOLDEN_LEGGINGS).withName("§6Pantalons").withEnchant(Enchantment.ARROW_DAMAGE, 1).hideEnchant(true).get());
+        super.setItem(13, new ItemBuilder(Material.BARRIER).withName("§6Retirer mon pantalon").withLore(new String[] {"§7Retire votre pantalon actuel"}).get());
+        super.setItem(45, new ItemBuilder(Material.ARROW).withName("§6<-Retour").withLore(new String[] {"§7Retour au menu Costumes"}).get());
     }
     
     public static void createMenu(UUID uuid){
         ArrayList<ItemBuilder> list = new ArrayList<>();
-        Products.getProduct(3).forEach((Products product) -> list.add(product.getItem().get(PlayerData.getLang(uuid)).withLore(new Purchase(uuid, "ce pantalon sur vos jambes.").purchase(product.getName()))));
+        Products.getProduct(3).forEach((Products product) -> list.add(product.getItem(PlayerData.getLang(uuid)).withLore(new Purchase(uuid, "ce pantalon sur vos jambes.").purchase(product.getName()))));
         new MenuLeggings(uuid, list);
     }
 
     @Override
-    public void interractInventory(InventoryClickEvent e) {
-        ItemStack itemStack = e.getCurrentItem();
-        UUID uuid = e.getWhoClicked().getUniqueId();
-        switch (itemStack.getType()) {
-            case ARROW:
-                new MenuCostume(uuid);
-                break;
+    protected void back(UUID uuid) {
+        new MenuCostume(uuid);
+    }
+
+    @Override
+    public void interactInventory(UUID uuid, Material type, InventoryClickEvent e) {
+        switch (type) {
             case BARRIER:
                 if(Bukkit.getPlayer(uuid).getInventory().getLeggings() != null){
                     Bukkit.getPlayer(uuid).getInventory().setLeggings(new ItemStack(Material.AIR));
                     Bukkit.getPlayer(uuid).sendMessage("§ePantalon retiré");
                     MenuLeggings.createMenu(uuid);
                 }
-                break;
-            case PAPER:
-                initMenu(uuid, page+1);
-                break;
-            case MAP:
-                initMenu(uuid, page-1);
                 break;
             default:
                 break;
